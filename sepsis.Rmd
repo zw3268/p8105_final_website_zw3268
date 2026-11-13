@@ -1,0 +1,11 @@
+---
+pagetitle: "Sepsis"
+---
+
+```{r, include = FALSE}
+this_condition = "Sepsis"
+this_note = "The largest group by far: close to half of all stays in this project. How intensively sepsis is coded varies between hospitals."
+```
+
+```{r, child = "_condition.Rmd"}
+```

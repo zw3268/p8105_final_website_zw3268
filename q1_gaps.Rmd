@@ -1,0 +1,110 @@
+---
+pagetitle: "Q1 · How far apart are hospitals?"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.retina = 2, dpi = 150, fig.width = 8, fig.height = 5)
+
+source("R/site_helpers.R")
+
+# TODO (Q1 owner): replace with data/hospital_medians.csv
+hospital_medians =
+  read_csv("data/demo_hospital_medians.csv", show_col_types = FALSE) |>
+  mutate(condition = fct_relevel(condition, condition_levels))
+```
+
+<div class="page-head">
+<span class="eyebrow">Question 1</span>
+<div class="page-title" role="heading" aria-level="1">How far apart are hospitals?</div>
+<p class="lede">For each of the five conditions, we compare the median charge and the median estimated cost at every hospital with at least 30 stays.</p>
+</div>
+
+::: {.takeaway}
+[Key finding `r demo_badge`]{.k}
+Placeholder: one sentence with the headline number, for example the ratio between the 90th and 10th percentile of hospital median charges.
+:::
+
+## Approach
+
+Placeholder text. Describe, in two or three sentences, what was computed: hospital medians for charges and costs within each condition, bootstrap confidence intervals for each median, and the ratio of the 90th to the 10th percentile as a summary of the gap.
+
+## The size of the gap
+
+```{r gap_table}
+# Demo numbers. The real table is produced by the Q1 analysis.
+hospital_medians |>
+  filter(n_stays >= min_cases) |>
+  group_by(Condition = condition) |>
+  summarize(
+    Hospitals = n(),
+    `Charges: P90 / P10` = quantile(median_charges, 0.9) / quantile(median_charges, 0.1),
+    `Costs: P90 / P10` = quantile(median_costs, 0.9) / quantile(median_costs, 0.1)
+  ) |>
+  knitr::kable(digits = 1)
+```
+
+[Table 1. Spread of hospital medians by condition. Simulated data.]{.fig-note}
+
+## Hospital rankings
+
+This is what a finished figure looks like with the site's shared theme (`theme_site()` in `R/site_helpers.R`).
+
+```{r ranking_demo}
+hospital_medians |>
+  filter(condition == "Heart failure", n_stays >= min_cases) |>
+  mutate(
+    facility_name = fct_reorder(facility_name, median_charges),
+    ratio = median_charges / median(median_charges)
+  ) |>
+  ggplot(aes(x = median_charges, y = facility_name)) +
+  geom_linerange(aes(xmin = charges_lo, xmax = charges_hi), color = site_rule) +
+  geom_point(aes(color = log2(ratio)), size = 1.4) +
+  scale_x_log10(labels = scales::label_dollar()) +
+  scale_color_gradient2(low = site_blue, mid = "#B9B4A6", high = site_ochre, guide = "none") +
+  labs(
+    x = "Median charge per stay (log scale)",
+    y = "Hospitals",
+    caption = "Simulated data. Bars are 95% bootstrap intervals."
+  ) +
+  theme_site() +
+  theme(axis.text.y = element_blank(), panel.grid.major.y = element_blank())
+```
+
+[Figure 1. Median charge by hospital, heart failure. Simulated data.]{.fig-note}
+
+Placeholder text: what the ranking shows, and how wide the intervals are for small hospitals.
+
+## Real outliers or small numbers?
+
+```{r funnel_placeholder, fig.height = 4.2}
+placeholder_fig("Figure 2. Funnel plot\nmedian cost against number of stays")
+```
+
+Placeholder text: which hospitals remain far from the state median even with many stays.
+
+## Charges against costs
+
+```{r scatter_placeholder, fig.height = 4.2}
+placeholder_fig("Figure 3. Median charges vs. median costs\none point per hospital, with Spearman correlation")
+```
+
+```{r markup_placeholder, fig.height = 4.2}
+placeholder_fig("Figure 4. Charge-to-cost ratio by hospital\nhighest, lowest, by region and ownership")
+```
+
+Placeholder text: how closely charges track costs, and where the charge-to-cost ratio is unusually high or low.
+
+## What to keep in mind
+
+- Charges are the amounts billed, not what patients or insurers paid.
+- Costs are estimates produced by the state.
+- Hospitals with fewer than 30 stays for a condition are left out of rankings but appear in the funnel plot.
+
+Next: [what changes once we account for patients →](q2_adjusted.html)

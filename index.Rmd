@@ -1,11 +1,686 @@
 ---
-title: "Same Diagnosis, Different Bills?"
+pagetitle: "Same Diagnosis, Different Bills?"
 ---
 
-Website template for the P8105 final project. Under construction.
+<script>document.body.classList.add("home");</script>
 
 ```{r setup, include = FALSE}
 library(tidyverse)
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.retina = 2, dpi = 150)
+
+source("R/site_helpers.R")
+
+# TODO (team): swap the demo files for data/hospital_medians.csv and data/hospital_adjusted.csv
+hospital_medians =
+  read_csv("data/demo_hospital_medians.csv", show_col_types = FALSE) |>
+  mutate(condition = fct_relevel(condition, condition_levels))
+
+hospital_adjusted =
+  read_csv("data/demo_hospital_adjusted.csv", show_col_types = FALSE)
+
+set.seed(8105)
 ```
 
-This page was last built on `r format(Sys.Date(), "%B %d, %Y")`.
+<!-- =====================  1. Opening  ===================== -->
+
+<div class="screen hero">
+<div class="hero-pin">
+<div>
+<span class="eyebrow">New York State · Hospital discharges · 2023</span>
+<h1>Same diagnosis.<br><em>Different bills.</em></h1>
+<p class="lede">The bill for a hospital stay in New York depends on where you are treated. We compared five common conditions across every hospital in the state.</p>
+<p class="hero-meta">Yimeng Cao · Zeheng Wei · Yichuan Ma · Jiaxuan Su · Yulin Zhu<br>P8105 Data Science I · Fall 2026</p>
+<p class="scroll-hint">Scroll</p>
+</div>
+<div class="bill" aria-label="An example bill, with simulated amounts">
+<div class="bill-head"><span>Statement of charges</span><span>Demo figures</span></div>
+<div class="bill-title">Heart failure</div>
+<div class="bill-sub">One inpatient stay · APR-DRG 194 · typical charge by hospital</div>
+<!-- TODO (team): replace with five real hospitals and their median charges -->
+<div class="bill-row is-first" data-from="38400" data-to="38400"><span>Hospital A</span><span class="amt">$38,400</span></div>
+<div class="bill-row is-min" data-from="38400" data-to="19850"><span>Hospital B</span><span class="amt">$19,850</span></div>
+<div class="bill-row" data-from="38400" data-to="31200"><span>Hospital C</span><span class="amt">$31,200</span></div>
+<div class="bill-row" data-from="38400" data-to="68300"><span>Hospital D</span><span class="amt">$68,300</span></div>
+<div class="bill-row is-max" data-from="38400" data-to="96400"><span>Hospital E</span><span class="amt">$96,400</span></div>
+<div class="bill-foot"><span>Highest ÷ lowest</span><span class="amt">4.9×</span></div>
+</div>
+</div>
+</div>
+
+<!-- =====================  2. Highlights  ===================== -->
+
+```{r highlight_numbers}
+# TODO (team): replace with the real headline numbers (generated here, not typed)
+gap_table =
+  hospital_medians |>
+  filter(n_stays >= min_cases) |>
+  group_by(condition) |>
+  summarize(p90_p10 = quantile(median_charges, 0.9) / quantile(median_charges, 0.1))
+
+headline_gap = round(max(gap_table$p90_p10), 1)
+
+headline_markup =
+  hospital_medians |>
+  filter(n_stays >= min_cases) |>
+  summarize(markup = median(markup)) |>
+  pull(markup) |>
+  round(1)
+
+headline_adjusted =
+  hospital_adjusted |>
+  summarize(p90_p10 = quantile(adjusted_ratio, 0.9) / quantile(adjusted_ratio, 0.1)) |>
+  pull(p90_p10) |>
+  round(1)
+
+headline_consistent =
+  hospital_medians |>
+  filter(n_stays >= min_cases) |>
+  group_by(condition) |>
+  mutate(top_quarter = median_charges >= quantile(median_charges, 0.75)) |>
+  group_by(hosp_id) |>
+  summarize(n_conditions = n(), n_top = sum(top_quarter)) |>
+  filter(n_conditions == 5, n_top == 5) |>
+  nrow()
+```
+
+::::: {.screen .is-tinted}
+
+[The short version]{.eyebrow}
+
+## Get the highlights.
+
+[Swipe →]{.cards-hint}
+
+:::: {.cards}
+
+::: {.card-bill}
+[Question 1 · the gap]{.k}
+<span class="v" data-count="`r headline_gap`" data-decimals="1" data-suffix="×">`r headline_gap`×</span>
+
+Typical charges at expensive hospitals versus cheap ones, for the same condition. `r demo_badge`
+:::
+
+::: {.card-bill}
+[Question 2 · after adjustment]{.k}
+<span class="v" data-count="`r headline_adjusted`" data-decimals="1" data-suffix="×">`r headline_adjusted`×</span>
+
+The gap that is left after accounting for severity, age and length of stay. `r demo_badge`
+:::
+
+::: {.card-bill}
+[Question 3 · consistency]{.k}
+<span class="v" data-count="`r headline_consistent`" data-decimals="0">`r headline_consistent`</span>
+
+Hospitals in the most expensive quarter for all five conditions. `r demo_badge`
+:::
+
+::: {.card-bill}
+[Charges versus costs]{.k}
+<span class="v" data-count="`r headline_markup`" data-decimals="1" data-suffix="×">`r headline_markup`×</span>
+
+How far the typical hospital's charges sit above its estimated costs. `r demo_badge`
+:::
+
+::: {.card-bill}
+[Go deeper]{.k}
+<span class="v">→</span>
+
+Look up any hospital in the [dashboard](dashboard.html), or read the [full report](report.html).
+:::
+
+::::
+
+:::::
+
+<!-- =====================  3. The data  ===================== -->
+
+::::: {.screen}
+
+[The data]{.eyebrow}
+
+## Every inpatient stay in New York, 2023.
+
+:::: {.ledger .reveal}
+::: {.ledger-item}
+<span class="v" data-count="2125754">2,125,754</span>
+[discharges statewide]{.k}
+:::
+::: {.ledger-item}
+<span class="v" data-count="282444">282,444</span>
+[stays for the five conditions we study]{.k}
+:::
+::: {.ledger-item}
+<span class="v" data-count="192">192</span>
+[hospitals treating them]{.k}
+:::
+::::
+
+```{r condition_table}
+# Counts from the team's data check (before cleaning)
+tribble(
+  ~Condition, ~`APR-DRG`, ~Discharges, ~`Hospitals with 30+ stays`,
+  "Sepsis", "720", 131139, 164,
+  "Heart failure", "194", 59668, 159,
+  "Major respiratory infections (mostly COVID-19)", "137", 35044, 156,
+  "Kidney and urinary tract infections", "463", 30248, 148,
+  "Ischemic stroke", "045", 26529, 126
+) |>
+  mutate(Discharges = scales::label_comma()(Discharges)) |>
+  knitr::kable(align = "llrr")
+```
+
+[Source: New York State Department of Health, SPARCS de-identified inpatient discharges. [More about the data](data.html).]{.fig-note}
+
+:::::
+
+<!-- =====================  4. Question 1  ===================== -->
+
+::::: {.screen .scrolly-intro}
+
+[Question 1]{.eyebrow}
+
+## How far apart are hospitals?
+
+[We take one condition at a time and compare the typical bill at each hospital.]{.lede}
+
+:::::
+
+```{r q1_chart_data}
+# TODO (team): the dots are simulated. Use the real Q1 output for one condition.
+chart_left = 30
+chart_right = 730
+chart_top = 40
+chart_bottom = 450
+
+q1_hospitals =
+  hospital_medians |>
+  filter(condition == "Heart failure", n_stays >= min_cases) |>
+  slice_sample(n = 70) |>
+  mutate(
+    id = row_number(),
+    rank_charges = min_rank(desc(median_charges)),
+    grp = case_when(
+      rank_charges <= 5 ~ "high",
+      rank_charges > n() - 5 ~ "low",
+      TRUE ~ "mid"
+    ),
+    label = str_c(facility_name, ": ", scales::label_dollar(accuracy = 1)(median_charges)),
+    y_cloud = runif(n(), min = chart_top + 30, max = chart_bottom - 30),
+    y_rank = chart_top + (rank_charges - 1) / (n() - 1) * (chart_bottom - chart_top)
+  )
+
+dollar_range = range(log(c(q1_hospitals$median_charges, q1_hospitals$median_costs)))
+
+x_dollar = function(v) {
+  chart_left + (log(v) - dollar_range[1]) / (dollar_range[2] - dollar_range[1]) * (chart_right - chart_left)
+}
+
+q1_state = function(data, state, x_col, y_col, highlight) {
+  data |>
+    transmute(
+      id, label, shape = "circle", r = 5.5, w = NA, h = NA,
+      state = state,
+      x = x_dollar({{ x_col }}),
+      y = {{ y_col }},
+      fill = case_when(
+        highlight & grp == "high" ~ site_ochre,
+        highlight & grp == "low" ~ site_blue,
+        TRUE ~ site_ink
+      ),
+      o = if_else(highlight & grp == "mid", 0.16, 0.8)
+    )
+}
+
+q1_marks =
+  bind_rows(
+    q1_state(q1_hospitals, 0, median_charges, y_cloud, FALSE),
+    q1_state(q1_hospitals, 1, median_charges, y_rank, FALSE),
+    q1_state(q1_hospitals, 2, median_charges, y_rank, TRUE),
+    q1_state(q1_hospitals, 3, median_costs, y_rank, TRUE)
+  )
+
+dollar_ticks =
+  tibble(value = c(2500, 5000, 10000, 20000, 40000, 80000, 160000)) |>
+  mutate(x = x_dollar(value)) |>
+  filter(x >= chart_left, x <= chart_right)
+
+dollar_axis = function(title) {
+  bind_rows(
+    dollar_ticks |>
+      transmute(x, y = chart_bottom + 28, text = scales::label_dollar()(value), anchor = "middle", strong = FALSE),
+    tibble(x = (chart_left + chart_right) / 2, y = chart_bottom + 58, text = title, anchor = "middle", strong = TRUE)
+  )
+}
+
+dollar_guides = dollar_ticks |> transmute(x1 = x, y1 = chart_top - 10, x2 = x, y2 = chart_bottom + 10)
+
+q1_gap = max(q1_hospitals$median_charges) / min(q1_hospitals$median_charges)
+q1_cost_gap = max(q1_hospitals$median_costs) / min(q1_hospitals$median_costs)
+
+q1_states =
+  tibble(
+    readout = c(
+      str_c(nrow(q1_hospitals), " hospitals · heart failure · simulated"),
+      "Ranked from the highest median charge to the lowest",
+      str_c("Highest ÷ lowest median charge: ", round(q1_gap, 1), "×"),
+      str_c("Highest ÷ lowest estimated cost: ", round(q1_cost_gap, 1), "×")
+    ),
+    labels = list(
+      dollar_axis("Median charge per stay (log scale)"),
+      dollar_axis("Median charge per stay (log scale)"),
+      dollar_axis("Median charge per stay (log scale)"),
+      dollar_axis("Median estimated cost per stay (log scale)")
+    ),
+    guides = list(dollar_guides, dollar_guides, dollar_guides, dollar_guides)
+  )
+```
+
+::::: {.scrolly}
+
+:::: {.scrolly-graphic}
+<svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospital median charges for heart failure, simulated data"></svg>
+<div class="scrolly-readout"></div>
+```{r q1_chart_json, results = "asis"}
+scrolly_script(q1_marks, q1_states)
+```
+::::
+
+:::: {.scrolly-steps}
+
+::: {.step}
+[01]{.step-n}
+
+### One dot, one hospital.
+
+Each dot sits at the typical bill for the same condition at one hospital. `r demo_badge`
+:::
+
+::: {.step}
+[02]{.step-n}
+
+### Line them up.
+
+From the most expensive hospital at the top to the least expensive at the bottom.
+:::
+
+::: {.step}
+[03]{.step-n}
+
+### The two ends.
+
+The five highest and the five lowest. The distance between them is the gap we are measuring.
+:::
+
+::: {.step}
+[04]{.step-n}
+
+### Now look at costs.
+
+The same hospitals, in the same order, placed by the state's estimate of what the stay cost them. [See the full Question 1 analysis →](q1_gaps.html)
+:::
+
+::::
+
+:::::
+
+<!-- =====================  5. Question 2  ===================== -->
+
+::::: {.screen .scrolly-intro}
+
+[Question 2]{.eyebrow}
+
+## What changes once we account for patients?
+
+[Hospitals treat different patients. We compare them again after adjusting for severity of illness, age group and length of stay.]{.lede}
+
+:::::
+
+```{r q2_chart_data}
+# TODO (team): simulated. Use the hospital effects from the Q2 models.
+ratio_limits = log(c(0.3, 3.3))
+
+x_ratio = function(v) {
+  chart_left + (log(v) - ratio_limits[1]) / (ratio_limits[2] - ratio_limits[1]) * (chart_right - chart_left)
+}
+
+q2_hospitals =
+  hospital_adjusted |>
+  filter(condition == "Heart failure") |>
+  left_join(hospital_medians |> distinct(hosp_id, facility_name), by = "hosp_id") |>
+  slice_sample(n = 70) |>
+  mutate(
+    id = row_number(),
+    across(c(unadjusted_ratio, adjusted_ratio), \(v) pmin(pmax(v, 0.32), 3.1)),
+    label = facility_name,
+    closer = abs(log(adjusted_ratio)) < abs(log(unadjusted_ratio)),
+    y_unadjusted = chart_top + (min_rank(desc(unadjusted_ratio)) - 1) / (n() - 1) * (chart_bottom - chart_top),
+    y_adjusted = chart_top + (min_rank(desc(adjusted_ratio)) - 1) / (n() - 1) * (chart_bottom - chart_top)
+  )
+
+q2_state = function(data, state, x_col, y_col, coloured) {
+  data |>
+    transmute(
+      id, label, shape = "circle", r = 5.5, w = NA, h = NA,
+      state = state,
+      x = x_ratio({{ x_col }}),
+      y = {{ y_col }},
+      fill = case_when(
+        coloured & closer ~ site_blue,
+        coloured & !closer ~ site_ochre,
+        TRUE ~ site_ink
+      ),
+      o = 0.85
+    )
+}
+
+q2_marks =
+  bind_rows(
+    q2_state(q2_hospitals, 0, unadjusted_ratio, y_unadjusted, FALSE),
+    q2_state(q2_hospitals, 1, adjusted_ratio, y_unadjusted, TRUE),
+    q2_state(q2_hospitals, 2, adjusted_ratio, y_adjusted, TRUE)
+  )
+
+ratio_ticks = tibble(value = c(0.5, 0.75, 1, 1.5, 2, 3)) |> mutate(x = x_ratio(value))
+
+ratio_axis = function(title) {
+  bind_rows(
+    ratio_ticks |>
+      transmute(x, y = chart_bottom + 28, text = str_c(value, "×"), anchor = "middle", strong = value == 1),
+    tibble(x = (chart_left + chart_right) / 2, y = chart_bottom + 58, text = title, anchor = "middle", strong = TRUE)
+  )
+}
+
+ratio_guides = ratio_ticks |> transmute(x1 = x, y1 = chart_top - 10, x2 = x, y2 = chart_bottom + 10)
+
+spread = function(v) round(quantile(v, 0.9) / quantile(v, 0.1), 1)
+
+q2_states =
+  tibble(
+    readout = c(
+      str_c("Before adjustment · 90th ÷ 10th percentile: ", spread(q2_hospitals$unadjusted_ratio), "×"),
+      "Blue moved closer to the typical hospital; ochre moved further away",
+      str_c("After adjustment · 90th ÷ 10th percentile: ", spread(q2_hospitals$adjusted_ratio), "×")
+    ),
+    labels = list(
+      ratio_axis("Charges relative to the typical hospital, unadjusted"),
+      ratio_axis("Charges relative to the typical hospital, adjusted"),
+      ratio_axis("Charges relative to the typical hospital, adjusted")
+    ),
+    guides = list(ratio_guides, ratio_guides, ratio_guides)
+  )
+```
+
+::::: {.scrolly}
+
+:::: {.scrolly-graphic}
+<svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospital differences before and after adjustment, simulated data"></svg>
+<div class="scrolly-readout"></div>
+```{r q2_chart_json, results = "asis"}
+scrolly_script(q2_marks, q2_states)
+```
+::::
+
+:::: {.scrolly-steps}
+
+::: {.step}
+[01]{.step-n}
+
+### Before.
+
+Each hospital compared with the typical hospital, using raw charges. `r demo_badge`
+:::
+
+::: {.step}
+[02]{.step-n}
+
+### Same patients, same yardstick.
+
+Each dot slides to where the hospital sits once severity, age and length of stay are held equal. Some move toward the middle. Some move away.
+:::
+
+::: {.step}
+[03]{.step-n}
+
+### After.
+
+Re-ranked on the adjusted comparison. What is left is the difference patients do not explain. [See the full Question 2 analysis →](q2_adjusted.html)
+:::
+
+::::
+
+:::::
+
+<!-- =====================  6. Question 3  ===================== -->
+
+::::: {.screen .scrolly-intro}
+
+[Question 3]{.eyebrow}
+
+## Is an expensive hospital expensive for everything?
+
+[One row per hospital, one column per condition. Ochre is above the state median, blue is below, grey means too few cases to say.]{.lede}
+
+:::::
+
+```{r q3_chart_data}
+# TODO (team): simulated. Use data/hospital_consistency.csv from the Q3 analysis.
+grid_left = 190
+cell_w = 104
+cell_gap = 6
+cell_h = 15
+row_gap = 3.5
+grid_top = 56
+n_rows = 22
+
+q3_cells =
+  hospital_medians |>
+  group_by(condition) |>
+  mutate(ratio = median_charges / median(median_charges[n_stays >= min_cases])) |>
+  ungroup() |>
+  filter(hosp_id %in% sample(unique(hosp_id), n_rows)) |>
+  complete(nesting(hosp_id, facility_name), condition) |>
+  mutate(
+    enough = !is.na(n_stays) & n_stays >= min_cases,
+    fill = if_else(enough, ratio_colour(ratio), site_grey_cell),
+    label = if_else(
+      enough,
+      str_c(facility_name, " · ", condition, ": ", round(ratio, 2), "× the state median"),
+      str_c(facility_name, " · ", condition, ": too few cases")
+    )
+  ) |>
+  group_by(hosp_id) |>
+  mutate(mean_log_ratio = mean(log(ratio[enough]))) |>
+  ungroup() |>
+  mutate(
+    row_random = dense_rank(hosp_id * 7919 %% 101 + hosp_id / 1e5),
+    row_sorted = dense_rank(desc(mean_log_ratio) + hosp_id / 1e9),
+    col = as.integer(condition),
+    id = row_number()
+  )
+
+focus_row = 9
+
+row_y = function(row) grid_top + (row - 1) * (cell_h + row_gap)
+
+q3_state = function(data, state, row_col, focus_only) {
+  data |>
+    transmute(
+      id, label, shape = "rect", r = NA, w = cell_w, h = cell_h,
+      state = state,
+      x = grid_left + (col - 1) * (cell_w + cell_gap),
+      y = row_y({{ row_col }}),
+      fill,
+      o = if_else(focus_only & row_random != focus_row, 0.1, 1)
+    )
+}
+
+q3_marks =
+  bind_rows(
+    q3_state(q3_cells, 0, row_random, TRUE),
+    q3_state(q3_cells, 1, row_random, FALSE),
+    q3_state(q3_cells, 2, row_sorted, FALSE)
+  )
+
+column_labels =
+  tibble(
+    x = grid_left + (seq_along(condition_levels) - 1) * (cell_w + cell_gap) + cell_w / 2,
+    y = grid_top - 16,
+    text = c("Heart failure", "Respiratory", "Kidney/UTI", "Stroke", "Sepsis"),
+    anchor = "middle",
+    strong = TRUE
+  )
+
+legend_label =
+  tibble(
+    x = grid_left + 2.5 * (cell_w + cell_gap) - cell_gap / 2,
+    y = row_y(n_rows) + cell_h + 30,
+    text = "blue: below the state median · ochre: above · grey: fewer than 30 stays",
+    anchor = "middle",
+    strong = FALSE
+  )
+
+side_label = function(row, text) {
+  tibble(x = grid_left - 14, y = row_y(row) + cell_h - 3, text = text, anchor = "end", strong = FALSE)
+}
+
+q3_states =
+  tibble(
+    readout = c(
+      "One hospital, five conditions · simulated",
+      str_c(n_rows, " hospitals, in no particular order"),
+      "Sorted by how expensive each hospital is on average"
+    ),
+    labels = list(
+      bind_rows(column_labels, legend_label, side_label(focus_row, "One hospital")),
+      bind_rows(column_labels, legend_label),
+      bind_rows(column_labels, legend_label, side_label(1, "High across the board"), side_label(n_rows, "Low across the board"))
+    ),
+    guides = list(tibble(), tibble(), tibble())
+  )
+```
+
+::::: {.scrolly}
+
+:::: {.scrolly-graphic}
+<svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospitals by condition heatmap, simulated data"></svg>
+<div class="scrolly-readout"></div>
+```{r q3_chart_json, results = "asis"}
+scrolly_script(q3_marks, q3_states)
+```
+::::
+
+:::: {.scrolly-steps}
+
+::: {.step}
+[01]{.step-n}
+
+### One hospital, five bills.
+
+Read across the row: is this hospital above or below the state median for each condition? `r demo_badge`
+:::
+
+::: {.step}
+[02]{.step-n}
+
+### Every hospital.
+
+In no particular order, the picture looks like noise.
+:::
+
+::: {.step}
+[03]{.step-n}
+
+### Sorted.
+
+Put the most expensive hospitals at the top. Rows that keep one colour all the way across are consistently high or consistently low. [See the full Question 3 analysis →](q3_consistency.html)
+:::
+
+::::
+
+:::::
+
+<!-- =====================  7. Map  ===================== -->
+
+::::: {.screen .is-tinted}
+
+:::: {.two-col}
+
+::: {}
+[Where they are]{.eyebrow}
+
+## Hospitals across New York.
+
+[Each point is a hospital, coloured by how its typical charge compares with the state median. The interactive version is in the dashboard.]{.lede}
+
+[Open the map](dashboard.html#map){.btn-bill}
+:::
+
+::: {.reveal}
+```{r home_map, fig.width = 6.4, fig.height = 5, fig.alt = "Simulated hospital locations in New York State"}
+# TODO (team): simulated locations. Replace with the real map (map.Rmd).
+hospital_medians |>
+  filter(condition == "Heart failure", n_stays >= min_cases) |>
+  mutate(ratio = median_charges / median(median_charges)) |>
+  ggplot(aes(x = longitude, y = latitude, color = log2(ratio), size = n_stays)) +
+  geom_point(alpha = 0.85) +
+  scale_color_gradient2(low = site_blue, mid = "#CFCABC", high = site_ochre, midpoint = 0, limits = c(-1.5, 1.5), oob = scales::squish, guide = "none") +
+  scale_size_area(max_size = 7, guide = "none") +
+  coord_quickmap() +
+  labs(caption = "Simulated locations and values. Placeholder for the hospital map.") +
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "#F1EDE2", color = NA),
+    plot.caption = element_text(color = site_muted, size = 9, hjust = 0)
+  )
+```
+:::
+
+::::
+
+:::::
+
+<!-- =====================  8. Dashboard  ===================== -->
+
+::::: {.screen .is-dark .is-short}
+
+[Explore]{.eyebrow}
+
+## Look up any hospital.
+
+[Rankings with confidence intervals, volume against cost, the map, the cross-condition grid and a cost estimator, for each of the five conditions.]{.lede}
+
+<p style="margin-top: 34px;"><a class="btn-bill on-dark" href="dashboard.html">Open the dashboard</a></p>
+
+:::::
+
+<!-- =====================  9. Screencast and team  ===================== -->
+
+::::: {.screen}
+
+:::: {.two-col .is-top}
+
+::: {}
+[Two-minute tour]{.eyebrow}
+
+## Watch the screencast.
+
+<!-- TODO (team): replace the box with the YouTube / Vimeo embed -->
+<div class="placeholder-box">Screencast goes here<br>(2 minutes, embedded video)</div>
+:::
+
+::: {}
+[The project]{.eyebrow}
+
+## Read, reproduce, reuse.
+
+Everything on this site is built from code in one repository: data download, cleaning, analysis and these pages.
+
+<p style="margin: 28px 0 14px;"><a class="btn-bill" href="https://github.com/zw3268/p8105_final_website_zw3268">Code on GitHub</a></p>
+
+[Full report](report.html) · [Data and methods](data.html) · [Team](team.html)
+:::
+
+::::
+
+:::::

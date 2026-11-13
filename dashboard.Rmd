@@ -1,0 +1,447 @@
+---
+title: "Hospital explorer"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+    css: dashboard.css
+    navbar:
+      - { title: "Overview", href: "index.html", align: right }
+      - { title: "Report", href: "report.html", align: right }
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(plotly)
+library(leaflet)
+library(flexdashboard)
+
+source("R/site_helpers.R")
+
+# TODO (team): swap the demo files for the real outputs of Q1, Q2 and the estimator
+hospital_medians =
+  read_csv("data/demo_hospital_medians.csv", show_col_types = FALSE) |>
+  mutate(condition = fct_relevel(condition, condition_levels)) |>
+  group_by(condition) |>
+  mutate(ratio = median_charges / median(median_charges[n_stays >= min_cases])) |>
+  ungroup()
+
+estimator_grid =
+  read_csv("data/demo_estimator_grid.csv", show_col_types = FALSE) |>
+  mutate(severity = fct_relevel(severity, "Minor", "Moderate", "Major", "Extreme"))
+
+dollar = scales::label_dollar(accuracy = 1)
+
+site_layout = function(p, ...) {
+  p |>
+    layout(
+      font = list(family = "Inter, Helvetica, Arial, sans-serif", color = site_ink, size = 13),
+      paper_bgcolor = site_paper,
+      plot_bgcolor = site_paper,
+      margin = list(l = 70, r = 30, t = 20, b = 60),
+      hoverlabel = list(bgcolor = "white", bordercolor = site_rule, font = list(color = site_ink)),
+      ...
+    ) |>
+    config(displayModeBar = FALSE)
+}
+
+# Hospitals ranked by median charge, with interval bars
+ranking_plot = function(condition_name) {
+  plot_data =
+    hospital_medians |>
+    filter(condition == condition_name, n_stays >= min_cases) |>
+    mutate(
+      rank = min_rank(median_charges),
+      hover = str_c(
+        "<b>", facility_name, "</b><br>", hospital_service_area, " · ", ownership,
+        "<br>Median charge: ", dollar(median_charges),
+        "<br>95% interval: ", dollar(charges_lo), " to ", dollar(charges_hi),
+        "<br>Stays: ", n_stays
+      )
+    )
+
+  state_median = median(plot_data$median_charges)
+
+  plot_ly(
+    plot_data,
+    x = ~median_charges, y = ~rank,
+    type = "scatter", mode = "markers",
+    marker = list(color = ~ratio_colour(ratio), size = 7, line = list(color = site_ink, width = 0.4)),
+    error_x = list(
+      type = "data", symmetric = FALSE,
+      array = ~charges_hi - median_charges, arrayminus = ~median_charges - charges_lo,
+      color = site_rule, thickness = 1, width = 0
+    ),
+    text = ~hover, hoverinfo = "text"
+  ) |>
+    site_layout(
+      xaxis = list(title = "Median charge per stay (log scale)", type = "log", tickprefix = "$", gridcolor = site_rule),
+      yaxis = list(title = "Hospitals, lowest to highest", showticklabels = FALSE, showgrid = FALSE, zeroline = FALSE),
+      shapes = list(list(
+        type = "line", x0 = state_median, x1 = state_median, yref = "paper", y0 = 0, y1 = 1,
+        line = list(color = site_blue, dash = "dot", width = 1)
+      ))
+    )
+}
+
+# Median cost against number of stays; uses every hospital
+funnel_plot = function(condition_name) {
+  plot_data =
+    hospital_medians |>
+    filter(condition == condition_name) |>
+    mutate(
+      enough = if_else(n_stays >= min_cases, "30 or more stays", "Fewer than 30 stays"),
+      hover = str_c("<b>", facility_name, "</b><br>Stays: ", n_stays, "<br>Median cost: ", dollar(median_costs))
+    )
+
+  state_median = median(plot_data$median_costs[plot_data$n_stays >= min_cases])
+
+  plot_ly(
+    plot_data,
+    x = ~n_stays, y = ~median_costs,
+    type = "scatter", mode = "markers",
+    color = ~enough, colors = c("30 or more stays" = site_blue, "Fewer than 30 stays" = "#B9B4A6"),
+    marker = list(size = 7, opacity = 0.8),
+    text = ~hover, hoverinfo = "text"
+  ) |>
+    site_layout(
+      xaxis = list(title = "Number of stays (log scale)", type = "log", gridcolor = site_rule),
+      yaxis = list(title = "Median estimated cost (log scale)", type = "log", tickprefix = "$", gridcolor = site_rule),
+      legend = list(orientation = "h", y = -0.2),
+      shapes = list(
+        list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = state_median, y1 = state_median, line = list(color = site_ochre, dash = "dot", width = 1)),
+        list(type = "line", x0 = min_cases, x1 = min_cases, yref = "paper", y0 = 0, y1 = 1, line = list(color = site_muted, dash = "dot", width = 1))
+      )
+    )
+}
+
+# Predicted charge by length of stay; one line per severity, dropdown for age group
+estimator_plot = function(condition_name) {
+  plot_data = estimator_grid |> filter(condition == condition_name)
+  age_groups = unique(plot_data$age_group)
+  severity_colours = c(Minor = "#9DB1EC", Moderate = site_blue, Major = site_ochre, Extreme = "#8A4B00")
+
+  p = plot_ly()
+
+  for (age in age_groups) {
+    p =
+      p |>
+      add_lines(
+        data = plot_data |> filter(age_group == age),
+        x = ~los, y = ~predicted_charges,
+        color = ~severity, colors = severity_colours,
+        visible = age == age_groups[length(age_groups)],
+        hovertemplate = "Day %{x}: %{y:$,.0f}"
+      )
+  }
+
+  age_buttons =
+    map(age_groups, \(age) {
+      list(
+        method = "restyle",
+        args = list("visible", as.list(rep(age_groups == age, each = 4))),
+        label = age
+      )
+    })
+
+  p |>
+    site_layout(
+      xaxis = list(title = "Length of stay (days)", gridcolor = site_rule),
+      yaxis = list(title = "Predicted charge", tickprefix = "$", gridcolor = site_rule),
+      legend = list(orientation = "h", y = -0.2),
+      updatemenus = list(list(
+        buttons = age_buttons, active = length(age_groups) - 1,
+        x = 0.02, xanchor = "left", y = 0.98, yanchor = "top"
+      ))
+    )
+}
+```
+
+Overview
+=====================================
+
+Row {data-height=140}
+-------------------------------------
+
+### Hospitals with 30+ stays in at least one condition
+
+```{r}
+hospital_medians |>
+  filter(n_stays >= min_cases) |>
+  distinct(hosp_id) |>
+  nrow() |>
+  valueBox(caption = "hospitals compared (demo data)")
+```
+
+### Stays
+
+```{r}
+hospital_medians |>
+  summarize(n = sum(n_stays)) |>
+  pull(n) |>
+  scales::label_comma()() |>
+  valueBox(caption = "stays across five conditions (demo data)")
+```
+
+### Gap
+
+```{r}
+hospital_medians |>
+  filter(n_stays >= min_cases) |>
+  group_by(condition) |>
+  summarize(gap = quantile(median_charges, 0.9) / quantile(median_charges, 0.1)) |>
+  summarize(gap = max(gap)) |>
+  pull(gap) |>
+  round(1) |>
+  str_c("×") |>
+  valueBox(caption = "largest 90th ÷ 10th percentile gap in median charges (demo data)")
+```
+
+### Markup
+
+```{r}
+hospital_medians |>
+  filter(n_stays >= min_cases) |>
+  summarize(markup = median(markup)) |>
+  pull(markup) |>
+  round(1) |>
+  str_c("×") |>
+  valueBox(caption = "typical charge-to-cost ratio (demo data)")
+```
+
+Row
+-------------------------------------
+
+### Hospitals by condition: charges relative to the state median {data-width=680}
+
+```{r}
+heatmap_data =
+  hospital_medians |>
+  group_by(hosp_id) |>
+  mutate(total_stays = sum(n_stays), mean_log_ratio = mean(log(ratio[n_stays >= min_cases]))) |>
+  ungroup() |>
+  filter(dense_rank(desc(total_stays)) <= 40) |>
+  mutate(
+    facility_name = fct_reorder(facility_name, mean_log_ratio),
+    z = if_else(n_stays >= min_cases, log2(ratio), NA_real_),
+    hover = if_else(
+      n_stays >= min_cases,
+      str_c("<b>", facility_name, "</b><br>", condition, "<br>", round(ratio, 2), "× the state median<br>Stays: ", n_stays),
+      str_c("<b>", facility_name, "</b><br>", condition, "<br>Too few cases (", n_stays, ")")
+    )
+  )
+
+plot_ly(
+  heatmap_data,
+  x = ~condition, y = ~facility_name, z = ~z,
+  type = "heatmap",
+  zmin = -1.5, zmax = 1.5,
+  colorscale = list(c(0, site_blue), c(0.5, site_mid), c(1, site_ochre)),
+  xgap = 3, ygap = 2,
+  text = ~hover, hoverinfo = "text",
+  colorbar = list(title = "", tickvals = c(-1, 0, 1), ticktext = c("half", "median", "double"), len = 0.5, thickness = 12)
+) |>
+  site_layout(
+    plot_bgcolor = site_grey_cell,
+    xaxis = list(title = "", side = "top"),
+    yaxis = list(title = "", showticklabels = FALSE),
+    margin = list(l = 20, r = 20, t = 40, b = 20)
+  )
+```
+
+### How to read this {data-width=320 .how-to}
+
+#### Is it the hospital, or the condition?
+
+Each row is a hospital and each column is a condition. Ochre cells are above the state median for that condition, blue cells are below.
+
+- Rows that stay one colour are consistently expensive or consistently cheap.
+- Rows that change colour are expensive for some conditions only.
+- Grey cells have fewer than 30 stays, too few to compare.
+
+The 40 hospitals with the most stays are shown, sorted from the most expensive on average (top) to the least.
+
+<p class="small-note"><span class="demo-badge">Demo</span> Simulated data. Charges are billed amounts, not what patients paid.</p>
+
+Rankings {data-orientation=columns}
+=====================================
+
+Column {.tabset data-width=720}
+-------------------------------------
+
+### Heart failure
+
+```{r}
+ranking_plot("Heart failure")
+```
+
+### Respiratory infection
+
+```{r}
+ranking_plot("Respiratory infection")
+```
+
+### Kidney/UTI
+
+```{r}
+ranking_plot("Kidney/UTI")
+```
+
+### Stroke
+
+```{r}
+ranking_plot("Stroke")
+```
+
+### Sepsis
+
+```{r}
+ranking_plot("Sepsis")
+```
+
+Column {data-width=280}
+-------------------------------------
+
+### How to read this {.how-to}
+
+#### How far apart are hospitals?
+
+Each dot is a hospital's median charge for one condition. The bar is its 95% bootstrap interval: a short bar means we are fairly sure where the hospital sits.
+
+The dotted line is the state median. Hover over a dot for the hospital's name and numbers.
+
+Only hospitals with at least 30 stays for the condition are shown.
+
+<p class="small-note"><span class="demo-badge">Demo</span> Simulated data.</p>
+
+Volume and cost {data-orientation=columns}
+=====================================
+
+Column {.tabset data-width=720}
+-------------------------------------
+
+### Heart failure
+
+```{r}
+funnel_plot("Heart failure")
+```
+
+### Respiratory infection
+
+```{r}
+funnel_plot("Respiratory infection")
+```
+
+### Kidney/UTI
+
+```{r}
+funnel_plot("Kidney/UTI")
+```
+
+### Stroke
+
+```{r}
+funnel_plot("Stroke")
+```
+
+### Sepsis
+
+```{r}
+funnel_plot("Sepsis")
+```
+
+Column {data-width=280}
+-------------------------------------
+
+### How to read this {.how-to}
+
+#### Real outlier, or small numbers?
+
+Small hospitals swing widely by chance; large hospitals should sit close to the state median (horizontal line). A large hospital far from the line is worth a second look.
+
+This view shows every hospital, including those with fewer than 30 stays (grey, left of the vertical line).
+
+<p class="small-note"><span class="demo-badge">Demo</span> Simulated data. Costs are the state's estimates.</p>
+
+Map
+=====================================
+
+Row
+-------------------------------------
+
+### Hospitals in New York State {data-width=720}
+
+```{r}
+map_data =
+  hospital_medians |>
+  filter(condition == "Heart failure", n_stays >= min_cases, !is.na(latitude))
+
+leaflet(map_data) |>
+  addTiles() |>
+  addCircleMarkers(
+    lng = ~longitude, lat = ~latitude,
+    radius = ~pmin(3 + sqrt(n_stays) / 4, 14),
+    stroke = TRUE, color = site_ink, weight = 0.6,
+    fillColor = ~ratio_colour(ratio), fillOpacity = 0.9,
+    popup = ~str_c("<b>", facility_name, "</b><br>", hospital_service_area, "<br>Median charge: ", dollar(median_charges), "<br>", round(ratio, 2), "× the state median")
+  )
+```
+
+### How to read this {data-width=280 .how-to}
+
+#### Where are the expensive hospitals?
+
+Each circle is a hospital. Colour shows its median charge for heart failure relative to the state median (ochre above, blue below); size shows the number of stays. Click a circle for details.
+
+Hospitals without coordinates in the state facility file are not shown.
+
+<p class="small-note"><span class="demo-badge">Demo</span> Simulated locations and values. TODO: add a condition selector.</p>
+
+Cost estimator {data-orientation=columns}
+=====================================
+
+Column {.tabset data-width=720}
+-------------------------------------
+
+### Heart failure
+
+```{r}
+estimator_plot("Heart failure")
+```
+
+### Respiratory infection
+
+```{r}
+estimator_plot("Respiratory infection")
+```
+
+### Kidney/UTI
+
+```{r}
+estimator_plot("Kidney/UTI")
+```
+
+### Stroke
+
+```{r}
+estimator_plot("Stroke")
+```
+
+### Sepsis
+
+```{r}
+estimator_plot("Sepsis")
+```
+
+Column {data-width=280}
+-------------------------------------
+
+### How to read this {.how-to}
+
+#### What would a stay like this cost?
+
+Pick a condition (tabs) and an age group (menu on the chart). Each line is a severity level; move along it to see the predicted charge for a stay of that length.
+
+Predictions come from the adjusted model and describe a typical hospital. They are estimates of billed charges, not of what a patient would pay.
+
+<p class="small-note"><span class="demo-badge">Demo</span> Simulated predictions.</p>

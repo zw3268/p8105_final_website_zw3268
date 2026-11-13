@@ -1,0 +1,11 @@
+---
+pagetitle: "Major respiratory infections"
+---
+
+```{r, include = FALSE}
+this_condition = "Respiratory infection"
+this_note = "In 2023 this group was mostly COVID-19 (about two thirds of stays), followed by aspiration pneumonitis and pneumonia."
+```
+
+```{r, child = "_condition.Rmd"}
+```

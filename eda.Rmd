@@ -1,0 +1,62 @@
+---
+pagetitle: "Exploratory analysis"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.retina = 2, dpi = 150, fig.width = 8, fig.height = 4.2)
+
+source("R/site_helpers.R")
+```
+
+<div class="page-head">
+<span class="eyebrow">Exploratory analysis</span>
+<div class="page-title" role="heading" aria-level="1">A first look at the stays.</div>
+<p class="lede">Who the patients are, how long they stay, and how charges and costs are distributed before any hospital comparison.</p>
+</div>
+
+## Overview
+
+```{r overview_placeholder}
+placeholder_fig("Table 1. Stays, hospitals, median charge and median cost\nby condition")
+```
+
+Placeholder text.
+
+## Charges and costs are right-skewed
+
+```{r distribution_placeholder}
+placeholder_fig("Figure 1. Distribution of charges and costs\nby condition, log scale")
+```
+
+Placeholder text: why later models use the log scale.
+
+## Severity and length of stay
+
+```{r severity_placeholder}
+placeholder_fig("Figure 2. Severity mix and length of stay\nby condition")
+```
+
+Placeholder text.
+
+## Region and ownership
+
+```{r region_placeholder}
+placeholder_fig("Figure 3. Median charge by hospital service area\nand by ownership")
+```
+
+Placeholder text.
+
+## Payer
+
+```{r payer_placeholder}
+placeholder_fig("Figure 4. Payer mix by condition")
+```
+
+Placeholder text: Medicare pays for about two thirds of these stays.

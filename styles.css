@@ -1,126 +1,328 @@
-/* Site-wide look. Colours live here as variables so the whole site changes together. */
+/* ==========================================================================
+   Same Diagnosis, Different Bills? - site styles
+   1. Fonts   2. Colours   3. Base   4. Navbar   5. Small parts
+   6. Home page screens   7. Scroll-driven charts   8. Article pages
+   9. Report page   10. Motion preferences
+   ========================================================================== */
+
+/* ---------- 1. Fonts (files in fonts/, see fonts/README.md) ---------- */
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("fonts/fraunces-latin-wght-italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/inter-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("fonts/newsreader-latin-wght-normal.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("fonts/newsreader-latin-wght-italic.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/inter-tight-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
+
+/* ---------- 2. Colours: change here, changes everywhere ---------- */
 :root {
-  --paper: #FAF8F4;
-  --ink: #1B1F24;
-  --muted: #6B7280;
-  --rule: #DAD5CB;
-  --accent: #B4432E;
-  --low: #2F6F73;
+  --paper: #FAF7F0;        /* warm ivory page */
+  --paper-2: #F1EDE2;      /* slightly darker panel */
+  --ink: #0E1B33;          /* deep navy text */
+  --muted: #5C6781;
+  --rule: #D8D3C4;
+  --blue: #1F3FBF;         /* ultramarine, the main colour */
+  --blue-deep: #0B1F4D;    /* dark sections */
+  --blue-tint: #DFE6F8;
+  --ochre: #D9942B;        /* warm partner of the blue; marks "high" */
+  --ochre-tint: #F6E7CB;
+  --grey-cell: #E4E1D8;    /* too few cases */
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/* ---------- 3. Base ---------- */
+html { overflow-x: clip; }
 
 body {
   background: var(--paper);
   color: var(--ink);
+  font-family: var(--font-body);
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.65;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
 }
 
-.main-container {
-  max-width: 1120px;
+.main-container { max-width: 1120px; }
+
+h1, h2, h3, h4, .h1, .h2, .h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
+
+h1 { font-size: clamp(34px, 4.4vw, 54px); line-height: 1.08; }
+h2 { font-size: clamp(28px, 3.2vw, 40px); line-height: 1.15; margin-top: 1.6em; }
+h3 { font-size: 24px; line-height: 1.25; margin-top: 1.5em; }
+
+a { color: var(--blue); text-decoration: underline; text-decoration-color: var(--blue-tint); text-underline-offset: 3px; }
+a:hover, a:focus { color: var(--blue-deep); text-decoration-color: var(--blue); }
+
+hr { border: 0; border-top: 1px dashed var(--rule); margin: 40px 0; }
+
+table { font-variant-numeric: tabular-nums; }
+.table > thead > tr > th {
+  font-family: var(--font-mono); font-size: 11.5px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  border-bottom: 1px solid var(--ink);
+}
+.table > tbody > tr > td { border-top: 1px dashed var(--rule); }
+
+pre, code { font-family: var(--font-mono); font-size: 13.5px; }
+pre { background: var(--paper-2); border: 0; border-radius: 4px; }
+
+/* ---------- 4. Navbar ---------- */
+.navbar-default {
+  background: rgba(250, 247, 240, 0.92);
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  border: 0; border-bottom: 1px solid var(--rule);
+}
+.navbar-default .navbar-brand {
+  font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--ink);
+}
+.navbar-default .navbar-brand:hover { color: var(--blue); }
+.navbar-default .navbar-nav > li > a {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus { color: var(--blue); background: transparent; }
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus { color: var(--ink); background: transparent; box-shadow: inset 0 -2px 0 var(--blue); }
+.dropdown-menu { background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; box-shadow: 0 12px 30px rgba(14, 27, 51, 0.10); padding: 8px 0; }
+.dropdown-menu > li > a { font-size: 14.5px; padding: 7px 18px; color: var(--ink); text-decoration: none; }
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus { background: var(--blue-tint); color: var(--blue-deep); }
+.navbar-default .navbar-toggle { border-color: var(--rule); }
+.navbar-default .navbar-toggle .icon-bar { background: var(--ink); }
+
+/* ---------- 5. Small parts ---------- */
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue);
+  margin-bottom: 18px;
+}
+
+.lede { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.5; color: var(--muted); max-width: 34em; }
 
 .demo-badge {
+  display: inline-block; vertical-align: middle;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #8A5A0B; background: var(--ochre-tint);
+  border: 1px solid var(--ochre); border-radius: 2px;
+  padding: 1px 6px; margin-left: 6px;
+}
+
+.btn-bill {
   display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 2px 8px;
-  border-radius: 2px;
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--paper); background: var(--blue); text-decoration: none;
+  padding: 14px 26px; border-radius: 2px;
+  transition: background 0.25s ease, transform 0.25s var(--ease);
+}
+.btn-bill:hover, .btn-bill:focus { background: var(--ink); color: var(--paper); transform: translateY(-1px); }
+.btn-bill.on-dark { background: var(--paper); color: var(--blue-deep); }
+.btn-bill.on-dark:hover { background: var(--ochre); color: var(--blue-deep); }
+
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.placeholder-box {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  aspect-ratio: 16 / 9; width: 100%;
+  border: 1px dashed var(--muted); border-radius: 4px;
+  background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(31, 63, 191, 0.045) 14px 28px);
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  padding: 24px;
 }
 
-/* ---------- Scroll-driven section ---------- */
-/* The chart stays pinned while the text steps scroll past it. */
+.site-footer {
+  margin-top: 80px; padding: 28px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--muted);
+}
 
+/* gentle fade-in when a block enters the screen */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- 6. Home page screens ---------- */
+/* Each .screen is one "slide": full width, one idea. */
+body.home .main-container { max-width: none; padding-left: 0; padding-right: 0; }
+body.home .section.level1, body.home .section.level2 { margin: 0; }
+
+.screen {
+  min-height: 92vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 96px max(24px, calc(50vw - 540px));
+  border-top: 1px solid var(--rule);
+}
+.screen:first-of-type { border-top: 0; }
+.screen h2 { margin-top: 0; max-width: 16em; }
+.screen.is-short { min-height: 0; }
+.screen.is-tinted { background: var(--paper-2); }
+.screen.is-dark { background: var(--blue-deep); color: #E9EEFB; border-top: 0; }
+.screen.is-dark h2 { color: #FFFFFF; }
+.screen.is-dark .eyebrow { color: var(--ochre); }
+.screen.is-dark .lede { color: #B8C4E6; }
+
+/* -- hero: text left, a bill that itemises itself as you scroll -- */
+.hero { min-height: 240vh; display: block; padding-top: 0; padding-bottom: 0; }
+.hero-pin {
+  position: sticky; top: 51px; height: calc(100vh - 51px);
+  display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 64px; align-items: center;
+}
+.hero h1 { margin: 0 0 22px; font-size: clamp(42px, 6vw, 84px); font-weight: 500; line-height: 0.98; letter-spacing: -0.025em; }
+.hero h1 em { font-style: italic; color: var(--blue); }
+.hero-meta { margin-top: 30px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); }
+.scroll-hint { margin-top: 44px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.scroll-hint::after { content: ""; display: block; width: 1px; height: 42px; margin-top: 10px; background: var(--muted); }
+
+.bill {
+  background: #FFFFFF; color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 3px;
+  box-shadow: 0 30px 60px -30px rgba(11, 31, 77, 0.35);
+  padding: 30px 30px 24px;
+  font-family: var(--font-mono); font-size: 14px;
+}
+.bill-head { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding-bottom: 14px; border-bottom: 1px solid var(--ink); }
+.bill-title { font-family: var(--font-display); font-size: 24px; margin: 18px 0 4px; }
+.bill-sub { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.bill-row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  padding: 11px 0; border-top: 1px dashed var(--rule);
+  opacity: calc(var(--show, 0)); transform: translateY(calc((1 - var(--show, 0)) * 10px));
+}
+.bill-row.is-first { --show: 1; border-top: 0; }
+.bill-row .amt { font-weight: 500; font-variant-numeric: tabular-nums; }
+.bill-row.is-max .amt { color: #9A5E08; }
+.bill-row.is-min .amt { color: var(--blue); }
+.bill-foot { display: flex; justify-content: space-between; margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--ink); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; opacity: var(--foot, 0); }
+.bill-foot .amt { font-size: 20px; letter-spacing: 0; color: var(--blue); }
+
+/* -- highlights: cards you swipe sideways -- */
+.cards { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 2px 22px; margin-top: 34px; scrollbar-width: thin; }
+.card-bill {
+  flex: 0 0 min(320px, 78vw); scroll-snap-align: start;
+  background: #FFFFFF; border: 1px solid var(--rule); border-radius: 3px;
+  padding: 26px 24px 22px; display: flex; flex-direction: column; min-height: 250px;
+}
+.card-bill .k { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.card-bill .v { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 52px; line-height: 1; letter-spacing: -0.03em; color: var(--blue); margin: 22px 0 16px; font-variant-numeric: tabular-nums; }
+.card-bill p { margin: auto 0 0; font-size: 15.5px; line-height: 1.5; padding-top: 14px; border-top: 1px dashed var(--rule); }
+.cards-hint { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+/* -- the data, as a ledger -- */
+.ledger { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 44px 0 36px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.ledger-item { padding: 26px 24px 24px 0; }
+.ledger-item + .ledger-item { padding-left: 24px; border-left: 1px dashed var(--rule); }
+.ledger-item .v { display: block; font-family: var(--font-mono); font-weight: 500; font-size: clamp(30px, 4.2vw, 56px); line-height: 1.05; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.ledger-item .k { display: block; margin-top: 12px; font-size: 15px; color: var(--muted); }
+
+.two-col { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 56px; align-items: center; }
+.two-col.is-top { align-items: start; }
+.two-col h2 { margin-top: 0; }
+body.home .site-footer { margin-top: 0; padding-left: max(24px, calc(50vw - 540px)); padding-right: max(24px, calc(50vw - 540px)); }
+
+/* ---------- 7. Scroll-driven charts ---------- */
+/* The chart is pinned; the text steps scroll past it. js/site.js does the switching. */
+.scrolly-intro { min-height: 0; padding-bottom: 0; border-top: 1px solid var(--rule); }
 .scrolly {
-  display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
-  gap: 48px;
-  align-items: start;
-  margin: 40px 0 120px;
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 56px; align-items: start;
+  padding: 0 max(24px, calc(50vw - 540px)) 60px;
+}
+.scrolly-graphic { grid-column: 2; grid-row: 1; position: sticky; top: 51px; height: calc(100vh - 51px); display: flex; flex-direction: column; justify-content: center; }
+.scrolly-steps { grid-column: 1; grid-row: 1; }
+.step { min-height: 88vh; display: flex; flex-direction: column; justify-content: center; opacity: 0.22; transition: opacity 0.45s ease; }
+.step.is-active { opacity: 1; }
+.step h3 { margin: 0 0 10px; font-size: 28px; }
+.step p { color: var(--muted); max-width: 22em; }
+.step .step-n { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--blue); margin-bottom: 14px; }
+
+.scrolly-chart { width: 100%; height: auto; max-height: 72vh; overflow: visible; }
+.scrolly-chart .mark { transition: transform 0.8s var(--ease), fill 0.5s ease, opacity 0.5s ease; }
+.scrolly-chart .guide { stroke: var(--rule); stroke-width: 1; }
+.scrolly-chart .lab { fill: var(--muted); font-family: var(--font-mono); font-size: 13px; }
+.scrolly-chart .lab.is-strong { fill: var(--ink); font-weight: 500; }
+.scrolly-chart .layer { transition: opacity 0.4s ease; }
+.scrolly-readout { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; color: var(--ink); border-top: 1px dashed var(--rule); padding-top: 12px; margin-top: 10px; min-height: 2.6em; }
+
+/* ---------- 8. Article pages (Q1-Q3, conditions, data, team) ---------- */
+.page-head { padding: 56px 0 26px; border-bottom: 1px solid var(--ink); margin-bottom: 34px; }
+.page-head .page-title { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.015em; font-size: clamp(34px, 4.4vw, 54px); line-height: 1.08; margin: 0 0 14px; }
+.page-head .lede { margin: 0; }
+
+.fig-note { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: -4px; margin-bottom: 30px; }
+img { max-width: 100%; height: auto; }
+
+.tocify { border: 0; border-left: 1px solid var(--rule); border-radius: 0; background: transparent; }
+.tocify .tocify-item > a, .tocify .list-group-item { background: transparent; border: 0; font-size: 14px; color: var(--muted); text-decoration: none; padding: 6px 16px; }
+.tocify .list-group-item.active, .tocify .list-group-item.active:hover, .tocify .list-group-item.active:focus { background: transparent; color: var(--blue); box-shadow: inset 2px 0 0 var(--blue); }
+
+.takeaway { border-left: 3px solid var(--blue); background: #FFFFFF; padding: 16px 20px; margin: 26px 0; font-size: 18px; }
+.takeaway .k { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+
+.people { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 18px; margin: 28px 0; }
+.person { background: #FFFFFF; border: 1px solid var(--rule); border-radius: 3px; padding: 20px; }
+.person .name { font-family: var(--font-display); font-size: 20px; }
+.person .uni { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.person .role { margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+.btn-default, .btn-default:focus { background: transparent; border: 1px solid var(--rule); color: var(--muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 2px; }
+.btn-default:hover { background: var(--blue-tint); border-color: var(--blue); color: var(--blue-deep); }
+.nav-tabs > li > a, .nav-pills > li > a { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-radius: 2px; }
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus { background: var(--blue); color: #FFFFFF; }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus { color: var(--ink); background: var(--paper); border-color: var(--rule) var(--rule) transparent; }
+
+/* ---------- 9. Report page: long-form reading ---------- */
+body.reading { --font-display: "Inter Tight", "Inter", Arial, sans-serif; --font-mono: "JetBrains Mono", Menlo, monospace; }
+body.reading .toc-content, body.reading .main-container > .section, body.reading .reading-col { font-family: "Newsreader", Georgia, serif; font-size: 20px; line-height: 1.62; }
+body.reading p, body.reading li { max-width: 34em; }
+body.reading h1, body.reading h2, body.reading h3 { font-weight: 650; letter-spacing: -0.015em; }
+body.reading h2 { font-size: 30px; }
+body.reading .page-head .page-title { font-weight: 650; }
+body.reading h3 { font-size: 21px; }
+body.reading .page-head .lede { font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 23px; color: var(--ink); }
+body.reading .table, body.reading .fig-note, body.reading .eyebrow { font-family: var(--font-mono); }
+body.reading .table { font-size: 14px; }
+
+/* ---------- narrow screens ---------- */
+@media (max-width: 860px) {
+  .screen { padding-top: 72px; padding-bottom: 72px; }
+  .hero { min-height: 0; }
+  .hero-pin { position: static; height: auto; grid-template-columns: 1fr; gap: 36px; padding: 56px 0 72px; }
+  .bill-row { --show: 1 !important; }
+  .bill-foot { --foot: 1 !important; }
+  .scroll-hint { display: none; }
+  .ledger { grid-template-columns: 1fr; }
+  .ledger-item + .ledger-item { padding-left: 0; border-left: 0; border-top: 1px dashed var(--rule); }
+  .two-col { grid-template-columns: 1fr; gap: 28px; }
+  .scrolly { display: block; padding-bottom: 20px; }
+  .scrolly-graphic { top: 51px; height: 46vh; z-index: 2; background: var(--paper); border-bottom: 1px solid var(--rule); justify-content: flex-end; padding-bottom: 8px; }
+  .scrolly-chart { max-height: 36vh; }
+  .step { min-height: 62vh; justify-content: flex-end; padding-bottom: 8vh; opacity: 0.35; }
+  .step h3 { font-size: 23px; }
 }
 
-.scrolly-graphic {
-  grid-column: 2;
-  grid-row: 1;
-  position: sticky;
-  top: 70px;
-  height: calc(100vh - 90px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.scrolly-steps {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.step {
-  min-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  opacity: 0.25;
-  transition: opacity 0.4s ease;
-}
-
-.step.is-active {
-  opacity: 1;
-}
-
-.step h3 {
-  margin-top: 0;
-  font-weight: 700;
-}
-
-.scrolly-readout {
-  font-variant-numeric: tabular-nums;
-  font-size: 15px;
-  color: var(--muted);
-  border-top: 1px dashed var(--rule);
-  padding-top: 10px;
-  margin-top: 6px;
-  min-height: 2em;
-}
-
-#scrolly-chart {
-  width: 100%;
-  height: auto;
-}
-
-#scrolly-chart .dot {
-  fill: var(--ink);
-  opacity: 0.75;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), fill 0.4s ease, opacity 0.4s ease;
-}
-
-#scrolly-chart .dot.is-high { fill: var(--accent); opacity: 1; }
-#scrolly-chart .dot.is-low  { fill: var(--low); opacity: 1; }
-#scrolly-chart .dot.is-faded { opacity: 0.18; }
-
-#scrolly-chart .tick-line { stroke: var(--rule); stroke-width: 1; }
-#scrolly-chart .tick-label, #scrolly-chart .axis-title {
-  fill: var(--muted);
-  font-size: 13px;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Narrow screens: chart pinned on top, text scrolls underneath */
-@media (max-width: 800px) {
-  .scrolly { display: block; }
-  .scrolly-graphic {
-    top: 50px;
-    height: 48vh;
-    background: var(--paper);
-    z-index: 2;
-    border-bottom: 1px solid var(--rule);
-  }
-  .step { min-height: 70vh; }
-}
-
-/* Visitors who ask their system for less motion get instant changes */
+/* ---------- 10. Visitors who ask for less motion get none ---------- */
 @media (prefers-reduced-motion: reduce) {
-  #scrolly-chart .dot, .step { transition: none; }
+  .reveal, .scrolly-chart .mark, .scrolly-chart .layer, .step, .btn-bill { transition: none; }
+  .reveal { opacity: 1; transform: none; }
+  .hero { min-height: 0; }
+  .hero-pin { position: static; height: auto; padding: 72px 0; }
+  .bill-row { --show: 1 !important; }
+  .bill-foot { --foot: 1 !important; }
 }

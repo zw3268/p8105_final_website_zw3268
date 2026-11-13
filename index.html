@@ -249,10 +249,88 @@ $(document).ready(function () {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">Overview</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Findings
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="q1_gaps.html">Q1 · How far apart are hospitals?</a>
+    </li>
+    <li>
+      <a href="q2_adjusted.html">Q2 · After accounting for patients</a>
+    </li>
+    <li>
+      <a href="q3_consistency.html">Q3 · Across conditions</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Conditions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="heart_failure.html">Heart failure</a>
+    </li>
+    <li>
+      <a href="respiratory.html">Major respiratory infections</a>
+    </li>
+    <li>
+      <a href="kidney_uti.html">Kidney and urinary tract infections</a>
+    </li>
+    <li>
+      <a href="stroke.html">Ischemic stroke</a>
+    </li>
+    <li>
+      <a href="sepsis.html">Sepsis</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Explore
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="dashboard.html">Dashboard</a>
+    </li>
+    <li>
+      <a href="dashboard.html#map">Hospital map</a>
+    </li>
+    <li>
+      <a href="dashboard.html#cost-estimator">Cost estimator</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Data
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="data.html">Data and methods</a>
+    </li>
+    <li>
+      <a href="eda.html">Exploratory analysis</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="prototype.html">Scroll prototype</a>
+  <a href="report.html">Report</a>
+</li>
+<li>
+  <a href="team.html">Team</a>
 </li>
 <li>
   <a href="https://github.com/zw3268/p8105_final_website_zw3268">
@@ -269,14 +347,398 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Same Diagnosis, Different Bills?</h1>
 
 </div>
 
 
-<p>Website template for the P8105 final project. Under construction.</p>
-<p>This page was last built on November 13, 2026.</p>
+<script>document.body.classList.add("home");</script>
+<!-- =====================  1. Opening  ===================== -->
+<div class="screen hero">
+<div class="hero-pin">
+<div>
+<span class="eyebrow">New York State · Hospital discharges · 2023</span>
+<h1>
+Same diagnosis.<br><em>Different bills.</em>
+</h1>
+<p class="lede">
+The bill for a hospital stay in New York depends on where you are
+treated. We compared five common conditions across every hospital in the
+state.
+</p>
+<p class="hero-meta">
+Yimeng Cao · Zeheng Wei · Yichuan Ma · Jiaxuan Su · Yulin Zhu<br>P8105
+Data Science I · Fall 2026
+</p>
+<p class="scroll-hint">
+Scroll
+</p>
+</div>
+<div class="bill" aria-label="An example bill, with simulated amounts">
+<div class="bill-head">
+<span>Statement of charges</span><span>Demo figures</span>
+</div>
+<div class="bill-title">
+Heart failure
+</div>
+<div class="bill-sub">
+One inpatient stay · APR-DRG 194 · typical charge by hospital
+</div>
+<!-- TODO (team): replace with five real hospitals and their median charges -->
+<div class="bill-row is-first" data-from="38400" data-to="38400">
+<span>Hospital A</span><span class="amt">$38,400</span>
+</div>
+<div class="bill-row is-min" data-from="38400" data-to="19850">
+<span>Hospital B</span><span class="amt">$19,850</span>
+</div>
+<div class="bill-row" data-from="38400" data-to="31200">
+<span>Hospital C</span><span class="amt">$31,200</span>
+</div>
+<div class="bill-row" data-from="38400" data-to="68300">
+<span>Hospital D</span><span class="amt">$68,300</span>
+</div>
+<div class="bill-row is-max" data-from="38400" data-to="96400">
+<span>Hospital E</span><span class="amt">$96,400</span>
+</div>
+<div class="bill-foot">
+<span>Highest ÷ lowest</span><span class="amt">4.9×</span>
+</div>
+</div>
+</div>
+</div>
+<!-- =====================  2. Highlights  ===================== -->
+<div class="screen is-tinted">
+<p><span class="eyebrow">The short version</span></p>
+<div id="get-the-highlights." class="section level2">
+<h2>Get the highlights.</h2>
+<p><span class="cards-hint">Swipe →</span></p>
+<div class="cards">
+<div class="card-bill">
+<p><span class="k">Question 1 · the gap</span> <span class="v"
+data-count="3.1" data-decimals="1" data-suffix="×">3.1×</span></p>
+<p>Typical charges at expensive hospitals versus cheap ones, for the
+same condition. <span class="demo-badge">Demo</span></p>
+</div>
+<div class="card-bill">
+<p><span class="k">Question 2 · after adjustment</span> <span class="v"
+data-count="2.5" data-decimals="1" data-suffix="×">2.5×</span></p>
+<p>The gap that is left after accounting for severity, age and length of
+stay. <span class="demo-badge">Demo</span></p>
+</div>
+<div class="card-bill">
+<p><span class="k">Question 3 · consistency</span> <span class="v"
+data-count="19" data-decimals="0">19</span></p>
+<p>Hospitals in the most expensive quarter for all five conditions.
+<span class="demo-badge">Demo</span></p>
+</div>
+<div class="card-bill">
+<p><span class="k">Charges versus costs</span> <span class="v"
+data-count="3" data-decimals="1" data-suffix="×">3×</span></p>
+<p>How far the typical hospital’s charges sit above its estimated costs.
+<span class="demo-badge">Demo</span></p>
+</div>
+<div class="card-bill">
+<p><span class="k">Go deeper</span> <span class="v">→</span></p>
+<p>Look up any hospital in the <a href="dashboard.html">dashboard</a>,
+or read the <a href="report.html">full report</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- =====================  3. The data  ===================== -->
+<div class="screen">
+<p><span class="eyebrow">The data</span></p>
+<div id="every-inpatient-stay-in-new-york-2023." class="section level2">
+<h2>Every inpatient stay in New York, 2023.</h2>
+<div class="ledger reveal">
+<div class="ledger-item">
+<p><span class="v" data-count="2125754">2,125,754</span> <span
+class="k">discharges statewide</span></p>
+</div>
+<div class="ledger-item">
+<p><span class="v" data-count="282444">282,444</span> <span
+class="k">stays for the five conditions we study</span></p>
+</div>
+<div class="ledger-item">
+<p><span class="v" data-count="192">192</span> <span class="k">hospitals
+treating them</span></p>
+</div>
+</div>
+<table>
+<colgroup>
+<col width="51%" />
+<col width="8%" />
+<col width="12%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Condition</th>
+<th align="left">APR-DRG</th>
+<th align="right">Discharges</th>
+<th align="right">Hospitals with 30+ stays</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Sepsis</td>
+<td align="left">720</td>
+<td align="right">131,139</td>
+<td align="right">164</td>
+</tr>
+<tr class="even">
+<td align="left">Heart failure</td>
+<td align="left">194</td>
+<td align="right">59,668</td>
+<td align="right">159</td>
+</tr>
+<tr class="odd">
+<td align="left">Major respiratory infections (mostly COVID-19)</td>
+<td align="left">137</td>
+<td align="right">35,044</td>
+<td align="right">156</td>
+</tr>
+<tr class="even">
+<td align="left">Kidney and urinary tract infections</td>
+<td align="left">463</td>
+<td align="right">30,248</td>
+<td align="right">148</td>
+</tr>
+<tr class="odd">
+<td align="left">Ischemic stroke</td>
+<td align="left">045</td>
+<td align="right">26,529</td>
+<td align="right">126</td>
+</tr>
+</tbody>
+</table>
+<p><span class="fig-note">Source: New York State Department of Health,
+SPARCS de-identified inpatient discharges. <a href="data.html">More
+about the data</a>.</span></p>
+</div>
+</div>
+<!-- =====================  4. Question 1  ===================== -->
+<div class="screen scrolly-intro">
+<p><span class="eyebrow">Question 1</span></p>
+<div id="how-far-apart-are-hospitals" class="section level2">
+<h2>How far apart are hospitals?</h2>
+<p><span class="lede">We take one condition at a time and compare the
+typical bill at each hospital.</span></p>
+</div>
+</div>
+<div class="scrolly">
+<div class="scrolly-graphic">
+<svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospital median charges for heart failure, simulated data">
+</svg>
+<div class="scrolly-readout">
 
+</div>
+<script type="application/json">
+{"marks":[{"label":"Demo Hospital 104: $31,003","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":439.8,"y":249.5,"fill":"#0E1B33","o":0.8},{"x":439.8,"y":343,"fill":"#0E1B33","o":0.8},{"x":439.8,"y":343,"fill":"#0E1B33","o":0.16},{"x":223.9,"y":343,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 48: $153,730","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":730,"y":403.4,"fill":"#0E1B33","o":0.8},{"x":730,"y":40,"fill":"#0E1B33","o":0.8},{"x":730,"y":40,"fill":"#D9942B","o":0.8},{"x":482.1,"y":40,"fill":"#D9942B","o":0.8}]},{"label":"Demo Hospital 116: $35,860","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":466.1,"y":283.4,"fill":"#0E1B33","o":0.8},{"x":466.1,"y":242,"fill":"#0E1B33","o":0.8},{"x":466.1,"y":242,"fill":"#0E1B33","o":0.16},{"x":191.6,"y":242,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 175: $11,434","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":258.9,"y":84.2,"fill":"#0E1B33","o":0.8},{"x":258.9,"y":450,"fill":"#0E1B33","o":0.8},{"x":258.9,"y":450,"fill":"#1F3FBF","o":0.8},{"x":30,"y":450,"fill":"#1F3FBF","o":0.8}]},{"label":"Demo Hospital 77: $26,869","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":413.8,"y":176.9,"fill":"#0E1B33","o":0.8},{"x":413.8,"y":366.8,"fill":"#0E1B33","o":0.8},{"x":413.8,"y":366.8,"fill":"#0E1B33","o":0.16},{"x":213.8,"y":366.8,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 185: $69,146","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":585.2,"y":129.3,"fill":"#0E1B33","o":0.8},{"x":585.2,"y":69.7,"fill":"#0E1B33","o":0.8},{"x":585.2,"y":69.7,"fill":"#0E1B33","o":0.16},{"x":322,"y":69.7,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 90: $28,353","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":423.6,"y":260,"fill":"#0E1B33","o":0.8},{"x":423.6,"y":349,"fill":"#0E1B33","o":0.8},{"x":423.6,"y":349,"fill":"#0E1B33","o":0.16},{"x":296.8,"y":349,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 34: $31,940","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":445.2,"y":320,"fill":"#0E1B33","o":0.8},{"x":445.2,"y":325.2,"fill":"#0E1B33","o":0.8},{"x":445.2,"y":325.2,"fill":"#0E1B33","o":0.16},{"x":271.8,"y":325.2,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 183: $33,069","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":451.5,"y":212.5,"fill":"#0E1B33","o":0.8},{"x":451.5,"y":283.6,"fill":"#0E1B33","o":0.8},{"x":451.5,"y":283.6,"fill":"#0E1B33","o":0.16},{"x":202.5,"y":283.6,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 12: $36,677","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":470.2,"y":253.8,"fill":"#0E1B33","o":0.8},{"x":470.2,"y":230.1,"fill":"#0E1B33","o":0.8},{"x":470.2,"y":230.1,"fill":"#0E1B33","o":0.16},{"x":287.2,"y":230.1,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 15: $37,289","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":473.2,"y":114.3,"fill":"#0E1B33","o":0.8},{"x":473.2,"y":224.2,"fill":"#0E1B33","o":0.8},{"x":473.2,"y":224.2,"fill":"#0E1B33","o":0.16},{"x":330.8,"y":224.2,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 61: $12,105","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":269.3,"y":195.9,"fill":"#0E1B33","o":0.8},{"x":269.3,"y":444.1,"fill":"#0E1B33","o":0.8},{"x":269.3,"y":444.1,"fill":"#1F3FBF","o":0.8},{"x":87.2,"y":444.1,"fill":"#1F3FBF","o":0.8}]},{"label":"Demo Hospital 49: $28,041","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":421.6,"y":328.5,"fill":"#0E1B33","o":0.8},{"x":421.6,"y":354.9,"fill":"#0E1B33","o":0.8},{"x":421.6,"y":354.9,"fill":"#0E1B33","o":0.16},{"x":314.8,"y":354.9,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 103: $55,884","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":546.6,"y":248.4,"fill":"#0E1B33","o":0.8},{"x":546.6,"y":117.2,"fill":"#0E1B33","o":0.8},{"x":546.6,"y":117.2,"fill":"#0E1B33","o":0.16},{"x":424.9,"y":117.2,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 166: $40,810","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":489.6,"y":332.8,"fill":"#0E1B33","o":0.8},{"x":489.6,"y":188.6,"fill":"#0E1B33","o":0.8},{"x":489.6,"y":188.6,"fill":"#0E1B33","o":0.16},{"x":229.4,"y":188.6,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 170: $32,503","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":448.3,"y":368.5,"fill":"#0E1B33","o":0.8},{"x":448.3,"y":313.3,"fill":"#0E1B33","o":0.8},{"x":448.3,"y":313.3,"fill":"#0E1B33","o":0.16},{"x":271.6,"y":313.3,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 117: $56,489","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":548.5,"y":388.6,"fill":"#0E1B33","o":0.8},{"x":548.5,"y":105.4,"fill":"#0E1B33","o":0.8},{"x":548.5,"y":105.4,"fill":"#0E1B33","o":0.16},{"x":316.1,"y":105.4,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 32: $59,694","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":558.5,"y":256.4,"fill":"#0E1B33","o":0.8},{"x":558.5,"y":87.5,"fill":"#0E1B33","o":0.8},{"x":558.5,"y":87.5,"fill":"#0E1B33","o":0.16},{"x":335.9,"y":87.5,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 127: $32,594","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":448.8,"y":285.1,"fill":"#0E1B33","o":0.8},{"x":448.8,"y":307.4,"fill":"#0E1B33","o":0.8},{"x":448.8,"y":307.4,"fill":"#0E1B33","o":0.16},{"x":271.4,"y":307.4,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 155: $83,098","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":618.5,"y":330.4,"fill":"#0E1B33","o":0.8},{"x":618.5,"y":51.9,"fill":"#0E1B33","o":0.8},{"x":618.5,"y":51.9,"fill":"#D9942B","o":0.8},{"x":376.8,"y":51.9,"fill":"#D9942B","o":0.8}]},{"label":"Demo Hospital 152: $32,661","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":449.2,"y":292.7,"fill":"#0E1B33","o":0.8},{"x":449.2,"y":301.4,"fill":"#0E1B33","o":0.8},{"x":449.2,"y":301.4,"fill":"#0E1B33","o":0.16},{"x":318.2,"y":301.4,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 133: $80,211","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":612.1,"y":239.5,"fill":"#0E1B33","o":0.8},{"x":612.1,"y":57.8,"fill":"#0E1B33","o":0.8},{"x":612.1,"y":57.8,"fill":"#D9942B","o":0.8},{"x":392.5,"y":57.8,"fill":"#D9942B","o":0.8}]},{"label":"Demo Hospital 41: $20,283","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":362.8,"y":225.2,"fill":"#0E1B33","o":0.8},{"x":362.8,"y":420.3,"fill":"#0E1B33","o":0.8},{"x":362.8,"y":420.3,"fill":"#0E1B33","o":0.16},{"x":155.8,"y":420.3,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 46: $32,786","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":449.9,"y":418.7,"fill":"#0E1B33","o":0.8},{"x":449.9,"y":295.5,"fill":"#0E1B33","o":0.8},{"x":449.9,"y":295.5,"fill":"#0E1B33","o":0.16},{"x":162.6,"y":295.5,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 108: $42,583","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":497.3,"y":368.7,"fill":"#0E1B33","o":0.8},{"x":497.3,"y":182.6,"fill":"#0E1B33","o":0.8},{"x":497.3,"y":182.6,"fill":"#0E1B33","o":0.16},{"x":356.5,"y":182.6,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 9: $26,406","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":410.7,"y":315.3,"fill":"#0E1B33","o":0.8},{"x":410.7,"y":378.7,"fill":"#0E1B33","o":0.8},{"x":410.7,"y":378.7,"fill":"#0E1B33","o":0.16},{"x":224.4,"y":378.7,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 114: $55,328","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":544.8,"y":310.7,"fill":"#0E1B33","o":0.8},{"x":544.8,"y":123.2,"fill":"#0E1B33","o":0.8},{"x":544.8,"y":123.2,"fill":"#0E1B33","o":0.16},{"x":295.6,"y":123.2,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 60: $34,168","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":457.4,"y":154.9,"fill":"#0E1B33","o":0.8},{"x":457.4,"y":265.8,"fill":"#0E1B33","o":0.8},{"x":457.4,"y":265.8,"fill":"#0E1B33","o":0.16},{"x":343.5,"y":265.8,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 150: $52,221","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":534.3,"y":369.3,"fill":"#0E1B33","o":0.8},{"x":534.3,"y":147,"fill":"#0E1B33","o":0.8},{"x":534.3,"y":147,"fill":"#0E1B33","o":0.16},{"x":339.6,"y":147,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 172: $27,817","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":420.1,"y":146.1,"fill":"#0E1B33","o":0.8},{"x":420.1,"y":360.9,"fill":"#0E1B33","o":0.8},{"x":420.1,"y":360.9,"fill":"#0E1B33","o":0.16},{"x":251.7,"y":360.9,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 153: $51,106","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":530.4,"y":190.6,"fill":"#0E1B33","o":0.8},{"x":530.4,"y":152.9,"fill":"#0E1B33","o":0.8},{"x":530.4,"y":152.9,"fill":"#0E1B33","o":0.16},{"x":348,"y":152.9,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 131: $22,071","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":378.2,"y":140,"fill":"#0E1B33","o":0.8},{"x":378.2,"y":402.5,"fill":"#0E1B33","o":0.8},{"x":378.2,"y":402.5,"fill":"#0E1B33","o":0.16},{"x":278.1,"y":402.5,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 38: $54,258","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":541.2,"y":381.7,"fill":"#0E1B33","o":0.8},{"x":541.2,"y":129.1,"fill":"#0E1B33","o":0.8},{"x":541.2,"y":129.1,"fill":"#0E1B33","o":0.16},{"x":234.1,"y":129.1,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 140: $33,048","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":451.3,"y":394.6,"fill":"#0E1B33","o":0.8},{"x":451.3,"y":289.6,"fill":"#0E1B33","o":0.8},{"x":451.3,"y":289.6,"fill":"#0E1B33","o":0.16},{"x":222.6,"y":289.6,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 10: $31,102","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":440.3,"y":265,"fill":"#0E1B33","o":0.8},{"x":440.3,"y":331.2,"fill":"#0E1B33","o":0.8},{"x":440.3,"y":331.2,"fill":"#0E1B33","o":0.16},{"x":220.5,"y":331.2,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 186: $19,067","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":351.6,"y":216.3,"fill":"#0E1B33","o":0.8},{"x":351.6,"y":432.2,"fill":"#0E1B33","o":0.8},{"x":351.6,"y":432.2,"fill":"#1F3FBF","o":0.8},{"x":172.4,"y":432.2,"fill":"#1F3FBF","o":0.8}]},{"label":"Demo Hospital 100: $32,470","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":448.1,"y":70.7,"fill":"#0E1B33","o":0.8},{"x":448.1,"y":319.3,"fill":"#0E1B33","o":0.8},{"x":448.1,"y":319.3,"fill":"#0E1B33","o":0.16},{"x":168.3,"y":319.3,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 5: $35,454","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":464.1,"y":104.6,"fill":"#0E1B33","o":0.8},{"x":464.1,"y":248,"fill":"#0E1B33","o":0.8},{"x":464.1,"y":248,"fill":"#0E1B33","o":0.16},{"x":279.1,"y":248,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 189: $38,789","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":480.4,"y":274.2,"fill":"#0E1B33","o":0.8},{"x":480.4,"y":206.4,"fill":"#0E1B33","o":0.8},{"x":480.4,"y":206.4,"fill":"#0E1B33","o":0.16},{"x":327.4,"y":206.4,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 89: $78,512","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":608.2,"y":303.8,"fill":"#0E1B33","o":0.8},{"x":608.2,"y":63.8,"fill":"#0E1B33","o":0.8},{"x":608.2,"y":63.8,"fill":"#D9942B","o":0.8},{"x":350.6,"y":63.8,"fill":"#D9942B","o":0.8}]},{"label":"Demo Hospital 112: $34,244","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":457.8,"y":206.9,"fill":"#0E1B33","o":0.8},{"x":457.8,"y":259.9,"fill":"#0E1B33","o":0.8},{"x":457.8,"y":259.9,"fill":"#0E1B33","o":0.16},{"x":141.6,"y":259.9,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 157: $57,880","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":552.9,"y":281.3,"fill":"#0E1B33","o":0.8},{"x":552.9,"y":93.5,"fill":"#0E1B33","o":0.8},{"x":552.9,"y":93.5,"fill":"#0E1B33","o":0.16},{"x":378.9,"y":93.5,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 43: $25,726","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":405.9,"y":238.3,"fill":"#0E1B33","o":0.8},{"x":405.9,"y":384.6,"fill":"#0E1B33","o":0.8},{"x":405.9,"y":384.6,"fill":"#0E1B33","o":0.16},{"x":186.5,"y":384.6,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 174: $40,045","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":486.1,"y":206.4,"fill":"#0E1B33","o":0.8},{"x":486.1,"y":194.5,"fill":"#0E1B33","o":0.8},{"x":486.1,"y":194.5,"fill":"#0E1B33","o":0.16},{"x":205.5,"y":194.5,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 192: $115,151","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":677.6,"y":332.8,"fill":"#0E1B33","o":0.8},{"x":677.6,"y":45.9,"fill":"#0E1B33","o":0.8},{"x":677.6,"y":45.9,"fill":"#D9942B","o":0.8},{"x":419.2,"y":45.9,"fill":"#D9942B","o":0.8}]},{"label":"Demo Hospital 167: $25,720","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":405.9,"y":385.3,"fill":"#0E1B33","o":0.8},{"x":405.9,"y":390.6,"fill":"#0E1B33","o":0.8},{"x":405.9,"y":390.6,"fill":"#0E1B33","o":0.16},{"x":31.1,"y":390.6,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 106: $56,419","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":548.3,"y":344.5,"fill":"#0E1B33","o":0.8},{"x":548.3,"y":111.3,"fill":"#0E1B33","o":0.8},{"x":548.3,"y":111.3,"fill":"#0E1B33","o":0.16},{"x":287.4,"y":111.3,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 73: $48,270","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":520,"y":272.1,"fill":"#0E1B33","o":0.8},{"x":520,"y":164.8,"fill":"#0E1B33","o":0.8},{"x":520,"y":164.8,"fill":"#0E1B33","o":0.16},{"x":260.1,"y":164.8,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 162: $57,780","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":552.6,"y":105.4,"fill":"#0E1B33","o":0.8},{"x":552.6,"y":99.4,"fill":"#0E1B33","o":0.8},{"x":552.6,"y":99.4,"fill":"#0E1B33","o":0.16},{"x":345.5,"y":99.4,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 25: $21,916","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":376.9,"y":84.9,"fill":"#0E1B33","o":0.8},{"x":376.9,"y":408.4,"fill":"#0E1B33","o":0.8},{"x":376.9,"y":408.4,"fill":"#0E1B33","o":0.16},{"x":199.4,"y":408.4,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 143: $33,317","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":452.8,"y":130.8,"fill":"#0E1B33","o":0.8},{"x":452.8,"y":277.7,"fill":"#0E1B33","o":0.8},{"x":452.8,"y":277.7,"fill":"#0E1B33","o":0.16},{"x":185.6,"y":277.7,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 121: $61,185","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":563,"y":321.4,"fill":"#0E1B33","o":0.8},{"x":563,"y":81.6,"fill":"#0E1B33","o":0.8},{"x":563,"y":81.6,"fill":"#0E1B33","o":0.16},{"x":379.1,"y":81.6,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 136: $52,562","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":535.5,"y":307.2,"fill":"#0E1B33","o":0.8},{"x":535.5,"y":141,"fill":"#0E1B33","o":0.8},{"x":535.5,"y":141,"fill":"#0E1B33","o":0.16},{"x":339.1,"y":141,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 82: $39,550","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":483.9,"y":194,"fill":"#0E1B33","o":0.8},{"x":483.9,"y":200.4,"fill":"#0E1B33","o":0.8},{"x":483.9,"y":200.4,"fill":"#0E1B33","o":0.16},{"x":330.3,"y":200.4,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 65: $36,522","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":469.5,"y":195.7,"fill":"#0E1B33","o":0.8},{"x":469.5,"y":236.1,"fill":"#0E1B33","o":0.8},{"x":469.5,"y":236.1,"fill":"#0E1B33","o":0.16},{"x":236,"y":236.1,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 39: $18,452","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":345.7,"y":149,"fill":"#0E1B33","o":0.8},{"x":345.7,"y":438.1,"fill":"#0E1B33","o":0.8},{"x":345.7,"y":438.1,"fill":"#1F3FBF","o":0.8},{"x":119.5,"y":438.1,"fill":"#1F3FBF","o":0.8}]},{"label":"Demo Hospital 8: $31,046","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":440,"y":411.3,"fill":"#0E1B33","o":0.8},{"x":440,"y":337.1,"fill":"#0E1B33","o":0.8},{"x":440,"y":337.1,"fill":"#0E1B33","o":0.16},{"x":222.6,"y":337.1,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 142: $19,711","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":357.7,"y":236.5,"fill":"#0E1B33","o":0.8},{"x":357.7,"y":426.2,"fill":"#0E1B33","o":0.8},{"x":357.7,"y":426.2,"fill":"#1F3FBF","o":0.8},{"x":173.8,"y":426.2,"fill":"#1F3FBF","o":0.8}]},{"label":"Demo Hospital 160: $20,569","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":365.4,"y":256.1,"fill":"#0E1B33","o":0.8},{"x":365.4,"y":414.3,"fill":"#0E1B33","o":0.8},{"x":365.4,"y":414.3,"fill":"#0E1B33","o":0.16},{"x":190.4,"y":414.3,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 144: $37,471","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":474.1,"y":154.5,"fill":"#0E1B33","o":0.8},{"x":474.1,"y":218.3,"fill":"#0E1B33","o":0.8},{"x":474.1,"y":218.3,"fill":"#0E1B33","o":0.16},{"x":298.2,"y":218.3,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 85: $53,361","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":538.2,"y":314.4,"fill":"#0E1B33","o":0.8},{"x":538.2,"y":135.1,"fill":"#0E1B33","o":0.8},{"x":538.2,"y":135.1,"fill":"#0E1B33","o":0.16},{"x":292.2,"y":135.1,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 71: $23,375","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":388.6,"y":248,"fill":"#0E1B33","o":0.8},{"x":388.6,"y":396.5,"fill":"#0E1B33","o":0.8},{"x":388.6,"y":396.5,"fill":"#0E1B33","o":0.16},{"x":204.7,"y":396.5,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 56: $33,840","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":455.6,"y":396.3,"fill":"#0E1B33","o":0.8},{"x":455.6,"y":271.7,"fill":"#0E1B33","o":0.8},{"x":455.6,"y":271.7,"fill":"#0E1B33","o":0.16},{"x":233.3,"y":271.7,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 138: $34,374","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":458.5,"y":147.5,"fill":"#0E1B33","o":0.8},{"x":458.5,"y":253.9,"fill":"#0E1B33","o":0.8},{"x":458.5,"y":253.9,"fill":"#0E1B33","o":0.16},{"x":247.1,"y":253.9,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 92: $68,478","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":583.4,"y":277.5,"fill":"#0E1B33","o":0.8},{"x":583.4,"y":75.7,"fill":"#0E1B33","o":0.8},{"x":583.4,"y":75.7,"fill":"#0E1B33","o":0.16},{"x":315.6,"y":75.7,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 91: $38,568","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":479.3,"y":266.2,"fill":"#0E1B33","o":0.8},{"x":479.3,"y":212.3,"fill":"#0E1B33","o":0.8},{"x":479.3,"y":212.3,"fill":"#0E1B33","o":0.16},{"x":164.2,"y":212.3,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 23: $26,608","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":412,"y":131.3,"fill":"#0E1B33","o":0.8},{"x":412,"y":372.8,"fill":"#0E1B33","o":0.8},{"x":412,"y":372.8,"fill":"#0E1B33","o":0.16},{"x":131,"y":372.8,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 94: $48,165","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":519.6,"y":340.5,"fill":"#0E1B33","o":0.8},{"x":519.6,"y":170.7,"fill":"#0E1B33","o":0.8},{"x":519.6,"y":170.7,"fill":"#0E1B33","o":0.16},{"x":332.8,"y":170.7,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 120: $46,325","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":512.6,"y":228.3,"fill":"#0E1B33","o":0.8},{"x":512.6,"y":176.7,"fill":"#0E1B33","o":0.8},{"x":512.6,"y":176.7,"fill":"#0E1B33","o":0.16},{"x":392.2,"y":176.7,"fill":"#0E1B33","o":0.16}]},{"label":"Demo Hospital 191: $50,945","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":529.8,"y":385.5,"fill":"#0E1B33","o":0.8},{"x":529.8,"y":158.8,"fill":"#0E1B33","o":0.8},{"x":529.8,"y":158.8,"fill":"#0E1B33","o":0.16},{"x":243.5,"y":158.8,"fill":"#0E1B33","o":0.16}]}],"states":[{"readout":"70 hospitals · heart failure · simulated","labels":[{"x":108.9983,"y":478,"text":"$5,000","anchor":"middle","strong":false},{"x":234.648,"y":478,"text":"$10,000","anchor":"middle","strong":false},{"x":360.2977,"y":478,"text":"$20,000","anchor":"middle","strong":false},{"x":485.9474,"y":478,"text":"$40,000","anchor":"middle","strong":false},{"x":611.5971,"y":478,"text":"$80,000","anchor":"middle","strong":false},{"x":380,"y":508,"text":"Median charge per stay (log scale)","anchor":"middle","strong":true}],"guides":[{"x1":108.9983,"y1":30,"x2":108.9983,"y2":460},{"x1":234.648,"y1":30,"x2":234.648,"y2":460},{"x1":360.2977,"y1":30,"x2":360.2977,"y2":460},{"x1":485.9474,"y1":30,"x2":485.9474,"y2":460},{"x1":611.5971,"y1":30,"x2":611.5971,"y2":460}]},{"readout":"Ranked from the highest median charge to the lowest","labels":[{"x":108.9983,"y":478,"text":"$5,000","anchor":"middle","strong":false},{"x":234.648,"y":478,"text":"$10,000","anchor":"middle","strong":false},{"x":360.2977,"y":478,"text":"$20,000","anchor":"middle","strong":false},{"x":485.9474,"y":478,"text":"$40,000","anchor":"middle","strong":false},{"x":611.5971,"y":478,"text":"$80,000","anchor":"middle","strong":false},{"x":380,"y":508,"text":"Median charge per stay (log scale)","anchor":"middle","strong":true}],"guides":[{"x1":108.9983,"y1":30,"x2":108.9983,"y2":460},{"x1":234.648,"y1":30,"x2":234.648,"y2":460},{"x1":360.2977,"y1":30,"x2":360.2977,"y2":460},{"x1":485.9474,"y1":30,"x2":485.9474,"y2":460},{"x1":611.5971,"y1":30,"x2":611.5971,"y2":460}]},{"readout":"Highest ÷ lowest median charge: 13.4×","labels":[{"x":108.9983,"y":478,"text":"$5,000","anchor":"middle","strong":false},{"x":234.648,"y":478,"text":"$10,000","anchor":"middle","strong":false},{"x":360.2977,"y":478,"text":"$20,000","anchor":"middle","strong":false},{"x":485.9474,"y":478,"text":"$40,000","anchor":"middle","strong":false},{"x":611.5971,"y":478,"text":"$80,000","anchor":"middle","strong":false},{"x":380,"y":508,"text":"Median charge per stay (log scale)","anchor":"middle","strong":true}],"guides":[{"x1":108.9983,"y1":30,"x2":108.9983,"y2":460},{"x1":234.648,"y1":30,"x2":234.648,"y2":460},{"x1":360.2977,"y1":30,"x2":360.2977,"y2":460},{"x1":485.9474,"y1":30,"x2":485.9474,"y2":460},{"x1":611.5971,"y1":30,"x2":611.5971,"y2":460}]},{"readout":"Highest ÷ lowest estimated cost: 12.1×","labels":[{"x":108.9983,"y":478,"text":"$5,000","anchor":"middle","strong":false},{"x":234.648,"y":478,"text":"$10,000","anchor":"middle","strong":false},{"x":360.2977,"y":478,"text":"$20,000","anchor":"middle","strong":false},{"x":485.9474,"y":478,"text":"$40,000","anchor":"middle","strong":false},{"x":611.5971,"y":478,"text":"$80,000","anchor":"middle","strong":false},{"x":380,"y":508,"text":"Median estimated cost per stay (log scale)","anchor":"middle","strong":true}],"guides":[{"x1":108.9983,"y1":30,"x2":108.9983,"y2":460},{"x1":234.648,"y1":30,"x2":234.648,"y2":460},{"x1":360.2977,"y1":30,"x2":360.2977,"y2":460},{"x1":485.9474,"y1":30,"x2":485.9474,"y2":460},{"x1":611.5971,"y1":30,"x2":611.5971,"y2":460}]}]}
+</script>
+</div>
+<div class="scrolly-steps">
+<div class="step">
+<p><span class="step-n">01</span></p>
+<div id="one-dot-one-hospital." class="section level3">
+<h3>One dot, one hospital.</h3>
+<p>Each dot sits at the typical bill for the same condition at one
+hospital. <span class="demo-badge">Demo</span></p>
+</div>
+</div>
+<div class="step">
+<p><span class="step-n">02</span></p>
+<div id="line-them-up." class="section level3">
+<h3>Line them up.</h3>
+<p>From the most expensive hospital at the top to the least expensive at
+the bottom.</p>
+</div>
+</div>
+<div class="step">
+<p><span class="step-n">03</span></p>
+<div id="the-two-ends." class="section level3">
+<h3>The two ends.</h3>
+<p>The five highest and the five lowest. The distance between them is
+the gap we are measuring.</p>
+</div>
+</div>
+<div class="step">
+<p><span class="step-n">04</span></p>
+<div id="now-look-at-costs." class="section level3">
+<h3>Now look at costs.</h3>
+<p>The same hospitals, in the same order, placed by the state’s estimate
+of what the stay cost them. <a href="q1_gaps.html">See the full Question
+1 analysis →</a></p>
+</div>
+</div>
+</div>
+</div>
+<!-- =====================  5. Question 2  ===================== -->
+<div class="screen scrolly-intro">
+<p><span class="eyebrow">Question 2</span></p>
+<div id="what-changes-once-we-account-for-patients"
+class="section level2">
+<h2>What changes once we account for patients?</h2>
+<p><span class="lede">Hospitals treat different patients. We compare
+them again after adjusting for severity of illness, age group and length
+of stay.</span></p>
+</div>
+</div>
+<div class="scrolly">
+<div class="scrolly-graphic">
+<svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospital differences before and after adjustment, simulated data">
+</svg>
+<div class="scrolly-readout">
+
+</div>
+<script type="application/json">
+{"marks":[{"label":"Demo Hospital 3","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":255,"y":414.3,"fill":"#0E1B33","o":0.85},{"x":258.1,"y":414.3,"fill":"#1F3FBF","o":0.85},{"x":258.1,"y":426.2,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 6","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":346.1,"y":331.2,"fill":"#0E1B33","o":0.85},{"x":336.3,"y":331.2,"fill":"#D9942B","o":0.85},{"x":336.3,"y":372.8,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 144","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":386.4,"y":265.8,"fill":"#0E1B33","o":0.85},{"x":447.1,"y":265.8,"fill":"#D9942B","o":0.85},{"x":447.1,"y":164.8,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 86","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":232.5,"y":432.2,"fill":"#0E1B33","o":0.85},{"x":270,"y":432.2,"fill":"#1F3FBF","o":0.85},{"x":270,"y":414.3,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 25","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":229.8,"y":438.1,"fill":"#0E1B33","o":0.85},{"x":391.3,"y":438.1,"fill":"#1F3FBF","o":0.85},{"x":391.3,"y":277.7,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 58","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":406.2,"y":248,"fill":"#0E1B33","o":0.85},{"x":484.2,"y":248,"fill":"#D9942B","o":0.85},{"x":484.2,"y":123.2,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 11","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":473.9,"y":176.7,"fill":"#0E1B33","o":0.85},{"x":382.5,"y":176.7,"fill":"#1F3FBF","o":0.85},{"x":382.5,"y":301.4,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 79","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":397.1,"y":259.9,"fill":"#0E1B33","o":0.85},{"x":406.6,"y":259.9,"fill":"#D9942B","o":0.85},{"x":406.6,"y":259.9,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 136","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":485.2,"y":147,"fill":"#0E1B33","o":0.85},{"x":482.6,"y":147,"fill":"#1F3FBF","o":0.85},{"x":482.6,"y":129.1,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 23","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":286.4,"y":390.6,"fill":"#0E1B33","o":0.85},{"x":382.7,"y":390.6,"fill":"#1F3FBF","o":0.85},{"x":382.7,"y":295.5,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 161","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":326.5,"y":366.8,"fill":"#0E1B33","o":0.85},{"x":318.5,"y":366.8,"fill":"#D9942B","o":0.85},{"x":318.5,"y":378.7,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 65","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":378.9,"y":271.7,"fill":"#0E1B33","o":0.85},{"x":383.1,"y":271.7,"fill":"#1F3FBF","o":0.85},{"x":383.1,"y":289.6,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 100","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":344.5,"y":349,"fill":"#0E1B33","o":0.85},{"x":410.1,"y":349,"fill":"#1F3FBF","o":0.85},{"x":410.1,"y":253.9,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 92","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":562.4,"y":87.5,"fill":"#0E1B33","o":0.85},{"x":453.5,"y":87.5,"fill":"#1F3FBF","o":0.85},{"x":453.5,"y":158.8,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 84","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":344.7,"y":343,"fill":"#0E1B33","o":0.85},{"x":244.7,"y":343,"fill":"#D9942B","o":0.85},{"x":244.7,"y":432.2,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 156","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":378.3,"y":277.7,"fill":"#0E1B33","o":0.85},{"x":368.4,"y":277.7,"fill":"#D9942B","o":0.85},{"x":368.4,"y":319.3,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 141","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":711.7,"y":40,"fill":"#0E1B33","o":0.85},{"x":599.6,"y":40,"fill":"#1F3FBF","o":0.85},{"x":599.6,"y":45.9,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 99","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":479.9,"y":158.8,"fill":"#0E1B33","o":0.85},{"x":490,"y":158.8,"fill":"#D9942B","o":0.85},{"x":490,"y":117.2,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 107","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":453.9,"y":218.3,"fill":"#0E1B33","o":0.85},{"x":340.6,"y":218.3,"fill":"#1F3FBF","o":0.85},{"x":340.6,"y":354.9,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 28","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":312.9,"y":372.8,"fill":"#0E1B33","o":0.85},{"x":259.5,"y":372.8,"fill":"#D9942B","o":0.85},{"x":259.5,"y":420.3,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 153","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":477,"y":164.8,"fill":"#0E1B33","o":0.85},{"x":444.9,"y":164.8,"fill":"#1F3FBF","o":0.85},{"x":444.9,"y":170.7,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 127","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":345.7,"y":337.1,"fill":"#0E1B33","o":0.85},{"x":506.9,"y":337.1,"fill":"#D9942B","o":0.85},{"x":506.9,"y":87.5,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 8","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":331.5,"y":354.9,"fill":"#0E1B33","o":0.85},{"x":395.3,"y":354.9,"fill":"#1F3FBF","o":0.85},{"x":395.3,"y":271.7,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 44","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":457.7,"y":206.4,"fill":"#0E1B33","o":0.85},{"x":344.8,"y":206.4,"fill":"#1F3FBF","o":0.85},{"x":344.8,"y":331.2,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 88","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":521.3,"y":111.3,"fill":"#0E1B33","o":0.85},{"x":494,"y":111.3,"fill":"#1F3FBF","o":0.85},{"x":494,"y":99.4,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 184","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":463.9,"y":188.6,"fill":"#0E1B33","o":0.85},{"x":523.8,"y":188.6,"fill":"#D9942B","o":0.85},{"x":523.8,"y":75.7,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 104","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":331.1,"y":360.9,"fill":"#0E1B33","o":0.85},{"x":411.4,"y":360.9,"fill":"#1F3FBF","o":0.85},{"x":411.4,"y":242,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 81","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":620.1,"y":45.9,"fill":"#0E1B33","o":0.85},{"x":474.3,"y":45.9,"fill":"#1F3FBF","o":0.85},{"x":474.3,"y":135.1,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 74","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":485.7,"y":141,"fill":"#0E1B33","o":0.85},{"x":435.8,"y":141,"fill":"#1F3FBF","o":0.85},{"x":435.8,"y":194.5,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 52","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":411.7,"y":242,"fill":"#0E1B33","o":0.85},{"x":417.2,"y":242,"fill":"#D9942B","o":0.85},{"x":417.2,"y":218.3,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 26","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":547.4,"y":99.4,"fill":"#0E1B33","o":0.85},{"x":491.4,"y":99.4,"fill":"#1F3FBF","o":0.85},{"x":491.4,"y":111.3,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 137","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":618.6,"y":51.9,"fill":"#0E1B33","o":0.85},{"x":541.5,"y":51.9,"fill":"#1F3FBF","o":0.85},{"x":541.5,"y":63.8,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 117","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":506.2,"y":123.2,"fill":"#0E1B33","o":0.85},{"x":374.5,"y":123.2,"fill":"#1F3FBF","o":0.85},{"x":374.5,"y":307.4,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 72","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":349.5,"y":313.3,"fill":"#0E1B33","o":0.85},{"x":367.4,"y":313.3,"fill":"#1F3FBF","o":0.85},{"x":367.4,"y":325.2,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 94","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":459.7,"y":194.5,"fill":"#0E1B33","o":0.85},{"x":438,"y":194.5,"fill":"#1F3FBF","o":0.85},{"x":438,"y":188.6,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 187","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":364.4,"y":289.6,"fill":"#0E1B33","o":0.85},{"x":429.9,"y":289.6,"fill":"#D9942B","o":0.85},{"x":429.9,"y":200.4,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 69","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":347.9,"y":325.2,"fill":"#0E1B33","o":0.85},{"x":338.3,"y":325.2,"fill":"#D9942B","o":0.85},{"x":338.3,"y":360.9,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 124","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":565.3,"y":81.6,"fill":"#0E1B33","o":0.85},{"x":427.3,"y":81.6,"fill":"#1F3FBF","o":0.85},{"x":427.3,"y":206.4,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 71","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":248.6,"y":420.3,"fill":"#0E1B33","o":0.85},{"x":308.7,"y":420.3,"fill":"#1F3FBF","o":0.85},{"x":308.7,"y":384.6,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 179","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":454.6,"y":212.3,"fill":"#0E1B33","o":0.85},{"x":299.2,"y":212.3,"fill":"#D9942B","o":0.85},{"x":299.2,"y":390.6,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 40","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":530.2,"y":105.4,"fill":"#0E1B33","o":0.85},{"x":497.3,"y":105.4,"fill":"#1F3FBF","o":0.85},{"x":497.3,"y":93.5,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 133","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":608.6,"y":57.8,"fill":"#0E1B33","o":0.85},{"x":587.3,"y":57.8,"fill":"#1F3FBF","o":0.85},{"x":587.3,"y":51.9,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 173","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":481.6,"y":152.9,"fill":"#0E1B33","o":0.85},{"x":423.6,"y":152.9,"fill":"#1F3FBF","o":0.85},{"x":423.6,"y":212.3,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 102","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":458.3,"y":200.4,"fill":"#0E1B33","o":0.85},{"x":413.3,"y":200.4,"fill":"#1F3FBF","o":0.85},{"x":413.3,"y":236.1,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 143","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":352.1,"y":307.4,"fill":"#0E1B33","o":0.85},{"x":370.6,"y":307.4,"fill":"#1F3FBF","o":0.85},{"x":370.6,"y":313.3,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 70","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":403.5,"y":253.9,"fill":"#0E1B33","o":0.85},{"x":342.9,"y":253.9,"fill":"#D9942B","o":0.85},{"x":342.9,"y":343,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 42","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":556.3,"y":93.5,"fill":"#0E1B33","o":0.85},{"x":654.2,"y":93.5,"fill":"#D9942B","o":0.85},{"x":654.2,"y":40,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 27","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":419.9,"y":230.1,"fill":"#0E1B33","o":0.85},{"x":410.9,"y":230.1,"fill":"#1F3FBF","o":0.85},{"x":410.9,"y":248,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 5","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":370.2,"y":283.6,"fill":"#0E1B33","o":0.85},{"x":340.9,"y":283.6,"fill":"#D9942B","o":0.85},{"x":340.9,"y":349,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 180","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":423.5,"y":224.2,"fill":"#0E1B33","o":0.85},{"x":401,"y":224.2,"fill":"#1F3FBF","o":0.85},{"x":401,"y":265.8,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 57","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":577.2,"y":75.7,"fill":"#0E1B33","o":0.85},{"x":469.4,"y":75.7,"fill":"#1F3FBF","o":0.85},{"x":469.4,"y":147,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 59","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":471.7,"y":182.6,"fill":"#0E1B33","o":0.85},{"x":440.3,"y":182.6,"fill":"#1F3FBF","o":0.85},{"x":440.3,"y":182.6,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 62","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":605.5,"y":63.8,"fill":"#0E1B33","o":0.85},{"x":528.7,"y":63.8,"fill":"#1F3FBF","o":0.85},{"x":528.7,"y":69.7,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 191","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":476,"y":170.7,"fill":"#0E1B33","o":0.85},{"x":491.6,"y":170.7,"fill":"#D9942B","o":0.85},{"x":491.6,"y":105.4,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 29","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":274,"y":396.5,"fill":"#0E1B33","o":0.85},{"x":281.7,"y":396.5,"fill":"#1F3FBF","o":0.85},{"x":281.7,"y":408.4,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 77","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":289.3,"y":384.6,"fill":"#0E1B33","o":0.85},{"x":298.3,"y":384.6,"fill":"#1F3FBF","o":0.85},{"x":298.3,"y":396.5,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 56","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":356.6,"y":301.4,"fill":"#0E1B33","o":0.85},{"x":343.4,"y":301.4,"fill":"#D9942B","o":0.85},{"x":343.4,"y":337.1,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 172","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":299.4,"y":378.7,"fill":"#0E1B33","o":0.85},{"x":231.6,"y":378.7,"fill":"#D9942B","o":0.85},{"x":231.6,"y":438.1,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 130","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":168.7,"y":450,"fill":"#0E1B33","o":0.85},{"x":222.4,"y":450,"fill":"#1F3FBF","o":0.85},{"x":222.4,"y":444.1,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 110","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":603.8,"y":69.7,"fill":"#0E1B33","o":0.85},{"x":514.5,"y":69.7,"fill":"#1F3FBF","o":0.85},{"x":514.5,"y":81.6,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 53","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":273.1,"y":402.5,"fill":"#0E1B33","o":0.85},{"x":413.9,"y":402.5,"fill":"#1F3FBF","o":0.85},{"x":413.9,"y":230.1,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 190","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":241.5,"y":426.2,"fill":"#0E1B33","o":0.85},{"x":338.3,"y":426.2,"fill":"#1F3FBF","o":0.85},{"x":338.3,"y":360.9,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 114","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":500.1,"y":129.1,"fill":"#0E1B33","o":0.85},{"x":472.9,"y":129.1,"fill":"#1F3FBF","o":0.85},{"x":472.9,"y":141,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 31","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":412,"y":236.1,"fill":"#0E1B33","o":0.85},{"x":461,"y":236.1,"fill":"#D9942B","o":0.85},{"x":461,"y":152.9,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 30","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":357.9,"y":295.5,"fill":"#0E1B33","o":0.85},{"x":440.6,"y":295.5,"fill":"#D9942B","o":0.85},{"x":440.6,"y":176.7,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 147","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":263.2,"y":408.4,"fill":"#0E1B33","o":0.85},{"x":297.5,"y":408.4,"fill":"#1F3FBF","o":0.85},{"x":297.5,"y":402.5,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 163","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":348.5,"y":319.3,"fill":"#0E1B33","o":0.85},{"x":390.8,"y":319.3,"fill":"#1F3FBF","o":0.85},{"x":390.8,"y":283.6,"fill":"#1F3FBF","o":0.85}]},{"label":"Demo Hospital 66","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":188.4,"y":444.1,"fill":"#0E1B33","o":0.85},{"x":147.3,"y":444.1,"fill":"#D9942B","o":0.85},{"x":147.3,"y":450,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 83","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":491.7,"y":135.1,"fill":"#0E1B33","o":0.85},{"x":544.1,"y":135.1,"fill":"#D9942B","o":0.85},{"x":544.1,"y":57.8,"fill":"#D9942B","o":0.85}]},{"label":"Demo Hospital 157","shape":"circle","r":5.5,"w":null,"h":null,"s":[{"x":513.3,"y":117.2,"fill":"#0E1B33","o":0.85},{"x":414.9,"y":117.2,"fill":"#1F3FBF","o":0.85},{"x":414.9,"y":224.2,"fill":"#1F3FBF","o":0.85}]}],"states":[{"readout":"Before adjustment · 90th ÷ 10th percentile: 2.8×","labels":[{"x":179.1216,"y":478,"text":"0.5×","anchor":"middle","strong":false},{"x":297.486,"y":478,"text":"0.75×","anchor":"middle","strong":false},{"x":381.467,"y":478,"text":"1×","anchor":"middle","strong":true},{"x":499.8314,"y":478,"text":"1.5×","anchor":"middle","strong":false},{"x":583.8123,"y":478,"text":"2×","anchor":"middle","strong":false},{"x":702.1768,"y":478,"text":"3×","anchor":"middle","strong":false},{"x":380,"y":508,"text":"Charges relative to the typical hospital, unadjusted","anchor":"middle","strong":true}],"guides":[{"x1":179.1216,"y1":30,"x2":179.1216,"y2":460},{"x1":297.486,"y1":30,"x2":297.486,"y2":460},{"x1":381.467,"y1":30,"x2":381.467,"y2":460},{"x1":499.8314,"y1":30,"x2":499.8314,"y2":460},{"x1":583.8123,"y1":30,"x2":583.8123,"y2":460},{"x1":702.1768,"y1":30,"x2":702.1768,"y2":460}]},{"readout":"Blue moved closer to the typical hospital; ochre moved further away","labels":[{"x":179.1216,"y":478,"text":"0.5×","anchor":"middle","strong":false},{"x":297.486,"y":478,"text":"0.75×","anchor":"middle","strong":false},{"x":381.467,"y":478,"text":"1×","anchor":"middle","strong":true},{"x":499.8314,"y":478,"text":"1.5×","anchor":"middle","strong":false},{"x":583.8123,"y":478,"text":"2×","anchor":"middle","strong":false},{"x":702.1768,"y":478,"text":"3×","anchor":"middle","strong":false},{"x":380,"y":508,"text":"Charges relative to the typical hospital, adjusted","anchor":"middle","strong":true}],"guides":[{"x1":179.1216,"y1":30,"x2":179.1216,"y2":460},{"x1":297.486,"y1":30,"x2":297.486,"y2":460},{"x1":381.467,"y1":30,"x2":381.467,"y2":460},{"x1":499.8314,"y1":30,"x2":499.8314,"y2":460},{"x1":583.8123,"y1":30,"x2":583.8123,"y2":460},{"x1":702.1768,"y1":30,"x2":702.1768,"y2":460}]},{"readout":"After adjustment · 90th ÷ 10th percentile: 2.2×","labels":[{"x":179.1216,"y":478,"text":"0.5×","anchor":"middle","strong":false},{"x":297.486,"y":478,"text":"0.75×","anchor":"middle","strong":false},{"x":381.467,"y":478,"text":"1×","anchor":"middle","strong":true},{"x":499.8314,"y":478,"text":"1.5×","anchor":"middle","strong":false},{"x":583.8123,"y":478,"text":"2×","anchor":"middle","strong":false},{"x":702.1768,"y":478,"text":"3×","anchor":"middle","strong":false},{"x":380,"y":508,"text":"Charges relative to the typical hospital, adjusted","anchor":"middle","strong":true}],"guides":[{"x1":179.1216,"y1":30,"x2":179.1216,"y2":460},{"x1":297.486,"y1":30,"x2":297.486,"y2":460},{"x1":381.467,"y1":30,"x2":381.467,"y2":460},{"x1":499.8314,"y1":30,"x2":499.8314,"y2":460},{"x1":583.8123,"y1":30,"x2":583.8123,"y2":460},{"x1":702.1768,"y1":30,"x2":702.1768,"y2":460}]}]}
+</script>
+</div>
+<div class="scrolly-steps">
+<div class="step">
+<p><span class="step-n">01</span></p>
+<div id="before." class="section level3">
+<h3>Before.</h3>
+<p>Each hospital compared with the typical hospital, using raw charges.
+<span class="demo-badge">Demo</span></p>
+</div>
+</div>
+<div class="step">
+<p><span class="step-n">02</span></p>
+<div id="same-patients-same-yardstick." class="section level3">
+<h3>Same patients, same yardstick.</h3>
+<p>Each dot slides to where the hospital sits once severity, age and
+length of stay are held equal. Some move toward the middle. Some move
+away.</p>
+</div>
+</div>
+<div class="step">
+<p><span class="step-n">03</span></p>
+<div id="after." class="section level3">
+<h3>After.</h3>
+<p>Re-ranked on the adjusted comparison. What is left is the difference
+patients do not explain. <a href="q2_adjusted.html">See the full
+Question 2 analysis →</a></p>
+</div>
+</div>
+</div>
+</div>
+<!-- =====================  6. Question 3  ===================== -->
+<div class="screen scrolly-intro">
+<p><span class="eyebrow">Question 3</span></p>
+<div id="is-an-expensive-hospital-expensive-for-everything"
+class="section level2">
+<h2>Is an expensive hospital expensive for everything?</h2>
+<p><span class="lede">One row per hospital, one column per condition.
+Ochre is above the state median, blue is below, grey means too few cases
+to say.</span></p>
+</div>
+</div>
+<div class="scrolly">
+<div class="scrolly-graphic">
+<svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospitals by condition heatmap, simulated data">
+</svg>
+<div class="scrolly-readout">
+
+</div>
+<script type="application/json">
+{"marks":[{"label":"Demo Hospital 28 · Heart failure: 0.79× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":56,"fill":"#B9AED8","o":0.1},{"x":190,"y":56,"fill":"#B9AED8","o":1},{"x":190,"y":333.5,"fill":"#B9AED8","o":1}]},{"label":"Demo Hospital 28 · Respiratory infection: 0.71× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":56,"fill":"#9D91D3","o":0.1},{"x":300,"y":56,"fill":"#9D91D3","o":1},{"x":300,"y":333.5,"fill":"#9D91D3","o":1}]},{"label":"Demo Hospital 28 · Kidney/UTI: 0.76× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":56,"fill":"#B0A5D6","o":0.1},{"x":410,"y":56,"fill":"#B0A5D6","o":1},{"x":410,"y":333.5,"fill":"#B0A5D6","o":1}]},{"label":"Demo Hospital 28 · Stroke: 0.76× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":56,"fill":"#AFA3D6","o":0.1},{"x":520,"y":56,"fill":"#AFA3D6","o":1},{"x":520,"y":333.5,"fill":"#AFA3D6","o":1}]},{"label":"Demo Hospital 28 · Sepsis: 1.11× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":56,"fill":"#F1DFC7","o":0.1},{"x":630,"y":56,"fill":"#F1DFC7","o":1},{"x":630,"y":333.5,"fill":"#F1DFC7","o":1}]},{"label":"Demo Hospital 32 · Heart failure: 1.62× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":74.5,"fill":"#E5AE66","o":0.1},{"x":190,"y":74.5,"fill":"#E5AE66","o":1},{"x":190,"y":167,"fill":"#E5AE66","o":1}]},{"label":"Demo Hospital 32 · Respiratory infection: 1.15× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":74.5,"fill":"#F1DBBE","o":0.1},{"x":300,"y":74.5,"fill":"#F1DBBE","o":1},{"x":300,"y":167,"fill":"#F1DBBE","o":1}]},{"label":"Demo Hospital 32 · Kidney/UTI: 1.23× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":74.5,"fill":"#EFD1AB","o":0.1},{"x":410,"y":74.5,"fill":"#EFD1AB","o":1},{"x":410,"y":167,"fill":"#EFD1AB","o":1}]},{"label":"Demo Hospital 32 · Stroke: 0.97× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":74.5,"fill":"#EBE6E1","o":0.1},{"x":520,"y":74.5,"fill":"#EBE6E1","o":1},{"x":520,"y":167,"fill":"#EBE6E1","o":1}]},{"label":"Demo Hospital 32 · Sepsis: 1.14× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":74.5,"fill":"#F1DCC0","o":0.1},{"x":630,"y":74.5,"fill":"#F1DCC0","o":1},{"x":630,"y":167,"fill":"#F1DCC0","o":1}]},{"label":"Demo Hospital 35 · Heart failure: 1.12× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":93,"fill":"#F1DEC4","o":0.1},{"x":190,"y":93,"fill":"#F1DEC4","o":1},{"x":190,"y":259.5,"fill":"#F1DEC4","o":1}]},{"label":"Demo Hospital 35 · Respiratory infection: 1.24× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":93,"fill":"#EFD0A9","o":0.1},{"x":300,"y":93,"fill":"#EFD0A9","o":1},{"x":300,"y":259.5,"fill":"#EFD0A9","o":1}]},{"label":"Demo Hospital 35 · Kidney/UTI: 0.85× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":93,"fill":"#CBC1DB","o":0.1},{"x":410,"y":93,"fill":"#CBC1DB","o":1},{"x":410,"y":259.5,"fill":"#CBC1DB","o":1}]},{"label":"Demo Hospital 35 · Stroke: 0.72× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":93,"fill":"#A296D4","o":0.1},{"x":520,"y":93,"fill":"#A296D4","o":1},{"x":520,"y":259.5,"fill":"#A296D4","o":1}]},{"label":"Demo Hospital 35 · Sepsis: 0.88× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":93,"fill":"#D3CADD","o":0.1},{"x":630,"y":93,"fill":"#D3CADD","o":1},{"x":630,"y":259.5,"fill":"#D3CADD","o":1}]},{"label":"Demo Hospital 45 · Heart failure: 0.6× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":111.5,"fill":"#6E68CA","o":0.1},{"x":190,"y":111.5,"fill":"#6E68CA","o":1},{"x":190,"y":370.5,"fill":"#6E68CA","o":1}]},{"label":"Demo Hospital 45 · Respiratory infection: 0.71× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":111.5,"fill":"#9D91D3","o":0.1},{"x":300,"y":111.5,"fill":"#9D91D3","o":1},{"x":300,"y":370.5,"fill":"#9D91D3","o":1}]},{"label":"Demo Hospital 45 · Kidney/UTI: 0.78× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":111.5,"fill":"#B5AAD7","o":0.1},{"x":410,"y":111.5,"fill":"#B5AAD7","o":1},{"x":410,"y":370.5,"fill":"#B5AAD7","o":1}]},{"label":"Demo Hospital 45 · Stroke: 0.87× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":111.5,"fill":"#D0C7DC","o":0.1},{"x":520,"y":111.5,"fill":"#D0C7DC","o":1},{"x":520,"y":370.5,"fill":"#D0C7DC","o":1}]},{"label":"Demo Hospital 45 · Sepsis: 0.53× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":111.5,"fill":"#434DC3","o":0.1},{"x":630,"y":111.5,"fill":"#434DC3","o":1},{"x":630,"y":370.5,"fill":"#434DC3","o":1}]},{"label":"Demo Hospital 49 · Heart failure: 0.76× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":130,"fill":"#B0A4D6","o":0.1},{"x":190,"y":130,"fill":"#B0A4D6","o":1},{"x":190,"y":407.5,"fill":"#B0A4D6","o":1}]},{"label":"Demo Hospital 49 · Respiratory infection: 0.59× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":130,"fill":"#6B66C9","o":0.1},{"x":300,"y":130,"fill":"#6B66C9","o":1},{"x":300,"y":407.5,"fill":"#6B66C9","o":1}]},{"label":"Demo Hospital 49 · Kidney/UTI: 0.54× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":130,"fill":"#4B51C4","o":0.1},{"x":410,"y":130,"fill":"#4B51C4","o":1},{"x":410,"y":407.5,"fill":"#4B51C4","o":1}]},{"label":"Demo Hospital 49 · Stroke: 0.64× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":130,"fill":"#8077CD","o":0.1},{"x":520,"y":130,"fill":"#8077CD","o":1},{"x":520,"y":407.5,"fill":"#8077CD","o":1}]},{"label":"Demo Hospital 49 · Sepsis: 0.75× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":130,"fill":"#ACA0D5","o":0.1},{"x":630,"y":130,"fill":"#ACA0D5","o":1},{"x":630,"y":407.5,"fill":"#ACA0D5","o":1}]},{"label":"Demo Hospital 51 · Heart failure: 0.96× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":148.5,"fill":"#E7E1E0","o":0.1},{"x":190,"y":148.5,"fill":"#E7E1E0","o":1},{"x":190,"y":278,"fill":"#E7E1E0","o":1}]},{"label":"Demo Hospital 51 · Respiratory infection: 0.84× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":148.5,"fill":"#C8BEDB","o":0.1},{"x":300,"y":148.5,"fill":"#C8BEDB","o":1},{"x":300,"y":278,"fill":"#C8BEDB","o":1}]},{"label":"Demo Hospital 51 · Kidney/UTI: 0.79× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":148.5,"fill":"#B7ACD8","o":0.1},{"x":410,"y":148.5,"fill":"#B7ACD8","o":1},{"x":410,"y":278,"fill":"#B7ACD8","o":1}]},{"label":"Demo Hospital 51 · Stroke: 1.22× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":148.5,"fill":"#F0D3AE","o":0.1},{"x":520,"y":148.5,"fill":"#F0D3AE","o":1},{"x":520,"y":278,"fill":"#F0D3AE","o":1}]},{"label":"Demo Hospital 51 · Sepsis: 0.95× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":148.5,"fill":"#E6E0E0","o":0.1},{"x":630,"y":148.5,"fill":"#E6E0E0","o":1},{"x":630,"y":278,"fill":"#E6E0E0","o":1}]},{"label":"Demo Hospital 55 · Heart failure: 0.7× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":167,"fill":"#9A8ED2","o":0.1},{"x":190,"y":167,"fill":"#9A8ED2","o":1},{"x":190,"y":296.5,"fill":"#9A8ED2","o":1}]},{"label":"Demo Hospital 55 · Respiratory infection: 1.07× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":167,"fill":"#F1E4D1","o":0.1},{"x":300,"y":167,"fill":"#F1E4D1","o":1},{"x":300,"y":296.5,"fill":"#F1E4D1","o":1}]},{"label":"Demo Hospital 55 · Kidney/UTI: 1.03× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":167,"fill":"#F1EADB","o":0.1},{"x":410,"y":167,"fill":"#F1EADB","o":1},{"x":410,"y":296.5,"fill":"#F1EADB","o":1}]},{"label":"Demo Hospital 55 · Stroke: 1.01× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":167,"fill":"#F1ECDF","o":0.1},{"x":520,"y":167,"fill":"#F1ECDF","o":1},{"x":520,"y":296.5,"fill":"#F1ECDF","o":1}]},{"label":"Demo Hospital 55 · Sepsis: 0.88× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":167,"fill":"#D2C9DD","o":0.1},{"x":630,"y":167,"fill":"#D2C9DD","o":1},{"x":630,"y":296.5,"fill":"#D2C9DD","o":1}]},{"label":"Demo Hospital 69 · Heart failure: 0.89× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":185.5,"fill":"#D6CEDD","o":0.1},{"x":190,"y":185.5,"fill":"#D6CEDD","o":1},{"x":190,"y":389,"fill":"#D6CEDD","o":1}]},{"label":"Demo Hospital 69 · Respiratory infection: 0.58× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":185.5,"fill":"#6461C8","o":0.1},{"x":300,"y":185.5,"fill":"#6461C8","o":1},{"x":300,"y":389,"fill":"#6461C8","o":1}]},{"label":"Demo Hospital 69 · Kidney/UTI: 0.58× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":185.5,"fill":"#6360C8","o":0.1},{"x":410,"y":185.5,"fill":"#6360C8","o":1},{"x":410,"y":389,"fill":"#6360C8","o":1}]},{"label":"Demo Hospital 69 · Stroke: 0.76× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":185.5,"fill":"#B0A4D6","o":0.1},{"x":520,"y":185.5,"fill":"#B0A4D6","o":1},{"x":520,"y":389,"fill":"#B0A4D6","o":1}]},{"label":"Demo Hospital 69 · Sepsis: 0.66× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":185.5,"fill":"#897FCF","o":0.1},{"x":630,"y":185.5,"fill":"#897FCF","o":1},{"x":630,"y":389,"fill":"#897FCF","o":1}]},{"label":"Demo Hospital 70 · Heart failure: 1.08× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":204,"fill":"#F1E3CE","o":1},{"x":190,"y":204,"fill":"#F1E3CE","o":1},{"x":190,"y":204,"fill":"#F1E3CE","o":1}]},{"label":"Demo Hospital 70 · Respiratory infection: 0.76× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":204,"fill":"#AFA3D6","o":1},{"x":300,"y":204,"fill":"#AFA3D6","o":1},{"x":300,"y":204,"fill":"#AFA3D6","o":1}]},{"label":"Demo Hospital 70 · Kidney/UTI: 1.07× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":204,"fill":"#F1E4D1","o":1},{"x":410,"y":204,"fill":"#F1E4D1","o":1},{"x":410,"y":204,"fill":"#F1E4D1","o":1}]},{"label":"Demo Hospital 70 · Stroke: 1.51× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":204,"fill":"#E9B778","o":1},{"x":520,"y":204,"fill":"#E9B778","o":1},{"x":520,"y":204,"fill":"#E9B778","o":1}]},{"label":"Demo Hospital 70 · Sepsis: 0.84× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":204,"fill":"#C7BDDB","o":1},{"x":630,"y":204,"fill":"#C7BDDB","o":1},{"x":630,"y":204,"fill":"#C7BDDB","o":1}]},{"label":"Demo Hospital 75 · Heart failure: 1.27× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":222.5,"fill":"#EFCEA5","o":0.1},{"x":190,"y":222.5,"fill":"#EFCEA5","o":1},{"x":190,"y":93,"fill":"#EFCEA5","o":1}]},{"label":"Demo Hospital 75 · Respiratory infection: 1.91× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":222.5,"fill":"#DC9939","o":0.1},{"x":300,"y":222.5,"fill":"#DC9939","o":1},{"x":300,"y":93,"fill":"#DC9939","o":1}]},{"label":"Demo Hospital 75 · Kidney/UTI: 2.07× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":222.5,"fill":"#D9942B","o":0.1},{"x":410,"y":222.5,"fill":"#D9942B","o":1},{"x":410,"y":93,"fill":"#D9942B","o":1}]},{"label":"Demo Hospital 75 · Stroke: 1.86× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":222.5,"fill":"#DE9D41","o":0.1},{"x":520,"y":222.5,"fill":"#DE9D41","o":1},{"x":520,"y":93,"fill":"#DE9D41","o":1}]},{"label":"Demo Hospital 75 · Sepsis: 2.01× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":222.5,"fill":"#D9942B","o":0.1},{"x":630,"y":222.5,"fill":"#D9942B","o":1},{"x":630,"y":93,"fill":"#D9942B","o":1}]},{"label":"Demo Hospital 78 · Heart failure: 1.31× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":241,"fill":"#EEC99C","o":0.1},{"x":190,"y":241,"fill":"#EEC99C","o":1},{"x":190,"y":241,"fill":"#EEC99C","o":1}]},{"label":"Demo Hospital 78 · Respiratory infection: 0.97× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":241,"fill":"#EAE5E1","o":0.1},{"x":300,"y":241,"fill":"#EAE5E1","o":1},{"x":300,"y":241,"fill":"#EAE5E1","o":1}]},{"label":"Demo Hospital 78 · Kidney/UTI: 0.66× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":241,"fill":"#8A7FCF","o":0.1},{"x":410,"y":241,"fill":"#8A7FCF","o":1},{"x":410,"y":241,"fill":"#8A7FCF","o":1}]},{"label":"Demo Hospital 78 · Stroke: 1× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":241,"fill":"#F0ECE2","o":0.1},{"x":520,"y":241,"fill":"#F0ECE2","o":1},{"x":520,"y":241,"fill":"#F0ECE2","o":1}]},{"label":"Demo Hospital 78 · Sepsis: 0.96× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":241,"fill":"#E8E3E1","o":0.1},{"x":630,"y":241,"fill":"#E8E3E1","o":1},{"x":630,"y":241,"fill":"#E8E3E1","o":1}]},{"label":"Demo Hospital 92 · Heart failure: 1.86× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":259.5,"fill":"#DE9D41","o":0.1},{"x":190,"y":259.5,"fill":"#DE9D41","o":1},{"x":190,"y":74.5,"fill":"#DE9D41","o":1}]},{"label":"Demo Hospital 92 · Respiratory infection: 1.93× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":259.5,"fill":"#DB9835","o":0.1},{"x":300,"y":259.5,"fill":"#DB9835","o":1},{"x":300,"y":74.5,"fill":"#DB9835","o":1}]},{"label":"Demo Hospital 92 · Kidney/UTI: 2.08× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":259.5,"fill":"#D9942B","o":0.1},{"x":410,"y":259.5,"fill":"#D9942B","o":1},{"x":410,"y":74.5,"fill":"#D9942B","o":1}]},{"label":"Demo Hospital 92 · Stroke: 1.64× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":259.5,"fill":"#E5AC62","o":0.1},{"x":520,"y":259.5,"fill":"#E5AC62","o":1},{"x":520,"y":74.5,"fill":"#E5AC62","o":1}]},{"label":"Demo Hospital 92 · Sepsis: 1.74× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":259.5,"fill":"#E2A553","o":0.1},{"x":630,"y":259.5,"fill":"#E2A553","o":1},{"x":630,"y":74.5,"fill":"#E2A553","o":1}]},{"label":"Demo Hospital 94 · Heart failure: 1.31× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":278,"fill":"#EECA9C","o":0.1},{"x":190,"y":278,"fill":"#EECA9C","o":1},{"x":190,"y":185.5,"fill":"#EECA9C","o":1}]},{"label":"Demo Hospital 94 · Respiratory infection: 1.21× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":278,"fill":"#F0D4B0","o":0.1},{"x":300,"y":278,"fill":"#F0D4B0","o":1},{"x":300,"y":185.5,"fill":"#F0D4B0","o":1}]},{"label":"Demo Hospital 94 · Kidney/UTI: 1.05× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":278,"fill":"#F1E7D5","o":0.1},{"x":410,"y":278,"fill":"#F1E7D5","o":1},{"x":410,"y":185.5,"fill":"#F1E7D5","o":1}]},{"label":"Demo Hospital 94 · Stroke: 1.75× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":278,"fill":"#E1A451","o":0.1},{"x":520,"y":278,"fill":"#E1A451","o":1},{"x":520,"y":185.5,"fill":"#E1A451","o":1}]},{"label":"Demo Hospital 94 · Sepsis: 0.77× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":278,"fill":"#B2A6D7","o":0.1},{"x":630,"y":278,"fill":"#B2A6D7","o":1},{"x":630,"y":185.5,"fill":"#B2A6D7","o":1}]},{"label":"Demo Hospital 97 · Heart failure: 0.62× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":296.5,"fill":"#7770CB","o":0.1},{"x":190,"y":296.5,"fill":"#7770CB","o":1},{"x":190,"y":426,"fill":"#7770CB","o":1}]},{"label":"Demo Hospital 97 · Respiratory infection: 0.55× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":296.5,"fill":"#4F53C4","o":0.1},{"x":300,"y":296.5,"fill":"#4F53C4","o":1},{"x":300,"y":426,"fill":"#4F53C4","o":1}]},{"label":"Demo Hospital 97 · Kidney/UTI: 0.58× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":296.5,"fill":"#615FC7","o":0.1},{"x":410,"y":296.5,"fill":"#615FC7","o":1},{"x":410,"y":426,"fill":"#615FC7","o":1}]},{"label":"Demo Hospital 97 · Stroke: 0.38× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":296.5,"fill":"#1F3FBF","o":0.1},{"x":520,"y":296.5,"fill":"#1F3FBF","o":1},{"x":520,"y":426,"fill":"#1F3FBF","o":1}]},{"label":"Demo Hospital 97 · Sepsis: 0.57× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":296.5,"fill":"#605EC7","o":0.1},{"x":630,"y":296.5,"fill":"#605EC7","o":1},{"x":630,"y":426,"fill":"#605EC7","o":1}]},{"label":"Demo Hospital 98 · Heart failure: 0.73× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":315,"fill":"#A69BD4","o":0.1},{"x":190,"y":315,"fill":"#A69BD4","o":1},{"x":190,"y":352,"fill":"#A69BD4","o":1}]},{"label":"Demo Hospital 98 · Respiratory infection: 0.88× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":315,"fill":"#D4CBDD","o":0.1},{"x":300,"y":315,"fill":"#D4CBDD","o":1},{"x":300,"y":352,"fill":"#D4CBDD","o":1}]},{"label":"Demo Hospital 98 · Kidney/UTI: 0.62× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":315,"fill":"#7A72CC","o":0.1},{"x":410,"y":315,"fill":"#7A72CC","o":1},{"x":410,"y":352,"fill":"#7A72CC","o":1}]},{"label":"Demo Hospital 98 · Stroke: 0.58× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":315,"fill":"#6360C8","o":0.1},{"x":520,"y":315,"fill":"#6360C8","o":1},{"x":520,"y":352,"fill":"#6360C8","o":1}]},{"label":"Demo Hospital 98 · Sepsis: 0.67× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":315,"fill":"#8D83D0","o":0.1},{"x":630,"y":315,"fill":"#8D83D0","o":1},{"x":630,"y":352,"fill":"#8D83D0","o":1}]},{"label":"Demo Hospital 110 · Heart failure: 2.14× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":333.5,"fill":"#D9942B","o":0.1},{"x":190,"y":333.5,"fill":"#D9942B","o":1},{"x":190,"y":111.5,"fill":"#D9942B","o":1}]},{"label":"Demo Hospital 110 · Respiratory infection: 1.85× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":333.5,"fill":"#DE9D42","o":0.1},{"x":300,"y":333.5,"fill":"#DE9D42","o":1},{"x":300,"y":111.5,"fill":"#DE9D42","o":1}]},{"label":"Demo Hospital 110 · Kidney/UTI: 1.96× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":333.5,"fill":"#DA9631","o":0.1},{"x":410,"y":333.5,"fill":"#DA9631","o":1},{"x":410,"y":111.5,"fill":"#DA9631","o":1}]},{"label":"Demo Hospital 110 · Stroke: 1.64× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":333.5,"fill":"#E5AC62","o":0.1},{"x":520,"y":333.5,"fill":"#E5AC62","o":1},{"x":520,"y":111.5,"fill":"#E5AC62","o":1}]},{"label":"Demo Hospital 110 · Sepsis: 1.21× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":333.5,"fill":"#F0D4B0","o":0.1},{"x":630,"y":333.5,"fill":"#F0D4B0","o":1},{"x":630,"y":111.5,"fill":"#F0D4B0","o":1}]},{"label":"Demo Hospital 111 · Heart failure: 2.21× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":352,"fill":"#D9942B","o":0.1},{"x":190,"y":352,"fill":"#D9942B","o":1},{"x":190,"y":56,"fill":"#D9942B","o":1}]},{"label":"Demo Hospital 111 · Respiratory infection: 2.24× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":352,"fill":"#D9942B","o":0.1},{"x":300,"y":352,"fill":"#D9942B","o":1},{"x":300,"y":56,"fill":"#D9942B","o":1}]},{"label":"Demo Hospital 111 · Kidney/UTI: 1.51× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":352,"fill":"#E9B777","o":0.1},{"x":410,"y":352,"fill":"#E9B777","o":1},{"x":410,"y":56,"fill":"#E9B777","o":1}]},{"label":"Demo Hospital 111 · Stroke: 1.82× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":352,"fill":"#DFA047","o":0.1},{"x":520,"y":352,"fill":"#DFA047","o":1},{"x":520,"y":56,"fill":"#DFA047","o":1}]},{"label":"Demo Hospital 111 · Sepsis: 2.52× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":352,"fill":"#D9942B","o":0.1},{"x":630,"y":352,"fill":"#D9942B","o":1},{"x":630,"y":56,"fill":"#D9942B","o":1}]},{"label":"Demo Hospital 115 · Heart failure: 0.9× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":370.5,"fill":"#D9D1DE","o":0.1},{"x":190,"y":370.5,"fill":"#D9D1DE","o":1},{"x":190,"y":315,"fill":"#D9D1DE","o":1}]},{"label":"Demo Hospital 115 · Respiratory infection: 0.83× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":370.5,"fill":"#C5BBDA","o":0.1},{"x":300,"y":370.5,"fill":"#C5BBDA","o":1},{"x":300,"y":315,"fill":"#C5BBDA","o":1}]},{"label":"Demo Hospital 115 · Kidney/UTI: 0.65× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":370.5,"fill":"#887ECF","o":0.1},{"x":410,"y":370.5,"fill":"#887ECF","o":1},{"x":410,"y":315,"fill":"#887ECF","o":1}]},{"label":"Demo Hospital 115 · Stroke: 0.95× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":370.5,"fill":"#E5DFE0","o":0.1},{"x":520,"y":370.5,"fill":"#E5DFE0","o":1},{"x":520,"y":315,"fill":"#E5DFE0","o":1}]},{"label":"Demo Hospital 115 · Sepsis: 1.09× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":370.5,"fill":"#F1E2CB","o":0.1},{"x":630,"y":370.5,"fill":"#F1E2CB","o":1},{"x":630,"y":315,"fill":"#F1E2CB","o":1}]},{"label":"Demo Hospital 116 · Heart failure: 0.97× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":389,"fill":"#EBE6E1","o":0.1},{"x":190,"y":389,"fill":"#EBE6E1","o":1},{"x":190,"y":222.5,"fill":"#EBE6E1","o":1}]},{"label":"Demo Hospital 116 · Respiratory infection: 1.13× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":389,"fill":"#F1DDC3","o":0.1},{"x":300,"y":389,"fill":"#F1DDC3","o":1},{"x":300,"y":222.5,"fill":"#F1DDC3","o":1}]},{"label":"Demo Hospital 116 · Kidney/UTI: 1.01× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":389,"fill":"#F1EBDF","o":0.1},{"x":410,"y":389,"fill":"#F1EBDF","o":1},{"x":410,"y":222.5,"fill":"#F1EBDF","o":1}]},{"label":"Demo Hospital 116 · Stroke: 1.05× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":389,"fill":"#F1E6D4","o":0.1},{"x":520,"y":389,"fill":"#F1E6D4","o":1},{"x":520,"y":222.5,"fill":"#F1E6D4","o":1}]},{"label":"Demo Hospital 116 · Sepsis: 0.89× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":389,"fill":"#D6CDDD","o":0.1},{"x":630,"y":389,"fill":"#D6CDDD","o":1},{"x":630,"y":222.5,"fill":"#D6CDDD","o":1}]},{"label":"Demo Hospital 119 · Heart failure: 1.8× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":407.5,"fill":"#E0A14A","o":0.1},{"x":190,"y":407.5,"fill":"#E0A14A","o":1},{"x":190,"y":130,"fill":"#E0A14A","o":1}]},{"label":"Demo Hospital 119 · Respiratory infection: 1.49× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":407.5,"fill":"#E9B97B","o":0.1},{"x":300,"y":407.5,"fill":"#E9B97B","o":1},{"x":300,"y":130,"fill":"#E9B97B","o":1}]},{"label":"Demo Hospital 119 · Kidney/UTI: 1.97× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":407.5,"fill":"#DA962F","o":0.1},{"x":410,"y":407.5,"fill":"#DA962F","o":1},{"x":410,"y":130,"fill":"#DA962F","o":1}]},{"label":"Demo Hospital 119 · Stroke: 1.55× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":407.5,"fill":"#E8B472","o":0.1},{"x":520,"y":407.5,"fill":"#E8B472","o":1},{"x":520,"y":130,"fill":"#E8B472","o":1}]},{"label":"Demo Hospital 119 · Sepsis: 1.4× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":407.5,"fill":"#ECC18B","o":0.1},{"x":630,"y":407.5,"fill":"#ECC18B","o":1},{"x":630,"y":130,"fill":"#ECC18B","o":1}]},{"label":"Demo Hospital 129 · Heart failure: 0.26× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":426,"fill":"#1F3FBF","o":0.1},{"x":190,"y":426,"fill":"#1F3FBF","o":1},{"x":190,"y":444.5,"fill":"#1F3FBF","o":1}]},{"label":"Demo Hospital 129 · Respiratory infection: 0.62× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":426,"fill":"#7870CC","o":0.1},{"x":300,"y":426,"fill":"#7870CC","o":1},{"x":300,"y":444.5,"fill":"#7870CC","o":1}]},{"label":"Demo Hospital 129 · Kidney/UTI: 0.62× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":426,"fill":"#7870CB","o":0.1},{"x":410,"y":426,"fill":"#7870CB","o":1},{"x":410,"y":444.5,"fill":"#7870CB","o":1}]},{"label":"Demo Hospital 129 · Stroke: 0.5× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":426,"fill":"#1F3FBF","o":0.1},{"x":520,"y":426,"fill":"#1F3FBF","o":1},{"x":520,"y":444.5,"fill":"#1F3FBF","o":1}]},{"label":"Demo Hospital 129 · Sepsis: 0.56× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":426,"fill":"#5859C6","o":0.1},{"x":630,"y":426,"fill":"#5859C6","o":1},{"x":630,"y":444.5,"fill":"#5859C6","o":1}]},{"label":"Demo Hospital 173 · Heart failure: 1.41× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":190,"y":444.5,"fill":"#EBC089","o":0.1},{"x":190,"y":444.5,"fill":"#EBC089","o":1},{"x":190,"y":148.5,"fill":"#EBC089","o":1}]},{"label":"Demo Hospital 173 · Respiratory infection: 1.19× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":300,"y":444.5,"fill":"#F0D6B4","o":0.1},{"x":300,"y":444.5,"fill":"#F0D6B4","o":1},{"x":300,"y":148.5,"fill":"#F0D6B4","o":1}]},{"label":"Demo Hospital 173 · Kidney/UTI: 1.26× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":410,"y":444.5,"fill":"#EFCEA5","o":0.1},{"x":410,"y":444.5,"fill":"#EFCEA5","o":1},{"x":410,"y":148.5,"fill":"#EFCEA5","o":1}]},{"label":"Demo Hospital 173 · Stroke: 1.26× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":520,"y":444.5,"fill":"#EFCEA6","o":0.1},{"x":520,"y":444.5,"fill":"#EFCEA6","o":1},{"x":520,"y":148.5,"fill":"#EFCEA6","o":1}]},{"label":"Demo Hospital 173 · Sepsis: 1.06× the state median","shape":"rect","r":null,"w":104,"h":15,"s":[{"x":630,"y":444.5,"fill":"#F1E5D3","o":0.1},{"x":630,"y":444.5,"fill":"#F1E5D3","o":1},{"x":630,"y":148.5,"fill":"#F1E5D3","o":1}]}],"states":[{"readout":"One hospital, five conditions · simulated","labels":[{"x":242,"y":40,"text":"Heart failure","anchor":"middle","strong":true},{"x":352,"y":40,"text":"Respiratory","anchor":"middle","strong":true},{"x":462,"y":40,"text":"Kidney/UTI","anchor":"middle","strong":true},{"x":572,"y":40,"text":"Stroke","anchor":"middle","strong":true},{"x":682,"y":40,"text":"Sepsis","anchor":"middle","strong":true},{"x":462,"y":489.5,"text":"blue: below the state median · ochre: above · grey: fewer than 30 stays","anchor":"middle","strong":false},{"x":176,"y":216,"text":"One hospital","anchor":"end","strong":false}],"guides":[]},{"readout":"22 hospitals, in no particular order","labels":[{"x":242,"y":40,"text":"Heart failure","anchor":"middle","strong":true},{"x":352,"y":40,"text":"Respiratory","anchor":"middle","strong":true},{"x":462,"y":40,"text":"Kidney/UTI","anchor":"middle","strong":true},{"x":572,"y":40,"text":"Stroke","anchor":"middle","strong":true},{"x":682,"y":40,"text":"Sepsis","anchor":"middle","strong":true},{"x":462,"y":489.5,"text":"blue: below the state median · ochre: above · grey: fewer than 30 stays","anchor":"middle","strong":false}],"guides":[]},{"readout":"Sorted by how expensive each hospital is on average","labels":[{"x":242,"y":40,"text":"Heart failure","anchor":"middle","strong":true},{"x":352,"y":40,"text":"Respiratory","anchor":"middle","strong":true},{"x":462,"y":40,"text":"Kidney/UTI","anchor":"middle","strong":true},{"x":572,"y":40,"text":"Stroke","anchor":"middle","strong":true},{"x":682,"y":40,"text":"Sepsis","anchor":"middle","strong":true},{"x":462,"y":489.5,"text":"blue: below the state median · ochre: above · grey: fewer than 30 stays","anchor":"middle","strong":false},{"x":176,"y":68,"text":"High across the board","anchor":"end","strong":false},{"x":176,"y":456.5,"text":"Low across the board","anchor":"end","strong":false}],"guides":[]}]}
+</script>
+</div>
+<div class="scrolly-steps">
+<div class="step">
+<p><span class="step-n">01</span></p>
+<div id="one-hospital-five-bills." class="section level3">
+<h3>One hospital, five bills.</h3>
+<p>Read across the row: is this hospital above or below the state median
+for each condition? <span class="demo-badge">Demo</span></p>
+</div>
+</div>
+<div class="step">
+<p><span class="step-n">02</span></p>
+<div id="every-hospital." class="section level3">
+<h3>Every hospital.</h3>
+<p>In no particular order, the picture looks like noise.</p>
+</div>
+</div>
+<div class="step">
+<p><span class="step-n">03</span></p>
+<div id="sorted." class="section level3">
+<h3>Sorted.</h3>
+<p>Put the most expensive hospitals at the top. Rows that keep one
+colour all the way across are consistently high or consistently low. <a
+href="q3_consistency.html">See the full Question 3 analysis →</a></p>
+</div>
+</div>
+</div>
+</div>
+<!-- =====================  7. Map  ===================== -->
+<div class="screen is-tinted">
+<div class="two-col">
+<div>
+<p><span class="eyebrow">Where they are</span></p>
+<div id="hospitals-across-new-york." class="section level2">
+<h2>Hospitals across New York.</h2>
+<p><span class="lede">Each point is a hospital, coloured by how its
+typical charge compares with the state median. The interactive version
+is in the dashboard.</span></p>
+<p><a href="dashboard.html#map" class="btn-bill">Open the map</a></p>
+</div>
+</div>
+<div class="reveal">
+<p><img src="index_files/figure-html/home_map-1.png" alt="Simulated hospital locations in New York State" width="960" /></p>
+</div>
+</div>
+</div>
+<!-- =====================  8. Dashboard  ===================== -->
+<div class="screen is-dark is-short">
+<p><span class="eyebrow">Explore</span></p>
+<div id="look-up-any-hospital." class="section level2">
+<h2>Look up any hospital.</h2>
+<p><span class="lede">Rankings with confidence intervals, volume against
+cost, the map, the cross-condition grid and a cost estimator, for each
+of the five conditions.</span></p>
+<p style="margin-top: 34px;">
+<a class="btn-bill on-dark" href="dashboard.html">Open the dashboard</a>
+</p>
+</div>
+</div>
+<!-- =====================  9. Screencast and team  ===================== -->
+<div class="screen">
+<div class="two-col is-top">
+<div>
+<p><span class="eyebrow">Two-minute tour</span></p>
+<div id="watch-the-screencast." class="section level2">
+<h2>Watch the screencast.</h2>
+<!-- TODO (team): replace the box with the YouTube / Vimeo embed -->
+<div class="placeholder-box">
+Screencast goes here<br>(2 minutes, embedded video)
+</div>
+</div>
+</div>
+<div>
+<p><span class="eyebrow">The project</span></p>
+<div id="read-reproduce-reuse." class="section level2">
+<h2>Read, reproduce, reuse.</h2>
+<p>Everything on this site is built from code in one repository: data
+download, cleaning, analysis and these pages.</p>
+<p style="margin: 28px 0 14px;">
+<a class="btn-bill" href="https://github.com/zw3268/p8105_final_website_zw3268">Code
+on GitHub</a>
+</p>
+<p><a href="report.html">Full report</a> · <a href="data.html">Data and
+methods</a> · <a href="team.html">Team</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="site-footer">
+  P8105 Data Science I · Columbia Mailman School of Public Health · Fall 2026 ·
+  Data: New York State Department of Health, SPARCS 2023 ·
+  Charges are billed amounts, not what patients paid.
+</div>
+<script src="js/site.js"></script>
 
 
 

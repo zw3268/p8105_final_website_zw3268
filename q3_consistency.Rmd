@@ -1,0 +1,62 @@
+---
+pagetitle: "Q3 · Across conditions"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.retina = 2, dpi = 150, fig.width = 8, fig.height = 4.2)
+
+source("R/site_helpers.R")
+```
+
+<div class="page-head">
+<span class="eyebrow">Question 3</span>
+<div class="page-title" role="heading" aria-level="1">Is an expensive hospital expensive for everything?</div>
+<p class="lede">We rank hospitals within each condition and ask whether the rankings agree.</p>
+</div>
+
+::: {.takeaway}
+[Key finding `r demo_badge`]{.k}
+Placeholder: one sentence on how strongly hospital rankings agree across conditions.
+:::
+
+## Approach
+
+Placeholder text. Rank correlations for each pair of conditions, using only hospitals with at least 30 stays in both; the number of hospitals in each pair is reported.
+
+## Do the rankings agree?
+
+```{r correlation_placeholder}
+placeholder_fig("Figure 1. Spearman correlation between conditions\nbefore and after adjustment, with bootstrap intervals")
+```
+
+Placeholder text.
+
+## Hospital by condition
+
+```{r heatmap_placeholder, fig.height = 5.4}
+placeholder_fig("Figure 2. Heatmap of hospitals × conditions\ngrey cells where a hospital has too few cases")
+```
+
+Placeholder text. An interactive version is in the [dashboard](dashboard.html).
+
+## Consistently high, consistently low
+
+```{r top_bottom_placeholder}
+placeholder_fig("Table 1. The ten most and ten least expensive hospitals\nacross all five conditions")
+```
+
+Placeholder text, including the comparison with a shuffled baseline.
+
+## What to keep in mind
+
+- Only hospitals with enough cases in every condition can be compared across all five.
+- Agreement in charges does not have to mean agreement in costs; both are reported.
+
+Back to the [overview](index.html), or open the [dashboard](dashboard.html).

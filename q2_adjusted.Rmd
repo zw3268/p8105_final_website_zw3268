@@ -1,0 +1,78 @@
+---
+pagetitle: "Q2 · After accounting for patients"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.retina = 2, dpi = 150, fig.width = 8, fig.height = 4.2)
+
+source("R/site_helpers.R")
+```
+
+<div class="page-head">
+<span class="eyebrow">Question 2</span>
+<div class="page-title" role="heading" aria-level="1">What changes once we account for patients?</div>
+<p class="lede">Hospitals treat different patients. We compare hospitals again after adjusting for severity of illness, age group and length of stay, on the same stays and the same scale.</p>
+</div>
+
+::: {.takeaway}
+[Key finding `r demo_badge`]{.k}
+Placeholder: one sentence on how the spread between hospitals compares before and after adjustment. The direction is not assumed in advance.
+:::
+
+## Approach
+
+Placeholder text. For each condition we fit models on the log scale, on the same sample and the same set of hospitals:
+
+```{r model_formulas, eval = FALSE}
+# TODO (Q2 owner): the models as actually fitted
+lm(log(charges) ~ hospital, data = condition_data)
+lm(log(charges) ~ hospital + severity + age_group + los, data = condition_data)
+```
+
+The comparison uses the spread of the hospital coefficients from each model.
+
+## Before and after
+
+```{r before_after_placeholder}
+placeholder_fig("Figure 1. Spread of hospital differences\nunadjusted vs. adjusted, by condition")
+```
+
+Placeholder text: how much of the gap remains, reported as effect sizes rather than p-values.
+
+## What the patient variables do
+
+```{r coefficients_placeholder}
+placeholder_fig("Figure 2. Coefficients for severity, age group\nand length of stay, by condition")
+```
+
+Placeholder text.
+
+## Does knowing the hospital improve prediction?
+
+```{r cv_placeholder}
+placeholder_fig("Figure 3. Cross-validated RMSE\nmodels with and without hospital; linear vs. piecewise length of stay")
+```
+
+Placeholder text: cross-validation setup and what the comparison shows.
+
+## Public and nonprofit hospitals
+
+```{r ownership_placeholder}
+placeholder_fig("Figure 4. Adjusted differences by ownership\nwithin each region")
+```
+
+Placeholder text. This question was added during the project; the report explains why.
+
+## What to keep in mind
+
+- Length of stay may itself reflect hospital practice, so results describe differences among stays of similar length.
+- The data are observational. We describe differences; we do not claim causes.
+
+Next: [is an expensive hospital expensive for everything? →](q3_consistency.html)

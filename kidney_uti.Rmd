@@ -1,0 +1,11 @@
+---
+pagetitle: "Kidney and urinary tract infections"
+---
+
+```{r, include = FALSE}
+this_condition = "Kidney/UTI"
+this_note = "A common infection-related admission, usually with shorter stays than the other four conditions."
+```
+
+```{r, child = "_condition.Rmd"}
+```

@@ -1,0 +1,71 @@
+```{r condition_setup, include = FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.retina = 2, dpi = 150, fig.width = 8, fig.height = 4)
+
+source("R/site_helpers.R")
+
+# Counts from the team's data check (before cleaning)
+condition_facts =
+  tribble(
+    ~condition, ~full_name, ~apr_drg, ~discharges, ~hospitals, ~hospitals_30,
+    "Heart failure", "Heart failure", "194", 59668, 189, 159,
+    "Respiratory infection", "Major respiratory infections", "137", 35044, 190, 156,
+    "Kidney/UTI", "Kidney and urinary tract infections", "463", 30248, 188, 148,
+    "Stroke", "Ischemic stroke", "045", 26529, 182, 126,
+    "Sepsis", "Sepsis", "720", 131139, 187, 164
+  ) |>
+  filter(condition == this_condition) |>
+  mutate(across(c(discharges, hospitals, hospitals_30), as.integer))
+```
+
+<div class="page-head">
+<span class="eyebrow">Condition · APR-DRG `r condition_facts$apr_drg`</span>
+<div class="page-title" role="heading" aria-level="1">`r condition_facts$full_name`</div>
+<p class="lede">`r this_note`</p>
+</div>
+
+:::: {.ledger}
+::: {.ledger-item}
+<span class="v" data-count="`r condition_facts$discharges`">`r scales::label_comma()(condition_facts$discharges)`</span>
+[discharges in 2023]{.k}
+:::
+::: {.ledger-item}
+<span class="v" data-count="`r condition_facts$hospitals`">`r condition_facts$hospitals`</span>
+[hospitals with at least one stay]{.k}
+:::
+::: {.ledger-item}
+<span class="v" data-count="`r condition_facts$hospitals_30`">`r condition_facts$hospitals_30`</span>
+[hospitals with 30 or more stays]{.k}
+:::
+::::
+
+## How far apart are hospitals?
+
+```{r condition_q1}
+placeholder_fig(str_c("Figure 1. Hospital ranking with bootstrap intervals\n", condition_facts$full_name))
+```
+
+Placeholder paragraph written by this condition's owner: the size of the gap and anything unusual about it. `r demo_badge`
+
+## After accounting for patients
+
+```{r condition_q2}
+placeholder_fig(str_c("Figure 2. Unadjusted vs. adjusted hospital differences\n", condition_facts$full_name))
+```
+
+Placeholder paragraph.
+
+## Compared with the other conditions
+
+```{r condition_q3}
+placeholder_fig(str_c("Figure 3. Where this condition's ranking agrees\nand disagrees with the others"))
+```
+
+Placeholder paragraph.
+
+## Notes for this condition
+
+Placeholder: coding quirks, patient mix, anything a reader should know before comparing hospitals.
+
+[All findings for Question 1](q1_gaps.html) · [Question 2](q2_adjusted.html) · [Question 3](q3_consistency.html)

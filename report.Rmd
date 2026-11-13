@@ -1,0 +1,105 @@
+---
+pagetitle: "Report"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+<script>document.body.classList.add("reading");</script>
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, fig.retina = 2, dpi = 150, fig.width = 8, fig.height = 4.2)
+
+source("R/site_helpers.R")
+```
+
+<div class="page-head">
+<span class="eyebrow">Project report</span>
+<div class="page-title" role="heading" aria-level="1">Same Diagnosis, Different Bills?</div>
+<p class="lede">Variation in hospital charges and estimated costs for five common conditions in New York, 2023.</p>
+<p class="fig-note" style="margin: 18px 0 0;">Yimeng Cao (yc4959) · Zeheng Wei (zw3268) · Yichuan Ma (ym3197) · Jiaxuan Su (js7161) · Yulin Zhu (yz5458)</p>
+</div>
+
+<!-- TODO (team): every paragraph below is placeholder text. The seven sections are the ones the course asks for. -->
+
+## Motivation
+
+Placeholder. In New York, patients hospitalized for the same condition can receive very different bills depending on where they are treated. This section states the goal of the project and why it matters, in plain language.
+
+Placeholder second paragraph: the policy background, such as price transparency rules and surprise billing.
+
+## Related work
+
+Placeholder. Papers, reports, news stories or class examples that shaped the project, each with a link and one sentence on what we took from it.
+
+## Initial questions
+
+Placeholder. The three questions as first proposed:
+
+1. How much did median charges and estimated costs vary across hospitals within each condition?
+2. How much of the gap remains after accounting for severity, age group and length of stay?
+3. Are hospitals that are expensive for one condition also expensive for the others?
+
+Placeholder paragraph on how the questions changed: the fifth condition became kidney and urinary tract infections; bootstrap and cross-validation became core analyses; ownership was added as a comparison.
+
+## Data
+
+Placeholder. Source, how it was downloaded, how it was cleaned, and how many stays remain after each step. See also [Data and methods](data.html).
+
+```{r report_flow, fig.height = 3.2}
+placeholder_fig("Figure 1. Sample flow\n2,125,754 statewide → five conditions → after each rule")
+```
+
+## Exploratory analysis
+
+Placeholder. What the distributions look like and which choices they led to.
+
+```{r report_eda}
+placeholder_fig("Figure 2. Distribution of charges by condition")
+```
+
+Placeholder paragraph.
+
+```{r report_rank}
+placeholder_fig("Figure 3. Hospital rankings with bootstrap intervals")
+```
+
+## Additional analysis
+
+Placeholder. The formal analyses, described in enough detail to be repeated.
+
+### Adjusted comparison
+
+Placeholder paragraph with model formulas.
+
+```{r report_adjusted}
+placeholder_fig("Figure 4. Hospital differences before and after adjustment")
+```
+
+### Cross-validation
+
+```{r report_cv}
+placeholder_fig("Figure 5. Cross-validated RMSE by model")
+```
+
+### Consistency across conditions
+
+```{r report_heatmap}
+placeholder_fig("Figure 6. Hospitals × conditions heatmap")
+```
+
+## Discussion
+
+Placeholder. What we found, whether it matched expectations, and what it does and does not tell us.
+
+### Limitations
+
+Placeholder. Charges are not payments; costs are estimates; the data are observational.
+
+### What we would do next
+
+Placeholder.

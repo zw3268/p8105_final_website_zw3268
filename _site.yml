@@ -1,15 +1,54 @@
 name: "Same Diagnosis, Different Bills?"
 output_dir: "."
+exclude: ["R", "fonts", "data"]
 navbar:
   title: "Same Diagnosis, Different Bills?"
   right:
-    - text: "Home"
+    - text: "Overview"
       href: index.html
-    - text: "Scroll prototype"
-      href: prototype.html
+    - text: "Findings"
+      menu:
+        - text: "Q1 · How far apart are hospitals?"
+          href: q1_gaps.html
+        - text: "Q2 · After accounting for patients"
+          href: q2_adjusted.html
+        - text: "Q3 · Across conditions"
+          href: q3_consistency.html
+    - text: "Conditions"
+      menu:
+        - text: "Heart failure"
+          href: heart_failure.html
+        - text: "Major respiratory infections"
+          href: respiratory.html
+        - text: "Kidney and urinary tract infections"
+          href: kidney_uti.html
+        - text: "Ischemic stroke"
+          href: stroke.html
+        - text: "Sepsis"
+          href: sepsis.html
+    - text: "Explore"
+      menu:
+        - text: "Dashboard"
+          href: dashboard.html
+        - text: "Hospital map"
+          href: dashboard.html#map
+        - text: "Cost estimator"
+          href: dashboard.html#cost-estimator
+    - text: "Data"
+      menu:
+        - text: "Data and methods"
+          href: data.html
+        - text: "Exploratory analysis"
+          href: eda.html
+    - text: "Report"
+      href: report.html
+    - text: "Team"
+      href: team.html
     - icon: fa-github fa-lg
       href: https://github.com/zw3268/p8105_final_website_zw3268
 output:
   html_document:
     theme: cosmo
     css: styles.css
+    include:
+      after_body: footer.html

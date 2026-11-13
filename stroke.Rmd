@@ -1,0 +1,11 @@
+---
+pagetitle: "Ischemic stroke"
+---
+
+```{r, include = FALSE}
+this_condition = "Stroke"
+this_note = "Stroke with infarction only; other types of stroke fall under different groups."
+```
+
+```{r, child = "_condition.Rmd"}
+```

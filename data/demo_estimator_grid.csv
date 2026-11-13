@@ -1,0 +1,2401 @@
+condition,severity,age_group,los,predicted_charges
+Heart failure,Extreme,18 to 29,1,35240
+Heart failure,Extreme,18 to 29,2,44784
+Heart failure,Extreme,18 to 29,3,54328
+Heart failure,Extreme,18 to 29,4,63872
+Heart failure,Extreme,18 to 29,5,73416
+Heart failure,Extreme,18 to 29,6,82960
+Heart failure,Extreme,18 to 29,7,92504
+Heart failure,Extreme,18 to 29,8,102048
+Heart failure,Extreme,18 to 29,9,111592
+Heart failure,Extreme,18 to 29,10,121136
+Heart failure,Extreme,18 to 29,11,130680
+Heart failure,Extreme,18 to 29,12,140225
+Heart failure,Extreme,18 to 29,13,149769
+Heart failure,Extreme,18 to 29,14,159313
+Heart failure,Extreme,18 to 29,15,168857
+Heart failure,Extreme,18 to 29,16,178401
+Heart failure,Extreme,18 to 29,17,187945
+Heart failure,Extreme,18 to 29,18,197489
+Heart failure,Extreme,18 to 29,19,207033
+Heart failure,Extreme,18 to 29,20,216577
+Heart failure,Extreme,18 to 29,21,226121
+Heart failure,Extreme,18 to 29,22,235665
+Heart failure,Extreme,18 to 29,23,245209
+Heart failure,Extreme,18 to 29,24,254754
+Heart failure,Extreme,18 to 29,25,264298
+Heart failure,Extreme,18 to 29,26,273842
+Heart failure,Extreme,18 to 29,27,283386
+Heart failure,Extreme,18 to 29,28,292930
+Heart failure,Extreme,18 to 29,29,302474
+Heart failure,Extreme,18 to 29,30,312018
+Heart failure,Extreme,30 to 49,1,37155
+Heart failure,Extreme,30 to 49,2,47218
+Heart failure,Extreme,30 to 49,3,57280
+Heart failure,Extreme,30 to 49,4,67343
+Heart failure,Extreme,30 to 49,5,77406
+Heart failure,Extreme,30 to 49,6,87469
+Heart failure,Extreme,30 to 49,7,97532
+Heart failure,Extreme,30 to 49,8,107594
+Heart failure,Extreme,30 to 49,9,117657
+Heart failure,Extreme,30 to 49,10,127720
+Heart failure,Extreme,30 to 49,11,137783
+Heart failure,Extreme,30 to 49,12,147845
+Heart failure,Extreme,30 to 49,13,157908
+Heart failure,Extreme,30 to 49,14,167971
+Heart failure,Extreme,30 to 49,15,178034
+Heart failure,Extreme,30 to 49,16,188097
+Heart failure,Extreme,30 to 49,17,198159
+Heart failure,Extreme,30 to 49,18,208222
+Heart failure,Extreme,30 to 49,19,218285
+Heart failure,Extreme,30 to 49,20,228348
+Heart failure,Extreme,30 to 49,21,238410
+Heart failure,Extreme,30 to 49,22,248473
+Heart failure,Extreme,30 to 49,23,258536
+Heart failure,Extreme,30 to 49,24,268599
+Heart failure,Extreme,30 to 49,25,278662
+Heart failure,Extreme,30 to 49,26,288724
+Heart failure,Extreme,30 to 49,27,298787
+Heart failure,Extreme,30 to 49,28,308850
+Heart failure,Extreme,30 to 49,29,318913
+Heart failure,Extreme,30 to 49,30,328976
+Heart failure,Extreme,50 to 69,1,38304
+Heart failure,Extreme,50 to 69,2,48678
+Heart failure,Extreme,50 to 69,3,59052
+Heart failure,Extreme,50 to 69,4,69426
+Heart failure,Extreme,50 to 69,5,79800
+Heart failure,Extreme,50 to 69,6,90174
+Heart failure,Extreme,50 to 69,7,100548
+Heart failure,Extreme,50 to 69,8,110922
+Heart failure,Extreme,50 to 69,9,121296
+Heart failure,Extreme,50 to 69,10,131670
+Heart failure,Extreme,50 to 69,11,142044
+Heart failure,Extreme,50 to 69,12,152418
+Heart failure,Extreme,50 to 69,13,162792
+Heart failure,Extreme,50 to 69,14,173166
+Heart failure,Extreme,50 to 69,15,183540
+Heart failure,Extreme,50 to 69,16,193914
+Heart failure,Extreme,50 to 69,17,204288
+Heart failure,Extreme,50 to 69,18,214662
+Heart failure,Extreme,50 to 69,19,225036
+Heart failure,Extreme,50 to 69,20,235410
+Heart failure,Extreme,50 to 69,21,245784
+Heart failure,Extreme,50 to 69,22,256158
+Heart failure,Extreme,50 to 69,23,266532
+Heart failure,Extreme,50 to 69,24,276906
+Heart failure,Extreme,50 to 69,25,287280
+Heart failure,Extreme,50 to 69,26,297654
+Heart failure,Extreme,50 to 69,27,308028
+Heart failure,Extreme,50 to 69,28,318402
+Heart failure,Extreme,50 to 69,29,328776
+Heart failure,Extreme,50 to 69,30,339150
+Heart failure,Extreme,70 or Older,1,39836
+Heart failure,Extreme,70 or Older,2,50625
+Heart failure,Extreme,70 or Older,3,61414
+Heart failure,Extreme,70 or Older,4,72203
+Heart failure,Extreme,70 or Older,5,82992
+Heart failure,Extreme,70 or Older,6,93781
+Heart failure,Extreme,70 or Older,7,104570
+Heart failure,Extreme,70 or Older,8,115359
+Heart failure,Extreme,70 or Older,9,126148
+Heart failure,Extreme,70 or Older,10,136937
+Heart failure,Extreme,70 or Older,11,147726
+Heart failure,Extreme,70 or Older,12,158515
+Heart failure,Extreme,70 or Older,13,169304
+Heart failure,Extreme,70 or Older,14,180093
+Heart failure,Extreme,70 or Older,15,190882
+Heart failure,Extreme,70 or Older,16,201671
+Heart failure,Extreme,70 or Older,17,212460
+Heart failure,Extreme,70 or Older,18,223248
+Heart failure,Extreme,70 or Older,19,234037
+Heart failure,Extreme,70 or Older,20,244826
+Heart failure,Extreme,70 or Older,21,255615
+Heart failure,Extreme,70 or Older,22,266404
+Heart failure,Extreme,70 or Older,23,277193
+Heart failure,Extreme,70 or Older,24,287982
+Heart failure,Extreme,70 or Older,25,298771
+Heart failure,Extreme,70 or Older,26,309560
+Heart failure,Extreme,70 or Older,27,320349
+Heart failure,Extreme,70 or Older,28,331138
+Heart failure,Extreme,70 or Older,29,341927
+Heart failure,Extreme,70 or Older,30,352716
+Heart failure,Major,18 to 29,1,22654
+Heart failure,Major,18 to 29,2,28790
+Heart failure,Major,18 to 29,3,34925
+Heart failure,Major,18 to 29,4,41061
+Heart failure,Major,18 to 29,5,47196
+Heart failure,Major,18 to 29,6,53331
+Heart failure,Major,18 to 29,7,59467
+Heart failure,Major,18 to 29,8,65602
+Heart failure,Major,18 to 29,9,71738
+Heart failure,Major,18 to 29,10,77873
+Heart failure,Major,18 to 29,11,84009
+Heart failure,Major,18 to 29,12,90144
+Heart failure,Major,18 to 29,13,96280
+Heart failure,Major,18 to 29,14,102415
+Heart failure,Major,18 to 29,15,108551
+Heart failure,Major,18 to 29,16,114686
+Heart failure,Major,18 to 29,17,120822
+Heart failure,Major,18 to 29,18,126957
+Heart failure,Major,18 to 29,19,133093
+Heart failure,Major,18 to 29,20,139228
+Heart failure,Major,18 to 29,21,145364
+Heart failure,Major,18 to 29,22,151499
+Heart failure,Major,18 to 29,23,157635
+Heart failure,Major,18 to 29,24,163770
+Heart failure,Major,18 to 29,25,169906
+Heart failure,Major,18 to 29,26,176041
+Heart failure,Major,18 to 29,27,182177
+Heart failure,Major,18 to 29,28,188312
+Heart failure,Major,18 to 29,29,194448
+Heart failure,Major,18 to 29,30,200583
+Heart failure,Major,30 to 49,1,23885
+Heart failure,Major,30 to 49,2,30354
+Heart failure,Major,30 to 49,3,36823
+Heart failure,Major,30 to 49,4,43292
+Heart failure,Major,30 to 49,5,49761
+Heart failure,Major,30 to 49,6,56230
+Heart failure,Major,30 to 49,7,62699
+Heart failure,Major,30 to 49,8,69168
+Heart failure,Major,30 to 49,9,75637
+Heart failure,Major,30 to 49,10,82106
+Heart failure,Major,30 to 49,11,88575
+Heart failure,Major,30 to 49,12,95044
+Heart failure,Major,30 to 49,13,101512
+Heart failure,Major,30 to 49,14,107981
+Heart failure,Major,30 to 49,15,114450
+Heart failure,Major,30 to 49,16,120919
+Heart failure,Major,30 to 49,17,127388
+Heart failure,Major,30 to 49,18,133857
+Heart failure,Major,30 to 49,19,140326
+Heart failure,Major,30 to 49,20,146795
+Heart failure,Major,30 to 49,21,153264
+Heart failure,Major,30 to 49,22,159733
+Heart failure,Major,30 to 49,23,166202
+Heart failure,Major,30 to 49,24,172671
+Heart failure,Major,30 to 49,25,179140
+Heart failure,Major,30 to 49,26,185609
+Heart failure,Major,30 to 49,27,192077
+Heart failure,Major,30 to 49,28,198546
+Heart failure,Major,30 to 49,29,205015
+Heart failure,Major,30 to 49,30,211484
+Heart failure,Major,50 to 69,1,24624
+Heart failure,Major,50 to 69,2,31293
+Heart failure,Major,50 to 69,3,37962
+Heart failure,Major,50 to 69,4,44631
+Heart failure,Major,50 to 69,5,51300
+Heart failure,Major,50 to 69,6,57969
+Heart failure,Major,50 to 69,7,64638
+Heart failure,Major,50 to 69,8,71307
+Heart failure,Major,50 to 69,9,77976
+Heart failure,Major,50 to 69,10,84645
+Heart failure,Major,50 to 69,11,91314
+Heart failure,Major,50 to 69,12,97983
+Heart failure,Major,50 to 69,13,104652
+Heart failure,Major,50 to 69,14,111321
+Heart failure,Major,50 to 69,15,117990
+Heart failure,Major,50 to 69,16,124659
+Heart failure,Major,50 to 69,17,131328
+Heart failure,Major,50 to 69,18,137997
+Heart failure,Major,50 to 69,19,144666
+Heart failure,Major,50 to 69,20,151335
+Heart failure,Major,50 to 69,21,158004
+Heart failure,Major,50 to 69,22,164673
+Heart failure,Major,50 to 69,23,171342
+Heart failure,Major,50 to 69,24,178011
+Heart failure,Major,50 to 69,25,184680
+Heart failure,Major,50 to 69,26,191349
+Heart failure,Major,50 to 69,27,198018
+Heart failure,Major,50 to 69,28,204687
+Heart failure,Major,50 to 69,29,211356
+Heart failure,Major,50 to 69,30,218025
+Heart failure,Major,70 or Older,1,25609
+Heart failure,Major,70 or Older,2,32545
+Heart failure,Major,70 or Older,3,39480
+Heart failure,Major,70 or Older,4,46416
+Heart failure,Major,70 or Older,5,53352
+Heart failure,Major,70 or Older,6,60288
+Heart failure,Major,70 or Older,7,67224
+Heart failure,Major,70 or Older,8,74159
+Heart failure,Major,70 or Older,9,81095
+Heart failure,Major,70 or Older,10,88031
+Heart failure,Major,70 or Older,11,94967
+Heart failure,Major,70 or Older,12,101902
+Heart failure,Major,70 or Older,13,108838
+Heart failure,Major,70 or Older,14,115774
+Heart failure,Major,70 or Older,15,122710
+Heart failure,Major,70 or Older,16,129645
+Heart failure,Major,70 or Older,17,136581
+Heart failure,Major,70 or Older,18,143517
+Heart failure,Major,70 or Older,19,150453
+Heart failure,Major,70 or Older,20,157388
+Heart failure,Major,70 or Older,21,164324
+Heart failure,Major,70 or Older,22,171260
+Heart failure,Major,70 or Older,23,178196
+Heart failure,Major,70 or Older,24,185131
+Heart failure,Major,70 or Older,25,192067
+Heart failure,Major,70 or Older,26,199003
+Heart failure,Major,70 or Older,27,205939
+Heart failure,Major,70 or Older,28,212874
+Heart failure,Major,70 or Older,29,219810
+Heart failure,Major,70 or Older,30,226746
+Heart failure,Minor,18 to 29,1,12586
+Heart failure,Minor,18 to 29,2,15994
+Heart failure,Minor,18 to 29,3,19403
+Heart failure,Minor,18 to 29,4,22811
+Heart failure,Minor,18 to 29,5,26220
+Heart failure,Minor,18 to 29,6,29629
+Heart failure,Minor,18 to 29,7,33037
+Heart failure,Minor,18 to 29,8,36446
+Heart failure,Minor,18 to 29,9,39854
+Heart failure,Minor,18 to 29,10,43263
+Heart failure,Minor,18 to 29,11,46672
+Heart failure,Minor,18 to 29,12,50080
+Heart failure,Minor,18 to 29,13,53489
+Heart failure,Minor,18 to 29,14,56897
+Heart failure,Minor,18 to 29,15,60306
+Heart failure,Minor,18 to 29,16,63715
+Heart failure,Minor,18 to 29,17,67123
+Heart failure,Minor,18 to 29,18,70532
+Heart failure,Minor,18 to 29,19,73940
+Heart failure,Minor,18 to 29,20,77349
+Heart failure,Minor,18 to 29,21,80758
+Heart failure,Minor,18 to 29,22,84166
+Heart failure,Minor,18 to 29,23,87575
+Heart failure,Minor,18 to 29,24,90983
+Heart failure,Minor,18 to 29,25,94392
+Heart failure,Minor,18 to 29,26,97801
+Heart failure,Minor,18 to 29,27,101209
+Heart failure,Minor,18 to 29,28,104618
+Heart failure,Minor,18 to 29,29,108026
+Heart failure,Minor,18 to 29,30,111435
+Heart failure,Minor,30 to 49,1,13270
+Heart failure,Minor,30 to 49,2,16863
+Heart failure,Minor,30 to 49,3,20457
+Heart failure,Minor,30 to 49,4,24051
+Heart failure,Minor,30 to 49,5,27645
+Heart failure,Minor,30 to 49,6,31239
+Heart failure,Minor,30 to 49,7,34833
+Heart failure,Minor,30 to 49,8,38427
+Heart failure,Minor,30 to 49,9,42020
+Heart failure,Minor,30 to 49,10,45614
+Heart failure,Minor,30 to 49,11,49208
+Heart failure,Minor,30 to 49,12,52802
+Heart failure,Minor,30 to 49,13,56396
+Heart failure,Minor,30 to 49,14,59990
+Heart failure,Minor,30 to 49,15,63584
+Heart failure,Minor,30 to 49,16,67177
+Heart failure,Minor,30 to 49,17,70771
+Heart failure,Minor,30 to 49,18,74365
+Heart failure,Minor,30 to 49,19,77959
+Heart failure,Minor,30 to 49,20,81553
+Heart failure,Minor,30 to 49,21,85147
+Heart failure,Minor,30 to 49,22,88740
+Heart failure,Minor,30 to 49,23,92334
+Heart failure,Minor,30 to 49,24,95928
+Heart failure,Minor,30 to 49,25,99522
+Heart failure,Minor,30 to 49,26,103116
+Heart failure,Minor,30 to 49,27,106710
+Heart failure,Minor,30 to 49,28,110304
+Heart failure,Minor,30 to 49,29,113897
+Heart failure,Minor,30 to 49,30,117491
+Heart failure,Minor,50 to 69,1,13680
+Heart failure,Minor,50 to 69,2,17385
+Heart failure,Minor,50 to 69,3,21090
+Heart failure,Minor,50 to 69,4,24795
+Heart failure,Minor,50 to 69,5,28500
+Heart failure,Minor,50 to 69,6,32205
+Heart failure,Minor,50 to 69,7,35910
+Heart failure,Minor,50 to 69,8,39615
+Heart failure,Minor,50 to 69,9,43320
+Heart failure,Minor,50 to 69,10,47025
+Heart failure,Minor,50 to 69,11,50730
+Heart failure,Minor,50 to 69,12,54435
+Heart failure,Minor,50 to 69,13,58140
+Heart failure,Minor,50 to 69,14,61845
+Heart failure,Minor,50 to 69,15,65550
+Heart failure,Minor,50 to 69,16,69255
+Heart failure,Minor,50 to 69,17,72960
+Heart failure,Minor,50 to 69,18,76665
+Heart failure,Minor,50 to 69,19,80370
+Heart failure,Minor,50 to 69,20,84075
+Heart failure,Minor,50 to 69,21,87780
+Heart failure,Minor,50 to 69,22,91485
+Heart failure,Minor,50 to 69,23,95190
+Heart failure,Minor,50 to 69,24,98895
+Heart failure,Minor,50 to 69,25,102600
+Heart failure,Minor,50 to 69,26,106305
+Heart failure,Minor,50 to 69,27,110010
+Heart failure,Minor,50 to 69,28,113715
+Heart failure,Minor,50 to 69,29,117420
+Heart failure,Minor,50 to 69,30,121125
+Heart failure,Minor,70 or Older,1,14227
+Heart failure,Minor,70 or Older,2,18080
+Heart failure,Minor,70 or Older,3,21934
+Heart failure,Minor,70 or Older,4,25787
+Heart failure,Minor,70 or Older,5,29640
+Heart failure,Minor,70 or Older,6,33493
+Heart failure,Minor,70 or Older,7,37346
+Heart failure,Minor,70 or Older,8,41200
+Heart failure,Minor,70 or Older,9,45053
+Heart failure,Minor,70 or Older,10,48906
+Heart failure,Minor,70 or Older,11,52759
+Heart failure,Minor,70 or Older,12,56612
+Heart failure,Minor,70 or Older,13,60466
+Heart failure,Minor,70 or Older,14,64319
+Heart failure,Minor,70 or Older,15,68172
+Heart failure,Minor,70 or Older,16,72025
+Heart failure,Minor,70 or Older,17,75878
+Heart failure,Minor,70 or Older,18,79732
+Heart failure,Minor,70 or Older,19,83585
+Heart failure,Minor,70 or Older,20,87438
+Heart failure,Minor,70 or Older,21,91291
+Heart failure,Minor,70 or Older,22,95144
+Heart failure,Minor,70 or Older,23,98998
+Heart failure,Minor,70 or Older,24,102851
+Heart failure,Minor,70 or Older,25,106704
+Heart failure,Minor,70 or Older,26,110557
+Heart failure,Minor,70 or Older,27,114410
+Heart failure,Minor,70 or Older,28,118264
+Heart failure,Minor,70 or Older,29,122117
+Heart failure,Minor,70 or Older,30,125970
+Heart failure,Moderate,18 to 29,1,16781
+Heart failure,Moderate,18 to 29,2,21326
+Heart failure,Moderate,18 to 29,3,25870
+Heart failure,Moderate,18 to 29,4,30415
+Heart failure,Moderate,18 to 29,5,34960
+Heart failure,Moderate,18 to 29,6,39505
+Heart failure,Moderate,18 to 29,7,44050
+Heart failure,Moderate,18 to 29,8,48594
+Heart failure,Moderate,18 to 29,9,53139
+Heart failure,Moderate,18 to 29,10,57684
+Heart failure,Moderate,18 to 29,11,62229
+Heart failure,Moderate,18 to 29,12,66774
+Heart failure,Moderate,18 to 29,13,71318
+Heart failure,Moderate,18 to 29,14,75863
+Heart failure,Moderate,18 to 29,15,80408
+Heart failure,Moderate,18 to 29,16,84953
+Heart failure,Moderate,18 to 29,17,89498
+Heart failure,Moderate,18 to 29,18,94042
+Heart failure,Moderate,18 to 29,19,98587
+Heart failure,Moderate,18 to 29,20,103132
+Heart failure,Moderate,18 to 29,21,107677
+Heart failure,Moderate,18 to 29,22,112222
+Heart failure,Moderate,18 to 29,23,116766
+Heart failure,Moderate,18 to 29,24,121311
+Heart failure,Moderate,18 to 29,25,125856
+Heart failure,Moderate,18 to 29,26,130401
+Heart failure,Moderate,18 to 29,27,134946
+Heart failure,Moderate,18 to 29,28,139490
+Heart failure,Moderate,18 to 29,29,144035
+Heart failure,Moderate,18 to 29,30,148580
+Heart failure,Moderate,30 to 49,1,17693
+Heart failure,Moderate,30 to 49,2,22485
+Heart failure,Moderate,30 to 49,3,27276
+Heart failure,Moderate,30 to 49,4,32068
+Heart failure,Moderate,30 to 49,5,36860
+Heart failure,Moderate,30 to 49,6,41652
+Heart failure,Moderate,30 to 49,7,46444
+Heart failure,Moderate,30 to 49,8,51235
+Heart failure,Moderate,30 to 49,9,56027
+Heart failure,Moderate,30 to 49,10,60819
+Heart failure,Moderate,30 to 49,11,65611
+Heart failure,Moderate,30 to 49,12,70403
+Heart failure,Moderate,30 to 49,13,75194
+Heart failure,Moderate,30 to 49,14,79986
+Heart failure,Moderate,30 to 49,15,84778
+Heart failure,Moderate,30 to 49,16,89570
+Heart failure,Moderate,30 to 49,17,94362
+Heart failure,Moderate,30 to 49,18,99153
+Heart failure,Moderate,30 to 49,19,103945
+Heart failure,Moderate,30 to 49,20,108737
+Heart failure,Moderate,30 to 49,21,113529
+Heart failure,Moderate,30 to 49,22,118321
+Heart failure,Moderate,30 to 49,23,123112
+Heart failure,Moderate,30 to 49,24,127904
+Heart failure,Moderate,30 to 49,25,132696
+Heart failure,Moderate,30 to 49,26,137488
+Heart failure,Moderate,30 to 49,27,142280
+Heart failure,Moderate,30 to 49,28,147071
+Heart failure,Moderate,30 to 49,29,151863
+Heart failure,Moderate,30 to 49,30,156655
+Heart failure,Moderate,50 to 69,1,18240
+Heart failure,Moderate,50 to 69,2,23180
+Heart failure,Moderate,50 to 69,3,28120
+Heart failure,Moderate,50 to 69,4,33060
+Heart failure,Moderate,50 to 69,5,38000
+Heart failure,Moderate,50 to 69,6,42940
+Heart failure,Moderate,50 to 69,7,47880
+Heart failure,Moderate,50 to 69,8,52820
+Heart failure,Moderate,50 to 69,9,57760
+Heart failure,Moderate,50 to 69,10,62700
+Heart failure,Moderate,50 to 69,11,67640
+Heart failure,Moderate,50 to 69,12,72580
+Heart failure,Moderate,50 to 69,13,77520
+Heart failure,Moderate,50 to 69,14,82460
+Heart failure,Moderate,50 to 69,15,87400
+Heart failure,Moderate,50 to 69,16,92340
+Heart failure,Moderate,50 to 69,17,97280
+Heart failure,Moderate,50 to 69,18,102220
+Heart failure,Moderate,50 to 69,19,107160
+Heart failure,Moderate,50 to 69,20,112100
+Heart failure,Moderate,50 to 69,21,117040
+Heart failure,Moderate,50 to 69,22,121980
+Heart failure,Moderate,50 to 69,23,126920
+Heart failure,Moderate,50 to 69,24,131860
+Heart failure,Moderate,50 to 69,25,136800
+Heart failure,Moderate,50 to 69,26,141740
+Heart failure,Moderate,50 to 69,27,146680
+Heart failure,Moderate,50 to 69,28,151620
+Heart failure,Moderate,50 to 69,29,156560
+Heart failure,Moderate,50 to 69,30,161500
+Heart failure,Moderate,70 or Older,1,18970
+Heart failure,Moderate,70 or Older,2,24107
+Heart failure,Moderate,70 or Older,3,29245
+Heart failure,Moderate,70 or Older,4,34382
+Heart failure,Moderate,70 or Older,5,39520
+Heart failure,Moderate,70 or Older,6,44658
+Heart failure,Moderate,70 or Older,7,49795
+Heart failure,Moderate,70 or Older,8,54933
+Heart failure,Moderate,70 or Older,9,60070
+Heart failure,Moderate,70 or Older,10,65208
+Heart failure,Moderate,70 or Older,11,70346
+Heart failure,Moderate,70 or Older,12,75483
+Heart failure,Moderate,70 or Older,13,80621
+Heart failure,Moderate,70 or Older,14,85758
+Heart failure,Moderate,70 or Older,15,90896
+Heart failure,Moderate,70 or Older,16,96034
+Heart failure,Moderate,70 or Older,17,101171
+Heart failure,Moderate,70 or Older,18,106309
+Heart failure,Moderate,70 or Older,19,111446
+Heart failure,Moderate,70 or Older,20,116584
+Heart failure,Moderate,70 or Older,21,121722
+Heart failure,Moderate,70 or Older,22,126859
+Heart failure,Moderate,70 or Older,23,131997
+Heart failure,Moderate,70 or Older,24,137134
+Heart failure,Moderate,70 or Older,25,142272
+Heart failure,Moderate,70 or Older,26,147410
+Heart failure,Moderate,70 or Older,27,152547
+Heart failure,Moderate,70 or Older,28,157685
+Heart failure,Moderate,70 or Older,29,162822
+Heart failure,Moderate,70 or Older,30,167960
+Kidney/UTI,Extreme,18 to 29,1,25039
+Kidney/UTI,Extreme,18 to 29,2,31820
+Kidney/UTI,Extreme,18 to 29,3,38601
+Kidney/UTI,Extreme,18 to 29,4,45383
+Kidney/UTI,Extreme,18 to 29,5,52164
+Kidney/UTI,Extreme,18 to 29,6,58945
+Kidney/UTI,Extreme,18 to 29,7,65727
+Kidney/UTI,Extreme,18 to 29,8,72508
+Kidney/UTI,Extreme,18 to 29,9,79289
+Kidney/UTI,Extreme,18 to 29,10,86071
+Kidney/UTI,Extreme,18 to 29,11,92852
+Kidney/UTI,Extreme,18 to 29,12,99633
+Kidney/UTI,Extreme,18 to 29,13,106415
+Kidney/UTI,Extreme,18 to 29,14,113196
+Kidney/UTI,Extreme,18 to 29,15,119977
+Kidney/UTI,Extreme,18 to 29,16,126759
+Kidney/UTI,Extreme,18 to 29,17,133540
+Kidney/UTI,Extreme,18 to 29,18,140321
+Kidney/UTI,Extreme,18 to 29,19,147102
+Kidney/UTI,Extreme,18 to 29,20,153884
+Kidney/UTI,Extreme,18 to 29,21,160665
+Kidney/UTI,Extreme,18 to 29,22,167446
+Kidney/UTI,Extreme,18 to 29,23,174228
+Kidney/UTI,Extreme,18 to 29,24,181009
+Kidney/UTI,Extreme,18 to 29,25,187790
+Kidney/UTI,Extreme,18 to 29,26,194572
+Kidney/UTI,Extreme,18 to 29,27,201353
+Kidney/UTI,Extreme,18 to 29,28,208134
+Kidney/UTI,Extreme,18 to 29,29,214916
+Kidney/UTI,Extreme,18 to 29,30,221697
+Kidney/UTI,Extreme,30 to 49,1,26400
+Kidney/UTI,Extreme,30 to 49,2,33549
+Kidney/UTI,Extreme,30 to 49,3,40699
+Kidney/UTI,Extreme,30 to 49,4,47849
+Kidney/UTI,Extreme,30 to 49,5,54999
+Kidney/UTI,Extreme,30 to 49,6,62149
+Kidney/UTI,Extreme,30 to 49,7,69299
+Kidney/UTI,Extreme,30 to 49,8,76449
+Kidney/UTI,Extreme,30 to 49,9,83598
+Kidney/UTI,Extreme,30 to 49,10,90748
+Kidney/UTI,Extreme,30 to 49,11,97898
+Kidney/UTI,Extreme,30 to 49,12,105048
+Kidney/UTI,Extreme,30 to 49,13,112198
+Kidney/UTI,Extreme,30 to 49,14,119348
+Kidney/UTI,Extreme,30 to 49,15,126498
+Kidney/UTI,Extreme,30 to 49,16,133648
+Kidney/UTI,Extreme,30 to 49,17,140797
+Kidney/UTI,Extreme,30 to 49,18,147947
+Kidney/UTI,Extreme,30 to 49,19,155097
+Kidney/UTI,Extreme,30 to 49,20,162247
+Kidney/UTI,Extreme,30 to 49,21,169397
+Kidney/UTI,Extreme,30 to 49,22,176547
+Kidney/UTI,Extreme,30 to 49,23,183697
+Kidney/UTI,Extreme,30 to 49,24,190847
+Kidney/UTI,Extreme,30 to 49,25,197996
+Kidney/UTI,Extreme,30 to 49,26,205146
+Kidney/UTI,Extreme,30 to 49,27,212296
+Kidney/UTI,Extreme,30 to 49,28,219446
+Kidney/UTI,Extreme,30 to 49,29,226596
+Kidney/UTI,Extreme,30 to 49,30,233746
+Kidney/UTI,Extreme,50 to 69,1,27216
+Kidney/UTI,Extreme,50 to 69,2,34587
+Kidney/UTI,Extreme,50 to 69,3,41958
+Kidney/UTI,Extreme,50 to 69,4,49329
+Kidney/UTI,Extreme,50 to 69,5,56700
+Kidney/UTI,Extreme,50 to 69,6,64071
+Kidney/UTI,Extreme,50 to 69,7,71442
+Kidney/UTI,Extreme,50 to 69,8,78813
+Kidney/UTI,Extreme,50 to 69,9,86184
+Kidney/UTI,Extreme,50 to 69,10,93555
+Kidney/UTI,Extreme,50 to 69,11,100926
+Kidney/UTI,Extreme,50 to 69,12,108297
+Kidney/UTI,Extreme,50 to 69,13,115668
+Kidney/UTI,Extreme,50 to 69,14,123039
+Kidney/UTI,Extreme,50 to 69,15,130410
+Kidney/UTI,Extreme,50 to 69,16,137781
+Kidney/UTI,Extreme,50 to 69,17,145152
+Kidney/UTI,Extreme,50 to 69,18,152523
+Kidney/UTI,Extreme,50 to 69,19,159894
+Kidney/UTI,Extreme,50 to 69,20,167265
+Kidney/UTI,Extreme,50 to 69,21,174636
+Kidney/UTI,Extreme,50 to 69,22,182007
+Kidney/UTI,Extreme,50 to 69,23,189378
+Kidney/UTI,Extreme,50 to 69,24,196749
+Kidney/UTI,Extreme,50 to 69,25,204120
+Kidney/UTI,Extreme,50 to 69,26,211491
+Kidney/UTI,Extreme,50 to 69,27,218862
+Kidney/UTI,Extreme,50 to 69,28,226233
+Kidney/UTI,Extreme,50 to 69,29,233604
+Kidney/UTI,Extreme,50 to 69,30,240975
+Kidney/UTI,Extreme,70 or Older,1,28305
+Kidney/UTI,Extreme,70 or Older,2,35970
+Kidney/UTI,Extreme,70 or Older,3,43636
+Kidney/UTI,Extreme,70 or Older,4,51302
+Kidney/UTI,Extreme,70 or Older,5,58968
+Kidney/UTI,Extreme,70 or Older,6,66634
+Kidney/UTI,Extreme,70 or Older,7,74300
+Kidney/UTI,Extreme,70 or Older,8,81966
+Kidney/UTI,Extreme,70 or Older,9,89631
+Kidney/UTI,Extreme,70 or Older,10,97297
+Kidney/UTI,Extreme,70 or Older,11,104963
+Kidney/UTI,Extreme,70 or Older,12,112629
+Kidney/UTI,Extreme,70 or Older,13,120295
+Kidney/UTI,Extreme,70 or Older,14,127961
+Kidney/UTI,Extreme,70 or Older,15,135626
+Kidney/UTI,Extreme,70 or Older,16,143292
+Kidney/UTI,Extreme,70 or Older,17,150958
+Kidney/UTI,Extreme,70 or Older,18,158624
+Kidney/UTI,Extreme,70 or Older,19,166290
+Kidney/UTI,Extreme,70 or Older,20,173956
+Kidney/UTI,Extreme,70 or Older,21,181621
+Kidney/UTI,Extreme,70 or Older,22,189287
+Kidney/UTI,Extreme,70 or Older,23,196953
+Kidney/UTI,Extreme,70 or Older,24,204619
+Kidney/UTI,Extreme,70 or Older,25,212285
+Kidney/UTI,Extreme,70 or Older,26,219951
+Kidney/UTI,Extreme,70 or Older,27,227616
+Kidney/UTI,Extreme,70 or Older,28,235282
+Kidney/UTI,Extreme,70 or Older,29,242948
+Kidney/UTI,Extreme,70 or Older,30,250614
+Kidney/UTI,Major,18 to 29,1,16096
+Kidney/UTI,Major,18 to 29,2,20456
+Kidney/UTI,Major,18 to 29,3,24815
+Kidney/UTI,Major,18 to 29,4,29175
+Kidney/UTI,Major,18 to 29,5,33534
+Kidney/UTI,Major,18 to 29,6,37893
+Kidney/UTI,Major,18 to 29,7,42253
+Kidney/UTI,Major,18 to 29,8,46612
+Kidney/UTI,Major,18 to 29,9,50972
+Kidney/UTI,Major,18 to 29,10,55331
+Kidney/UTI,Major,18 to 29,11,59691
+Kidney/UTI,Major,18 to 29,12,64050
+Kidney/UTI,Major,18 to 29,13,68409
+Kidney/UTI,Major,18 to 29,14,72769
+Kidney/UTI,Major,18 to 29,15,77128
+Kidney/UTI,Major,18 to 29,16,81488
+Kidney/UTI,Major,18 to 29,17,85847
+Kidney/UTI,Major,18 to 29,18,90206
+Kidney/UTI,Major,18 to 29,19,94566
+Kidney/UTI,Major,18 to 29,20,98925
+Kidney/UTI,Major,18 to 29,21,103285
+Kidney/UTI,Major,18 to 29,22,107644
+Kidney/UTI,Major,18 to 29,23,112004
+Kidney/UTI,Major,18 to 29,24,116363
+Kidney/UTI,Major,18 to 29,25,120722
+Kidney/UTI,Major,18 to 29,26,125082
+Kidney/UTI,Major,18 to 29,27,129441
+Kidney/UTI,Major,18 to 29,28,133801
+Kidney/UTI,Major,18 to 29,29,138160
+Kidney/UTI,Major,18 to 29,30,142520
+Kidney/UTI,Major,30 to 49,1,16971
+Kidney/UTI,Major,30 to 49,2,21567
+Kidney/UTI,Major,30 to 49,3,26164
+Kidney/UTI,Major,30 to 49,4,30760
+Kidney/UTI,Major,30 to 49,5,35356
+Kidney/UTI,Major,30 to 49,6,39953
+Kidney/UTI,Major,30 to 49,7,44549
+Kidney/UTI,Major,30 to 49,8,49146
+Kidney/UTI,Major,30 to 49,9,53742
+Kidney/UTI,Major,30 to 49,10,58338
+Kidney/UTI,Major,30 to 49,11,62935
+Kidney/UTI,Major,30 to 49,12,67531
+Kidney/UTI,Major,30 to 49,13,72127
+Kidney/UTI,Major,30 to 49,14,76724
+Kidney/UTI,Major,30 to 49,15,81320
+Kidney/UTI,Major,30 to 49,16,85916
+Kidney/UTI,Major,30 to 49,17,90513
+Kidney/UTI,Major,30 to 49,18,95109
+Kidney/UTI,Major,30 to 49,19,99705
+Kidney/UTI,Major,30 to 49,20,104302
+Kidney/UTI,Major,30 to 49,21,108898
+Kidney/UTI,Major,30 to 49,22,113494
+Kidney/UTI,Major,30 to 49,23,118091
+Kidney/UTI,Major,30 to 49,24,122687
+Kidney/UTI,Major,30 to 49,25,127283
+Kidney/UTI,Major,30 to 49,26,131880
+Kidney/UTI,Major,30 to 49,27,136476
+Kidney/UTI,Major,30 to 49,28,141072
+Kidney/UTI,Major,30 to 49,29,145669
+Kidney/UTI,Major,30 to 49,30,150265
+Kidney/UTI,Major,50 to 69,1,17496
+Kidney/UTI,Major,50 to 69,2,22234
+Kidney/UTI,Major,50 to 69,3,26973
+Kidney/UTI,Major,50 to 69,4,31712
+Kidney/UTI,Major,50 to 69,5,36450
+Kidney/UTI,Major,50 to 69,6,41188
+Kidney/UTI,Major,50 to 69,7,45927
+Kidney/UTI,Major,50 to 69,8,50666
+Kidney/UTI,Major,50 to 69,9,55404
+Kidney/UTI,Major,50 to 69,10,60142
+Kidney/UTI,Major,50 to 69,11,64881
+Kidney/UTI,Major,50 to 69,12,69620
+Kidney/UTI,Major,50 to 69,13,74358
+Kidney/UTI,Major,50 to 69,14,79096
+Kidney/UTI,Major,50 to 69,15,83835
+Kidney/UTI,Major,50 to 69,16,88574
+Kidney/UTI,Major,50 to 69,17,93312
+Kidney/UTI,Major,50 to 69,18,98050
+Kidney/UTI,Major,50 to 69,19,102789
+Kidney/UTI,Major,50 to 69,20,107528
+Kidney/UTI,Major,50 to 69,21,112266
+Kidney/UTI,Major,50 to 69,22,117005
+Kidney/UTI,Major,50 to 69,23,121743
+Kidney/UTI,Major,50 to 69,24,126482
+Kidney/UTI,Major,50 to 69,25,131220
+Kidney/UTI,Major,50 to 69,26,135958
+Kidney/UTI,Major,50 to 69,27,140697
+Kidney/UTI,Major,50 to 69,28,145436
+Kidney/UTI,Major,50 to 69,29,150174
+Kidney/UTI,Major,50 to 69,30,154912
+Kidney/UTI,Major,70 or Older,1,18196
+Kidney/UTI,Major,70 or Older,2,23124
+Kidney/UTI,Major,70 or Older,3,28052
+Kidney/UTI,Major,70 or Older,4,32980
+Kidney/UTI,Major,70 or Older,5,37908
+Kidney/UTI,Major,70 or Older,6,42836
+Kidney/UTI,Major,70 or Older,7,47764
+Kidney/UTI,Major,70 or Older,8,52692
+Kidney/UTI,Major,70 or Older,9,57620
+Kidney/UTI,Major,70 or Older,10,62548
+Kidney/UTI,Major,70 or Older,11,67476
+Kidney/UTI,Major,70 or Older,12,72404
+Kidney/UTI,Major,70 or Older,13,77332
+Kidney/UTI,Major,70 or Older,14,82260
+Kidney/UTI,Major,70 or Older,15,87188
+Kidney/UTI,Major,70 or Older,16,92116
+Kidney/UTI,Major,70 or Older,17,97044
+Kidney/UTI,Major,70 or Older,18,101973
+Kidney/UTI,Major,70 or Older,19,106901
+Kidney/UTI,Major,70 or Older,20,111829
+Kidney/UTI,Major,70 or Older,21,116757
+Kidney/UTI,Major,70 or Older,22,121685
+Kidney/UTI,Major,70 or Older,23,126613
+Kidney/UTI,Major,70 or Older,24,131541
+Kidney/UTI,Major,70 or Older,25,136469
+Kidney/UTI,Major,70 or Older,26,141397
+Kidney/UTI,Major,70 or Older,27,146325
+Kidney/UTI,Major,70 or Older,28,151253
+Kidney/UTI,Major,70 or Older,29,156181
+Kidney/UTI,Major,70 or Older,30,161109
+Kidney/UTI,Minor,18 to 29,1,8942
+Kidney/UTI,Minor,18 to 29,2,11364
+Kidney/UTI,Minor,18 to 29,3,13786
+Kidney/UTI,Minor,18 to 29,4,16208
+Kidney/UTI,Minor,18 to 29,5,18630
+Kidney/UTI,Minor,18 to 29,6,21052
+Kidney/UTI,Minor,18 to 29,7,23474
+Kidney/UTI,Minor,18 to 29,8,25896
+Kidney/UTI,Minor,18 to 29,9,28318
+Kidney/UTI,Minor,18 to 29,10,30740
+Kidney/UTI,Minor,18 to 29,11,33161
+Kidney/UTI,Minor,18 to 29,12,35583
+Kidney/UTI,Minor,18 to 29,13,38005
+Kidney/UTI,Minor,18 to 29,14,40427
+Kidney/UTI,Minor,18 to 29,15,42849
+Kidney/UTI,Minor,18 to 29,16,45271
+Kidney/UTI,Minor,18 to 29,17,47693
+Kidney/UTI,Minor,18 to 29,18,50115
+Kidney/UTI,Minor,18 to 29,19,52537
+Kidney/UTI,Minor,18 to 29,20,54958
+Kidney/UTI,Minor,18 to 29,21,57380
+Kidney/UTI,Minor,18 to 29,22,59802
+Kidney/UTI,Minor,18 to 29,23,62224
+Kidney/UTI,Minor,18 to 29,24,64646
+Kidney/UTI,Minor,18 to 29,25,67068
+Kidney/UTI,Minor,18 to 29,26,69490
+Kidney/UTI,Minor,18 to 29,27,71912
+Kidney/UTI,Minor,18 to 29,28,74334
+Kidney/UTI,Minor,18 to 29,29,76756
+Kidney/UTI,Minor,18 to 29,30,79178
+Kidney/UTI,Minor,30 to 49,1,9428
+Kidney/UTI,Minor,30 to 49,2,11982
+Kidney/UTI,Minor,30 to 49,3,14535
+Kidney/UTI,Minor,30 to 49,4,17089
+Kidney/UTI,Minor,30 to 49,5,19642
+Kidney/UTI,Minor,30 to 49,6,22196
+Kidney/UTI,Minor,30 to 49,7,24750
+Kidney/UTI,Minor,30 to 49,8,27303
+Kidney/UTI,Minor,30 to 49,9,29857
+Kidney/UTI,Minor,30 to 49,10,32410
+Kidney/UTI,Minor,30 to 49,11,34964
+Kidney/UTI,Minor,30 to 49,12,37517
+Kidney/UTI,Minor,30 to 49,13,40071
+Kidney/UTI,Minor,30 to 49,14,42624
+Kidney/UTI,Minor,30 to 49,15,45178
+Kidney/UTI,Minor,30 to 49,16,47731
+Kidney/UTI,Minor,30 to 49,17,50285
+Kidney/UTI,Minor,30 to 49,18,52838
+Kidney/UTI,Minor,30 to 49,19,55392
+Kidney/UTI,Minor,30 to 49,20,57945
+Kidney/UTI,Minor,30 to 49,21,60499
+Kidney/UTI,Minor,30 to 49,22,63052
+Kidney/UTI,Minor,30 to 49,23,65606
+Kidney/UTI,Minor,30 to 49,24,68159
+Kidney/UTI,Minor,30 to 49,25,70713
+Kidney/UTI,Minor,30 to 49,26,73267
+Kidney/UTI,Minor,30 to 49,27,75820
+Kidney/UTI,Minor,30 to 49,28,78374
+Kidney/UTI,Minor,30 to 49,29,80927
+Kidney/UTI,Minor,30 to 49,30,83481
+Kidney/UTI,Minor,50 to 69,1,9720
+Kidney/UTI,Minor,50 to 69,2,12352
+Kidney/UTI,Minor,50 to 69,3,14985
+Kidney/UTI,Minor,50 to 69,4,17618
+Kidney/UTI,Minor,50 to 69,5,20250
+Kidney/UTI,Minor,50 to 69,6,22882
+Kidney/UTI,Minor,50 to 69,7,25515
+Kidney/UTI,Minor,50 to 69,8,28148
+Kidney/UTI,Minor,50 to 69,9,30780
+Kidney/UTI,Minor,50 to 69,10,33412
+Kidney/UTI,Minor,50 to 69,11,36045
+Kidney/UTI,Minor,50 to 69,12,38678
+Kidney/UTI,Minor,50 to 69,13,41310
+Kidney/UTI,Minor,50 to 69,14,43942
+Kidney/UTI,Minor,50 to 69,15,46575
+Kidney/UTI,Minor,50 to 69,16,49208
+Kidney/UTI,Minor,50 to 69,17,51840
+Kidney/UTI,Minor,50 to 69,18,54472
+Kidney/UTI,Minor,50 to 69,19,57105
+Kidney/UTI,Minor,50 to 69,20,59738
+Kidney/UTI,Minor,50 to 69,21,62370
+Kidney/UTI,Minor,50 to 69,22,65003
+Kidney/UTI,Minor,50 to 69,23,67635
+Kidney/UTI,Minor,50 to 69,24,70268
+Kidney/UTI,Minor,50 to 69,25,72900
+Kidney/UTI,Minor,50 to 69,26,75532
+Kidney/UTI,Minor,50 to 69,27,78165
+Kidney/UTI,Minor,50 to 69,28,80798
+Kidney/UTI,Minor,50 to 69,29,83430
+Kidney/UTI,Minor,50 to 69,30,86062
+Kidney/UTI,Minor,70 or Older,1,10109
+Kidney/UTI,Minor,70 or Older,2,12847
+Kidney/UTI,Minor,70 or Older,3,15584
+Kidney/UTI,Minor,70 or Older,4,18322
+Kidney/UTI,Minor,70 or Older,5,21060
+Kidney/UTI,Minor,70 or Older,6,23798
+Kidney/UTI,Minor,70 or Older,7,26536
+Kidney/UTI,Minor,70 or Older,8,29273
+Kidney/UTI,Minor,70 or Older,9,32011
+Kidney/UTI,Minor,70 or Older,10,34749
+Kidney/UTI,Minor,70 or Older,11,37487
+Kidney/UTI,Minor,70 or Older,12,40225
+Kidney/UTI,Minor,70 or Older,13,42962
+Kidney/UTI,Minor,70 or Older,14,45700
+Kidney/UTI,Minor,70 or Older,15,48438
+Kidney/UTI,Minor,70 or Older,16,51176
+Kidney/UTI,Minor,70 or Older,17,53914
+Kidney/UTI,Minor,70 or Older,18,56651
+Kidney/UTI,Minor,70 or Older,19,59389
+Kidney/UTI,Minor,70 or Older,20,62127
+Kidney/UTI,Minor,70 or Older,21,64865
+Kidney/UTI,Minor,70 or Older,22,67603
+Kidney/UTI,Minor,70 or Older,23,70340
+Kidney/UTI,Minor,70 or Older,24,73078
+Kidney/UTI,Minor,70 or Older,25,75816
+Kidney/UTI,Minor,70 or Older,26,78554
+Kidney/UTI,Minor,70 or Older,27,81292
+Kidney/UTI,Minor,70 or Older,28,84029
+Kidney/UTI,Minor,70 or Older,29,86767
+Kidney/UTI,Minor,70 or Older,30,89505
+Kidney/UTI,Moderate,18 to 29,1,11923
+Kidney/UTI,Moderate,18 to 29,2,15152
+Kidney/UTI,Moderate,18 to 29,3,18382
+Kidney/UTI,Moderate,18 to 29,4,21611
+Kidney/UTI,Moderate,18 to 29,5,24840
+Kidney/UTI,Moderate,18 to 29,6,28069
+Kidney/UTI,Moderate,18 to 29,7,31298
+Kidney/UTI,Moderate,18 to 29,8,34528
+Kidney/UTI,Moderate,18 to 29,9,37757
+Kidney/UTI,Moderate,18 to 29,10,40986
+Kidney/UTI,Moderate,18 to 29,11,44215
+Kidney/UTI,Moderate,18 to 29,12,47444
+Kidney/UTI,Moderate,18 to 29,13,50674
+Kidney/UTI,Moderate,18 to 29,14,53903
+Kidney/UTI,Moderate,18 to 29,15,57132
+Kidney/UTI,Moderate,18 to 29,16,60361
+Kidney/UTI,Moderate,18 to 29,17,63590
+Kidney/UTI,Moderate,18 to 29,18,66820
+Kidney/UTI,Moderate,18 to 29,19,70049
+Kidney/UTI,Moderate,18 to 29,20,73278
+Kidney/UTI,Moderate,18 to 29,21,76507
+Kidney/UTI,Moderate,18 to 29,22,79736
+Kidney/UTI,Moderate,18 to 29,23,82966
+Kidney/UTI,Moderate,18 to 29,24,86195
+Kidney/UTI,Moderate,18 to 29,25,89424
+Kidney/UTI,Moderate,18 to 29,26,92653
+Kidney/UTI,Moderate,18 to 29,27,95882
+Kidney/UTI,Moderate,18 to 29,28,99112
+Kidney/UTI,Moderate,18 to 29,29,102341
+Kidney/UTI,Moderate,18 to 29,30,105570
+Kidney/UTI,Moderate,30 to 49,1,12571
+Kidney/UTI,Moderate,30 to 49,2,15976
+Kidney/UTI,Moderate,30 to 49,3,19381
+Kidney/UTI,Moderate,30 to 49,4,22785
+Kidney/UTI,Moderate,30 to 49,5,26190
+Kidney/UTI,Moderate,30 to 49,6,29595
+Kidney/UTI,Moderate,30 to 49,7,32999
+Kidney/UTI,Moderate,30 to 49,8,36404
+Kidney/UTI,Moderate,30 to 49,9,39809
+Kidney/UTI,Moderate,30 to 49,10,43214
+Kidney/UTI,Moderate,30 to 49,11,46618
+Kidney/UTI,Moderate,30 to 49,12,50023
+Kidney/UTI,Moderate,30 to 49,13,53428
+Kidney/UTI,Moderate,30 to 49,14,56832
+Kidney/UTI,Moderate,30 to 49,15,60237
+Kidney/UTI,Moderate,30 to 49,16,63642
+Kidney/UTI,Moderate,30 to 49,17,67046
+Kidney/UTI,Moderate,30 to 49,18,70451
+Kidney/UTI,Moderate,30 to 49,19,73856
+Kidney/UTI,Moderate,30 to 49,20,77260
+Kidney/UTI,Moderate,30 to 49,21,80665
+Kidney/UTI,Moderate,30 to 49,22,84070
+Kidney/UTI,Moderate,30 to 49,23,87475
+Kidney/UTI,Moderate,30 to 49,24,90879
+Kidney/UTI,Moderate,30 to 49,25,94284
+Kidney/UTI,Moderate,30 to 49,26,97689
+Kidney/UTI,Moderate,30 to 49,27,101093
+Kidney/UTI,Moderate,30 to 49,28,104498
+Kidney/UTI,Moderate,30 to 49,29,107903
+Kidney/UTI,Moderate,30 to 49,30,111308
+Kidney/UTI,Moderate,50 to 69,1,12960
+Kidney/UTI,Moderate,50 to 69,2,16470
+Kidney/UTI,Moderate,50 to 69,3,19980
+Kidney/UTI,Moderate,50 to 69,4,23490
+Kidney/UTI,Moderate,50 to 69,5,27000
+Kidney/UTI,Moderate,50 to 69,6,30510
+Kidney/UTI,Moderate,50 to 69,7,34020
+Kidney/UTI,Moderate,50 to 69,8,37530
+Kidney/UTI,Moderate,50 to 69,9,41040
+Kidney/UTI,Moderate,50 to 69,10,44550
+Kidney/UTI,Moderate,50 to 69,11,48060
+Kidney/UTI,Moderate,50 to 69,12,51570
+Kidney/UTI,Moderate,50 to 69,13,55080
+Kidney/UTI,Moderate,50 to 69,14,58590
+Kidney/UTI,Moderate,50 to 69,15,62100
+Kidney/UTI,Moderate,50 to 69,16,65610
+Kidney/UTI,Moderate,50 to 69,17,69120
+Kidney/UTI,Moderate,50 to 69,18,72630
+Kidney/UTI,Moderate,50 to 69,19,76140
+Kidney/UTI,Moderate,50 to 69,20,79650
+Kidney/UTI,Moderate,50 to 69,21,83160
+Kidney/UTI,Moderate,50 to 69,22,86670
+Kidney/UTI,Moderate,50 to 69,23,90180
+Kidney/UTI,Moderate,50 to 69,24,93690
+Kidney/UTI,Moderate,50 to 69,25,97200
+Kidney/UTI,Moderate,50 to 69,26,100710
+Kidney/UTI,Moderate,50 to 69,27,104220
+Kidney/UTI,Moderate,50 to 69,28,107730
+Kidney/UTI,Moderate,50 to 69,29,111240
+Kidney/UTI,Moderate,50 to 69,30,114750
+Kidney/UTI,Moderate,70 or Older,1,13478
+Kidney/UTI,Moderate,70 or Older,2,17129
+Kidney/UTI,Moderate,70 or Older,3,20779
+Kidney/UTI,Moderate,70 or Older,4,24430
+Kidney/UTI,Moderate,70 or Older,5,28080
+Kidney/UTI,Moderate,70 or Older,6,31730
+Kidney/UTI,Moderate,70 or Older,7,35381
+Kidney/UTI,Moderate,70 or Older,8,39031
+Kidney/UTI,Moderate,70 or Older,9,42682
+Kidney/UTI,Moderate,70 or Older,10,46332
+Kidney/UTI,Moderate,70 or Older,11,49982
+Kidney/UTI,Moderate,70 or Older,12,53633
+Kidney/UTI,Moderate,70 or Older,13,57283
+Kidney/UTI,Moderate,70 or Older,14,60934
+Kidney/UTI,Moderate,70 or Older,15,64584
+Kidney/UTI,Moderate,70 or Older,16,68234
+Kidney/UTI,Moderate,70 or Older,17,71885
+Kidney/UTI,Moderate,70 or Older,18,75535
+Kidney/UTI,Moderate,70 or Older,19,79186
+Kidney/UTI,Moderate,70 or Older,20,82836
+Kidney/UTI,Moderate,70 or Older,21,86486
+Kidney/UTI,Moderate,70 or Older,22,90137
+Kidney/UTI,Moderate,70 or Older,23,93787
+Kidney/UTI,Moderate,70 or Older,24,97438
+Kidney/UTI,Moderate,70 or Older,25,101088
+Kidney/UTI,Moderate,70 or Older,26,104738
+Kidney/UTI,Moderate,70 or Older,27,108389
+Kidney/UTI,Moderate,70 or Older,28,112039
+Kidney/UTI,Moderate,70 or Older,29,115690
+Kidney/UTI,Moderate,70 or Older,30,119340
+Respiratory infection,Extreme,18 to 29,1,38022
+Respiratory infection,Extreme,18 to 29,2,48319
+Respiratory infection,Extreme,18 to 29,3,58617
+Respiratory infection,Extreme,18 to 29,4,68914
+Respiratory infection,Extreme,18 to 29,5,79212
+Respiratory infection,Extreme,18 to 29,6,89510
+Respiratory infection,Extreme,18 to 29,7,99807
+Respiratory infection,Extreme,18 to 29,8,110105
+Respiratory infection,Extreme,18 to 29,9,120402
+Respiratory infection,Extreme,18 to 29,10,130700
+Respiratory infection,Extreme,18 to 29,11,140997
+Respiratory infection,Extreme,18 to 29,12,151295
+Respiratory infection,Extreme,18 to 29,13,161592
+Respiratory infection,Extreme,18 to 29,14,171890
+Respiratory infection,Extreme,18 to 29,15,182188
+Respiratory infection,Extreme,18 to 29,16,192485
+Respiratory infection,Extreme,18 to 29,17,202783
+Respiratory infection,Extreme,18 to 29,18,213080
+Respiratory infection,Extreme,18 to 29,19,223378
+Respiratory infection,Extreme,18 to 29,20,233675
+Respiratory infection,Extreme,18 to 29,21,243973
+Respiratory infection,Extreme,18 to 29,22,254271
+Respiratory infection,Extreme,18 to 29,23,264568
+Respiratory infection,Extreme,18 to 29,24,274866
+Respiratory infection,Extreme,18 to 29,25,285163
+Respiratory infection,Extreme,18 to 29,26,295461
+Respiratory infection,Extreme,18 to 29,27,305758
+Respiratory infection,Extreme,18 to 29,28,316056
+Respiratory infection,Extreme,18 to 29,29,326353
+Respiratory infection,Extreme,18 to 29,30,336651
+Respiratory infection,Extreme,30 to 49,1,40088
+Respiratory infection,Extreme,30 to 49,2,50945
+Respiratory infection,Extreme,30 to 49,3,61803
+Respiratory infection,Extreme,30 to 49,4,72660
+Respiratory infection,Extreme,30 to 49,5,83517
+Respiratory infection,Extreme,30 to 49,6,94374
+Respiratory infection,Extreme,30 to 49,7,105231
+Respiratory infection,Extreme,30 to 49,8,116089
+Respiratory infection,Extreme,30 to 49,9,126946
+Respiratory infection,Extreme,30 to 49,10,137803
+Respiratory infection,Extreme,30 to 49,11,148660
+Respiratory infection,Extreme,30 to 49,12,159517
+Respiratory infection,Extreme,30 to 49,13,170375
+Respiratory infection,Extreme,30 to 49,14,181232
+Respiratory infection,Extreme,30 to 49,15,192089
+Respiratory infection,Extreme,30 to 49,16,202946
+Respiratory infection,Extreme,30 to 49,17,213804
+Respiratory infection,Extreme,30 to 49,18,224661
+Respiratory infection,Extreme,30 to 49,19,235518
+Respiratory infection,Extreme,30 to 49,20,246375
+Respiratory infection,Extreme,30 to 49,21,257232
+Respiratory infection,Extreme,30 to 49,22,268090
+Respiratory infection,Extreme,30 to 49,23,278947
+Respiratory infection,Extreme,30 to 49,24,289804
+Respiratory infection,Extreme,30 to 49,25,300661
+Respiratory infection,Extreme,30 to 49,26,311518
+Respiratory infection,Extreme,30 to 49,27,322376
+Respiratory infection,Extreme,30 to 49,28,333233
+Respiratory infection,Extreme,30 to 49,29,344090
+Respiratory infection,Extreme,30 to 49,30,354947
+Respiratory infection,Extreme,50 to 69,1,41328
+Respiratory infection,Extreme,50 to 69,2,52521
+Respiratory infection,Extreme,50 to 69,3,63714
+Respiratory infection,Extreme,50 to 69,4,74907
+Respiratory infection,Extreme,50 to 69,5,86100
+Respiratory infection,Extreme,50 to 69,6,97293
+Respiratory infection,Extreme,50 to 69,7,108486
+Respiratory infection,Extreme,50 to 69,8,119679
+Respiratory infection,Extreme,50 to 69,9,130872
+Respiratory infection,Extreme,50 to 69,10,142065
+Respiratory infection,Extreme,50 to 69,11,153258
+Respiratory infection,Extreme,50 to 69,12,164451
+Respiratory infection,Extreme,50 to 69,13,175644
+Respiratory infection,Extreme,50 to 69,14,186837
+Respiratory infection,Extreme,50 to 69,15,198030
+Respiratory infection,Extreme,50 to 69,16,209223
+Respiratory infection,Extreme,50 to 69,17,220416
+Respiratory infection,Extreme,50 to 69,18,231609
+Respiratory infection,Extreme,50 to 69,19,242802
+Respiratory infection,Extreme,50 to 69,20,253995
+Respiratory infection,Extreme,50 to 69,21,265188
+Respiratory infection,Extreme,50 to 69,22,276381
+Respiratory infection,Extreme,50 to 69,23,287574
+Respiratory infection,Extreme,50 to 69,24,298767
+Respiratory infection,Extreme,50 to 69,25,309960
+Respiratory infection,Extreme,50 to 69,26,321153
+Respiratory infection,Extreme,50 to 69,27,332346
+Respiratory infection,Extreme,50 to 69,28,343539
+Respiratory infection,Extreme,50 to 69,29,354732
+Respiratory infection,Extreme,50 to 69,30,365925
+Respiratory infection,Extreme,70 or Older,1,42981
+Respiratory infection,Extreme,70 or Older,2,54622
+Respiratory infection,Extreme,70 or Older,3,66263
+Respiratory infection,Extreme,70 or Older,4,77903
+Respiratory infection,Extreme,70 or Older,5,89544
+Respiratory infection,Extreme,70 or Older,6,101185
+Respiratory infection,Extreme,70 or Older,7,112825
+Respiratory infection,Extreme,70 or Older,8,124466
+Respiratory infection,Extreme,70 or Older,9,136107
+Respiratory infection,Extreme,70 or Older,10,147748
+Respiratory infection,Extreme,70 or Older,11,159388
+Respiratory infection,Extreme,70 or Older,12,171029
+Respiratory infection,Extreme,70 or Older,13,182670
+Respiratory infection,Extreme,70 or Older,14,194310
+Respiratory infection,Extreme,70 or Older,15,205951
+Respiratory infection,Extreme,70 or Older,16,217592
+Respiratory infection,Extreme,70 or Older,17,229233
+Respiratory infection,Extreme,70 or Older,18,240873
+Respiratory infection,Extreme,70 or Older,19,252514
+Respiratory infection,Extreme,70 or Older,20,264155
+Respiratory infection,Extreme,70 or Older,21,275796
+Respiratory infection,Extreme,70 or Older,22,287436
+Respiratory infection,Extreme,70 or Older,23,299077
+Respiratory infection,Extreme,70 or Older,24,310718
+Respiratory infection,Extreme,70 or Older,25,322358
+Respiratory infection,Extreme,70 or Older,26,333999
+Respiratory infection,Extreme,70 or Older,27,345640
+Respiratory infection,Extreme,70 or Older,28,357281
+Respiratory infection,Extreme,70 or Older,29,368921
+Respiratory infection,Extreme,70 or Older,30,380562
+Respiratory infection,Major,18 to 29,1,24443
+Respiratory infection,Major,18 to 29,2,31062
+Respiratory infection,Major,18 to 29,3,37682
+Respiratory infection,Major,18 to 29,4,44302
+Respiratory infection,Major,18 to 29,5,50922
+Respiratory infection,Major,18 to 29,6,57542
+Respiratory infection,Major,18 to 29,7,64162
+Respiratory infection,Major,18 to 29,8,70782
+Respiratory infection,Major,18 to 29,9,77401
+Respiratory infection,Major,18 to 29,10,84021
+Respiratory infection,Major,18 to 29,11,90641
+Respiratory infection,Major,18 to 29,12,97261
+Respiratory infection,Major,18 to 29,13,103881
+Respiratory infection,Major,18 to 29,14,110501
+Respiratory infection,Major,18 to 29,15,117121
+Respiratory infection,Major,18 to 29,16,123740
+Respiratory infection,Major,18 to 29,17,130360
+Respiratory infection,Major,18 to 29,18,136980
+Respiratory infection,Major,18 to 29,19,143600
+Respiratory infection,Major,18 to 29,20,150220
+Respiratory infection,Major,18 to 29,21,156840
+Respiratory infection,Major,18 to 29,22,163460
+Respiratory infection,Major,18 to 29,23,170079
+Respiratory infection,Major,18 to 29,24,176699
+Respiratory infection,Major,18 to 29,25,183319
+Respiratory infection,Major,18 to 29,26,189939
+Respiratory infection,Major,18 to 29,27,196559
+Respiratory infection,Major,18 to 29,28,203179
+Respiratory infection,Major,18 to 29,29,209799
+Respiratory infection,Major,18 to 29,30,216419
+Respiratory infection,Major,30 to 49,1,25771
+Respiratory infection,Major,30 to 49,2,32751
+Respiratory infection,Major,30 to 49,3,39730
+Respiratory infection,Major,30 to 49,4,46710
+Respiratory infection,Major,30 to 49,5,53690
+Respiratory infection,Major,30 to 49,6,60669
+Respiratory infection,Major,30 to 49,7,67649
+Respiratory infection,Major,30 to 49,8,74628
+Respiratory infection,Major,30 to 49,9,81608
+Respiratory infection,Major,30 to 49,10,88588
+Respiratory infection,Major,30 to 49,11,95567
+Respiratory infection,Major,30 to 49,12,102547
+Respiratory infection,Major,30 to 49,13,109527
+Respiratory infection,Major,30 to 49,14,116506
+Respiratory infection,Major,30 to 49,15,123486
+Respiratory infection,Major,30 to 49,16,130465
+Respiratory infection,Major,30 to 49,17,137445
+Respiratory infection,Major,30 to 49,18,144425
+Respiratory infection,Major,30 to 49,19,151404
+Respiratory infection,Major,30 to 49,20,158384
+Respiratory infection,Major,30 to 49,21,165364
+Respiratory infection,Major,30 to 49,22,172343
+Respiratory infection,Major,30 to 49,23,179323
+Respiratory infection,Major,30 to 49,24,186303
+Respiratory infection,Major,30 to 49,25,193282
+Respiratory infection,Major,30 to 49,26,200262
+Respiratory infection,Major,30 to 49,27,207241
+Respiratory infection,Major,30 to 49,28,214221
+Respiratory infection,Major,30 to 49,29,221201
+Respiratory infection,Major,30 to 49,30,228180
+Respiratory infection,Major,50 to 69,1,26568
+Respiratory infection,Major,50 to 69,2,33764
+Respiratory infection,Major,50 to 69,3,40959
+Respiratory infection,Major,50 to 69,4,48155
+Respiratory infection,Major,50 to 69,5,55350
+Respiratory infection,Major,50 to 69,6,62546
+Respiratory infection,Major,50 to 69,7,69741
+Respiratory infection,Major,50 to 69,8,76937
+Respiratory infection,Major,50 to 69,9,84132
+Respiratory infection,Major,50 to 69,10,91328
+Respiratory infection,Major,50 to 69,11,98523
+Respiratory infection,Major,50 to 69,12,105719
+Respiratory infection,Major,50 to 69,13,112914
+Respiratory infection,Major,50 to 69,14,120110
+Respiratory infection,Major,50 to 69,15,127305
+Respiratory infection,Major,50 to 69,16,134501
+Respiratory infection,Major,50 to 69,17,141696
+Respiratory infection,Major,50 to 69,18,148892
+Respiratory infection,Major,50 to 69,19,156087
+Respiratory infection,Major,50 to 69,20,163283
+Respiratory infection,Major,50 to 69,21,170478
+Respiratory infection,Major,50 to 69,22,177674
+Respiratory infection,Major,50 to 69,23,184869
+Respiratory infection,Major,50 to 69,24,192065
+Respiratory infection,Major,50 to 69,25,199260
+Respiratory infection,Major,50 to 69,26,206456
+Respiratory infection,Major,50 to 69,27,213651
+Respiratory infection,Major,50 to 69,28,220847
+Respiratory infection,Major,50 to 69,29,228042
+Respiratory infection,Major,50 to 69,30,235238
+Respiratory infection,Major,70 or Older,1,27631
+Respiratory infection,Major,70 or Older,2,35114
+Respiratory infection,Major,70 or Older,3,42597
+Respiratory infection,Major,70 or Older,4,50081
+Respiratory infection,Major,70 or Older,5,57564
+Respiratory infection,Major,70 or Older,6,65047
+Respiratory infection,Major,70 or Older,7,72531
+Respiratory infection,Major,70 or Older,8,80014
+Respiratory infection,Major,70 or Older,9,87497
+Respiratory infection,Major,70 or Older,10,94981
+Respiratory infection,Major,70 or Older,11,102464
+Respiratory infection,Major,70 or Older,12,109947
+Respiratory infection,Major,70 or Older,13,117431
+Respiratory infection,Major,70 or Older,14,124914
+Respiratory infection,Major,70 or Older,15,132397
+Respiratory infection,Major,70 or Older,16,139881
+Respiratory infection,Major,70 or Older,17,147364
+Respiratory infection,Major,70 or Older,18,154847
+Respiratory infection,Major,70 or Older,19,162330
+Respiratory infection,Major,70 or Older,20,169814
+Respiratory infection,Major,70 or Older,21,177297
+Respiratory infection,Major,70 or Older,22,184780
+Respiratory infection,Major,70 or Older,23,192264
+Respiratory infection,Major,70 or Older,24,199747
+Respiratory infection,Major,70 or Older,25,207230
+Respiratory infection,Major,70 or Older,26,214714
+Respiratory infection,Major,70 or Older,27,222197
+Respiratory infection,Major,70 or Older,28,229680
+Respiratory infection,Major,70 or Older,29,237164
+Respiratory infection,Major,70 or Older,30,244647
+Respiratory infection,Minor,18 to 29,1,13579
+Respiratory infection,Minor,18 to 29,2,17257
+Respiratory infection,Minor,18 to 29,3,20935
+Respiratory infection,Minor,18 to 29,4,24612
+Respiratory infection,Minor,18 to 29,5,28290
+Respiratory infection,Minor,18 to 29,6,31968
+Respiratory infection,Minor,18 to 29,7,35645
+Respiratory infection,Minor,18 to 29,8,39323
+Respiratory infection,Minor,18 to 29,9,43001
+Respiratory infection,Minor,18 to 29,10,46678
+Respiratory infection,Minor,18 to 29,11,50356
+Respiratory infection,Minor,18 to 29,12,54034
+Respiratory infection,Minor,18 to 29,13,57712
+Respiratory infection,Minor,18 to 29,14,61389
+Respiratory infection,Minor,18 to 29,15,65067
+Respiratory infection,Minor,18 to 29,16,68745
+Respiratory infection,Minor,18 to 29,17,72422
+Respiratory infection,Minor,18 to 29,18,76100
+Respiratory infection,Minor,18 to 29,19,79778
+Respiratory infection,Minor,18 to 29,20,83456
+Respiratory infection,Minor,18 to 29,21,87133
+Respiratory infection,Minor,18 to 29,22,90811
+Respiratory infection,Minor,18 to 29,23,94489
+Respiratory infection,Minor,18 to 29,24,98166
+Respiratory infection,Minor,18 to 29,25,101844
+Respiratory infection,Minor,18 to 29,26,105522
+Respiratory infection,Minor,18 to 29,27,109199
+Respiratory infection,Minor,18 to 29,28,112877
+Respiratory infection,Minor,18 to 29,29,116555
+Respiratory infection,Minor,18 to 29,30,120232
+Respiratory infection,Minor,30 to 49,1,14317
+Respiratory infection,Minor,30 to 49,2,18195
+Respiratory infection,Minor,30 to 49,3,22072
+Respiratory infection,Minor,30 to 49,4,25950
+Respiratory infection,Minor,30 to 49,5,29828
+Respiratory infection,Minor,30 to 49,6,33705
+Respiratory infection,Minor,30 to 49,7,37583
+Respiratory infection,Minor,30 to 49,8,41460
+Respiratory infection,Minor,30 to 49,9,45338
+Respiratory infection,Minor,30 to 49,10,49215
+Respiratory infection,Minor,30 to 49,11,53093
+Respiratory infection,Minor,30 to 49,12,56971
+Respiratory infection,Minor,30 to 49,13,60848
+Respiratory infection,Minor,30 to 49,14,64726
+Respiratory infection,Minor,30 to 49,15,68603
+Respiratory infection,Minor,30 to 49,16,72481
+Respiratory infection,Minor,30 to 49,17,76358
+Respiratory infection,Minor,30 to 49,18,80236
+Respiratory infection,Minor,30 to 49,19,84114
+Respiratory infection,Minor,30 to 49,20,87991
+Respiratory infection,Minor,30 to 49,21,91869
+Respiratory infection,Minor,30 to 49,22,95746
+Respiratory infection,Minor,30 to 49,23,99624
+Respiratory infection,Minor,30 to 49,24,103501
+Respiratory infection,Minor,30 to 49,25,107379
+Respiratory infection,Minor,30 to 49,26,111257
+Respiratory infection,Minor,30 to 49,27,115134
+Respiratory infection,Minor,30 to 49,28,119012
+Respiratory infection,Minor,30 to 49,29,122889
+Respiratory infection,Minor,30 to 49,30,126767
+Respiratory infection,Minor,50 to 69,1,14760
+Respiratory infection,Minor,50 to 69,2,18758
+Respiratory infection,Minor,50 to 69,3,22755
+Respiratory infection,Minor,50 to 69,4,26752
+Respiratory infection,Minor,50 to 69,5,30750
+Respiratory infection,Minor,50 to 69,6,34748
+Respiratory infection,Minor,50 to 69,7,38745
+Respiratory infection,Minor,50 to 69,8,42743
+Respiratory infection,Minor,50 to 69,9,46740
+Respiratory infection,Minor,50 to 69,10,50738
+Respiratory infection,Minor,50 to 69,11,54735
+Respiratory infection,Minor,50 to 69,12,58733
+Respiratory infection,Minor,50 to 69,13,62730
+Respiratory infection,Minor,50 to 69,14,66728
+Respiratory infection,Minor,50 to 69,15,70725
+Respiratory infection,Minor,50 to 69,16,74722
+Respiratory infection,Minor,50 to 69,17,78720
+Respiratory infection,Minor,50 to 69,18,82718
+Respiratory infection,Minor,50 to 69,19,86715
+Respiratory infection,Minor,50 to 69,20,90712
+Respiratory infection,Minor,50 to 69,21,94710
+Respiratory infection,Minor,50 to 69,22,98708
+Respiratory infection,Minor,50 to 69,23,102705
+Respiratory infection,Minor,50 to 69,24,106702
+Respiratory infection,Minor,50 to 69,25,110700
+Respiratory infection,Minor,50 to 69,26,114698
+Respiratory infection,Minor,50 to 69,27,118695
+Respiratory infection,Minor,50 to 69,28,122692
+Respiratory infection,Minor,50 to 69,29,126690
+Respiratory infection,Minor,50 to 69,30,130688
+Respiratory infection,Minor,70 or Older,1,15350
+Respiratory infection,Minor,70 or Older,2,19508
+Respiratory infection,Minor,70 or Older,3,23665
+Respiratory infection,Minor,70 or Older,4,27823
+Respiratory infection,Minor,70 or Older,5,31980
+Respiratory infection,Minor,70 or Older,6,36137
+Respiratory infection,Minor,70 or Older,7,40295
+Respiratory infection,Minor,70 or Older,8,44452
+Respiratory infection,Minor,70 or Older,9,48610
+Respiratory infection,Minor,70 or Older,10,52767
+Respiratory infection,Minor,70 or Older,11,56924
+Respiratory infection,Minor,70 or Older,12,61082
+Respiratory infection,Minor,70 or Older,13,65239
+Respiratory infection,Minor,70 or Older,14,69397
+Respiratory infection,Minor,70 or Older,15,73554
+Respiratory infection,Minor,70 or Older,16,77711
+Respiratory infection,Minor,70 or Older,17,81869
+Respiratory infection,Minor,70 or Older,18,86026
+Respiratory infection,Minor,70 or Older,19,90184
+Respiratory infection,Minor,70 or Older,20,94341
+Respiratory infection,Minor,70 or Older,21,98498
+Respiratory infection,Minor,70 or Older,22,102656
+Respiratory infection,Minor,70 or Older,23,106813
+Respiratory infection,Minor,70 or Older,24,110971
+Respiratory infection,Minor,70 or Older,25,115128
+Respiratory infection,Minor,70 or Older,26,119285
+Respiratory infection,Minor,70 or Older,27,123443
+Respiratory infection,Minor,70 or Older,28,127600
+Respiratory infection,Minor,70 or Older,29,131758
+Respiratory infection,Minor,70 or Older,30,135915
+Respiratory infection,Moderate,18 to 29,1,18106
+Respiratory infection,Moderate,18 to 29,2,23009
+Respiratory infection,Moderate,18 to 29,3,27913
+Respiratory infection,Moderate,18 to 29,4,32816
+Respiratory infection,Moderate,18 to 29,5,37720
+Respiratory infection,Moderate,18 to 29,6,42624
+Respiratory infection,Moderate,18 to 29,7,47527
+Respiratory infection,Moderate,18 to 29,8,52431
+Respiratory infection,Moderate,18 to 29,9,57334
+Respiratory infection,Moderate,18 to 29,10,62238
+Respiratory infection,Moderate,18 to 29,11,67142
+Respiratory infection,Moderate,18 to 29,12,72045
+Respiratory infection,Moderate,18 to 29,13,76949
+Respiratory infection,Moderate,18 to 29,14,81852
+Respiratory infection,Moderate,18 to 29,15,86756
+Respiratory infection,Moderate,18 to 29,16,91660
+Respiratory infection,Moderate,18 to 29,17,96563
+Respiratory infection,Moderate,18 to 29,18,101467
+Respiratory infection,Moderate,18 to 29,19,106370
+Respiratory infection,Moderate,18 to 29,20,111274
+Respiratory infection,Moderate,18 to 29,21,116178
+Respiratory infection,Moderate,18 to 29,22,121081
+Respiratory infection,Moderate,18 to 29,23,125985
+Respiratory infection,Moderate,18 to 29,24,130888
+Respiratory infection,Moderate,18 to 29,25,135792
+Respiratory infection,Moderate,18 to 29,26,140696
+Respiratory infection,Moderate,18 to 29,27,145599
+Respiratory infection,Moderate,18 to 29,28,150503
+Respiratory infection,Moderate,18 to 29,29,155406
+Respiratory infection,Moderate,18 to 29,30,160310
+Respiratory infection,Moderate,30 to 49,1,19090
+Respiratory infection,Moderate,30 to 49,2,24260
+Respiratory infection,Moderate,30 to 49,3,29430
+Respiratory infection,Moderate,30 to 49,4,34600
+Respiratory infection,Moderate,30 to 49,5,39770
+Respiratory infection,Moderate,30 to 49,6,44940
+Respiratory infection,Moderate,30 to 49,7,50110
+Respiratory infection,Moderate,30 to 49,8,55280
+Respiratory infection,Moderate,30 to 49,9,60450
+Respiratory infection,Moderate,30 to 49,10,65620
+Respiratory infection,Moderate,30 to 49,11,70791
+Respiratory infection,Moderate,30 to 49,12,75961
+Respiratory infection,Moderate,30 to 49,13,81131
+Respiratory infection,Moderate,30 to 49,14,86301
+Respiratory infection,Moderate,30 to 49,15,91471
+Respiratory infection,Moderate,30 to 49,16,96641
+Respiratory infection,Moderate,30 to 49,17,101811
+Respiratory infection,Moderate,30 to 49,18,106981
+Respiratory infection,Moderate,30 to 49,19,112151
+Respiratory infection,Moderate,30 to 49,20,117322
+Respiratory infection,Moderate,30 to 49,21,122492
+Respiratory infection,Moderate,30 to 49,22,127662
+Respiratory infection,Moderate,30 to 49,23,132832
+Respiratory infection,Moderate,30 to 49,24,138002
+Respiratory infection,Moderate,30 to 49,25,143172
+Respiratory infection,Moderate,30 to 49,26,148342
+Respiratory infection,Moderate,30 to 49,27,153512
+Respiratory infection,Moderate,30 to 49,28,158682
+Respiratory infection,Moderate,30 to 49,29,163852
+Respiratory infection,Moderate,30 to 49,30,169022
+Respiratory infection,Moderate,50 to 69,1,19680
+Respiratory infection,Moderate,50 to 69,2,25010
+Respiratory infection,Moderate,50 to 69,3,30340
+Respiratory infection,Moderate,50 to 69,4,35670
+Respiratory infection,Moderate,50 to 69,5,41000
+Respiratory infection,Moderate,50 to 69,6,46330
+Respiratory infection,Moderate,50 to 69,7,51660
+Respiratory infection,Moderate,50 to 69,8,56990
+Respiratory infection,Moderate,50 to 69,9,62320
+Respiratory infection,Moderate,50 to 69,10,67650
+Respiratory infection,Moderate,50 to 69,11,72980
+Respiratory infection,Moderate,50 to 69,12,78310
+Respiratory infection,Moderate,50 to 69,13,83640
+Respiratory infection,Moderate,50 to 69,14,88970
+Respiratory infection,Moderate,50 to 69,15,94300
+Respiratory infection,Moderate,50 to 69,16,99630
+Respiratory infection,Moderate,50 to 69,17,104960
+Respiratory infection,Moderate,50 to 69,18,110290
+Respiratory infection,Moderate,50 to 69,19,115620
+Respiratory infection,Moderate,50 to 69,20,120950
+Respiratory infection,Moderate,50 to 69,21,126280
+Respiratory infection,Moderate,50 to 69,22,131610
+Respiratory infection,Moderate,50 to 69,23,136940
+Respiratory infection,Moderate,50 to 69,24,142270
+Respiratory infection,Moderate,50 to 69,25,147600
+Respiratory infection,Moderate,50 to 69,26,152930
+Respiratory infection,Moderate,50 to 69,27,158260
+Respiratory infection,Moderate,50 to 69,28,163590
+Respiratory infection,Moderate,50 to 69,29,168920
+Respiratory infection,Moderate,50 to 69,30,174250
+Respiratory infection,Moderate,70 or Older,1,20467
+Respiratory infection,Moderate,70 or Older,2,26010
+Respiratory infection,Moderate,70 or Older,3,31554
+Respiratory infection,Moderate,70 or Older,4,37097
+Respiratory infection,Moderate,70 or Older,5,42640
+Respiratory infection,Moderate,70 or Older,6,48183
+Respiratory infection,Moderate,70 or Older,7,53726
+Respiratory infection,Moderate,70 or Older,8,59270
+Respiratory infection,Moderate,70 or Older,9,64813
+Respiratory infection,Moderate,70 or Older,10,70356
+Respiratory infection,Moderate,70 or Older,11,75899
+Respiratory infection,Moderate,70 or Older,12,81442
+Respiratory infection,Moderate,70 or Older,13,86986
+Respiratory infection,Moderate,70 or Older,14,92529
+Respiratory infection,Moderate,70 or Older,15,98072
+Respiratory infection,Moderate,70 or Older,16,103615
+Respiratory infection,Moderate,70 or Older,17,109158
+Respiratory infection,Moderate,70 or Older,18,114702
+Respiratory infection,Moderate,70 or Older,19,120245
+Respiratory infection,Moderate,70 or Older,20,125788
+Respiratory infection,Moderate,70 or Older,21,131331
+Respiratory infection,Moderate,70 or Older,22,136874
+Respiratory infection,Moderate,70 or Older,23,142418
+Respiratory infection,Moderate,70 or Older,24,147961
+Respiratory infection,Moderate,70 or Older,25,153504
+Respiratory infection,Moderate,70 or Older,26,159047
+Respiratory infection,Moderate,70 or Older,27,164590
+Respiratory infection,Moderate,70 or Older,28,170134
+Respiratory infection,Moderate,70 or Older,29,175677
+Respiratory infection,Moderate,70 or Older,30,181220
+Sepsis,Extreme,18 to 29,1,57496
+Sepsis,Extreme,18 to 29,2,73068
+Sepsis,Extreme,18 to 29,3,88640
+Sepsis,Extreme,18 to 29,4,104212
+Sepsis,Extreme,18 to 29,5,119784
+Sepsis,Extreme,18 to 29,6,135356
+Sepsis,Extreme,18 to 29,7,150928
+Sepsis,Extreme,18 to 29,8,166500
+Sepsis,Extreme,18 to 29,9,182072
+Sepsis,Extreme,18 to 29,10,197644
+Sepsis,Extreme,18 to 29,11,213216
+Sepsis,Extreme,18 to 29,12,228787
+Sepsis,Extreme,18 to 29,13,244359
+Sepsis,Extreme,18 to 29,14,259931
+Sepsis,Extreme,18 to 29,15,275503
+Sepsis,Extreme,18 to 29,16,291075
+Sepsis,Extreme,18 to 29,17,306647
+Sepsis,Extreme,18 to 29,18,322219
+Sepsis,Extreme,18 to 29,19,337791
+Sepsis,Extreme,18 to 29,20,353363
+Sepsis,Extreme,18 to 29,21,368935
+Sepsis,Extreme,18 to 29,22,384507
+Sepsis,Extreme,18 to 29,23,400079
+Sepsis,Extreme,18 to 29,24,415650
+Sepsis,Extreme,18 to 29,25,431222
+Sepsis,Extreme,18 to 29,26,446794
+Sepsis,Extreme,18 to 29,27,462366
+Sepsis,Extreme,18 to 29,28,477938
+Sepsis,Extreme,18 to 29,29,493510
+Sepsis,Extreme,18 to 29,30,509082
+Sepsis,Extreme,30 to 49,1,60621
+Sepsis,Extreme,30 to 49,2,77039
+Sepsis,Extreme,30 to 49,3,93458
+Sepsis,Extreme,30 to 49,4,109876
+Sepsis,Extreme,30 to 49,5,126294
+Sepsis,Extreme,30 to 49,6,142712
+Sepsis,Extreme,30 to 49,7,159130
+Sepsis,Extreme,30 to 49,8,175549
+Sepsis,Extreme,30 to 49,9,191967
+Sepsis,Extreme,30 to 49,10,208385
+Sepsis,Extreme,30 to 49,11,224803
+Sepsis,Extreme,30 to 49,12,241222
+Sepsis,Extreme,30 to 49,13,257640
+Sepsis,Extreme,30 to 49,14,274058
+Sepsis,Extreme,30 to 49,15,290476
+Sepsis,Extreme,30 to 49,16,306894
+Sepsis,Extreme,30 to 49,17,323313
+Sepsis,Extreme,30 to 49,18,339731
+Sepsis,Extreme,30 to 49,19,356149
+Sepsis,Extreme,30 to 49,20,372567
+Sepsis,Extreme,30 to 49,21,388986
+Sepsis,Extreme,30 to 49,22,405404
+Sepsis,Extreme,30 to 49,23,421822
+Sepsis,Extreme,30 to 49,24,438240
+Sepsis,Extreme,30 to 49,25,454658
+Sepsis,Extreme,30 to 49,26,471077
+Sepsis,Extreme,30 to 49,27,487495
+Sepsis,Extreme,30 to 49,28,503913
+Sepsis,Extreme,30 to 49,29,520331
+Sepsis,Extreme,30 to 49,30,536750
+Sepsis,Extreme,50 to 69,1,62496
+Sepsis,Extreme,50 to 69,2,79422
+Sepsis,Extreme,50 to 69,3,96348
+Sepsis,Extreme,50 to 69,4,113274
+Sepsis,Extreme,50 to 69,5,130200
+Sepsis,Extreme,50 to 69,6,147126
+Sepsis,Extreme,50 to 69,7,164052
+Sepsis,Extreme,50 to 69,8,180978
+Sepsis,Extreme,50 to 69,9,197904
+Sepsis,Extreme,50 to 69,10,214830
+Sepsis,Extreme,50 to 69,11,231756
+Sepsis,Extreme,50 to 69,12,248682
+Sepsis,Extreme,50 to 69,13,265608
+Sepsis,Extreme,50 to 69,14,282534
+Sepsis,Extreme,50 to 69,15,299460
+Sepsis,Extreme,50 to 69,16,316386
+Sepsis,Extreme,50 to 69,17,333312
+Sepsis,Extreme,50 to 69,18,350238
+Sepsis,Extreme,50 to 69,19,367164
+Sepsis,Extreme,50 to 69,20,384090
+Sepsis,Extreme,50 to 69,21,401016
+Sepsis,Extreme,50 to 69,22,417942
+Sepsis,Extreme,50 to 69,23,434868
+Sepsis,Extreme,50 to 69,24,451794
+Sepsis,Extreme,50 to 69,25,468720
+Sepsis,Extreme,50 to 69,26,485646
+Sepsis,Extreme,50 to 69,27,502572
+Sepsis,Extreme,50 to 69,28,519498
+Sepsis,Extreme,50 to 69,29,536424
+Sepsis,Extreme,50 to 69,30,553350
+Sepsis,Extreme,70 or Older,1,64996
+Sepsis,Extreme,70 or Older,2,82599
+Sepsis,Extreme,70 or Older,3,100202
+Sepsis,Extreme,70 or Older,4,117805
+Sepsis,Extreme,70 or Older,5,135408
+Sepsis,Extreme,70 or Older,6,153011
+Sepsis,Extreme,70 or Older,7,170614
+Sepsis,Extreme,70 or Older,8,188217
+Sepsis,Extreme,70 or Older,9,205820
+Sepsis,Extreme,70 or Older,10,223423
+Sepsis,Extreme,70 or Older,11,241026
+Sepsis,Extreme,70 or Older,12,258629
+Sepsis,Extreme,70 or Older,13,276232
+Sepsis,Extreme,70 or Older,14,293835
+Sepsis,Extreme,70 or Older,15,311438
+Sepsis,Extreme,70 or Older,16,329041
+Sepsis,Extreme,70 or Older,17,346644
+Sepsis,Extreme,70 or Older,18,364248
+Sepsis,Extreme,70 or Older,19,381851
+Sepsis,Extreme,70 or Older,20,399454
+Sepsis,Extreme,70 or Older,21,417057
+Sepsis,Extreme,70 or Older,22,434660
+Sepsis,Extreme,70 or Older,23,452263
+Sepsis,Extreme,70 or Older,24,469866
+Sepsis,Extreme,70 or Older,25,487469
+Sepsis,Extreme,70 or Older,26,505072
+Sepsis,Extreme,70 or Older,27,522675
+Sepsis,Extreme,70 or Older,28,540278
+Sepsis,Extreme,70 or Older,29,557881
+Sepsis,Extreme,70 or Older,30,575484
+Sepsis,Major,18 to 29,1,36962
+Sepsis,Major,18 to 29,2,46972
+Sepsis,Major,18 to 29,3,56983
+Sepsis,Major,18 to 29,4,66993
+Sepsis,Major,18 to 29,5,77004
+Sepsis,Major,18 to 29,6,87015
+Sepsis,Major,18 to 29,7,97025
+Sepsis,Major,18 to 29,8,107036
+Sepsis,Major,18 to 29,9,117046
+Sepsis,Major,18 to 29,10,127057
+Sepsis,Major,18 to 29,11,137067
+Sepsis,Major,18 to 29,12,147078
+Sepsis,Major,18 to 29,13,157088
+Sepsis,Major,18 to 29,14,167099
+Sepsis,Major,18 to 29,15,177109
+Sepsis,Major,18 to 29,16,187120
+Sepsis,Major,18 to 29,17,197130
+Sepsis,Major,18 to 29,18,207141
+Sepsis,Major,18 to 29,19,217151
+Sepsis,Major,18 to 29,20,227162
+Sepsis,Major,18 to 29,21,237172
+Sepsis,Major,18 to 29,22,247183
+Sepsis,Major,18 to 29,23,257193
+Sepsis,Major,18 to 29,24,267204
+Sepsis,Major,18 to 29,25,277214
+Sepsis,Major,18 to 29,26,287225
+Sepsis,Major,18 to 29,27,297235
+Sepsis,Major,18 to 29,28,307246
+Sepsis,Major,18 to 29,29,317256
+Sepsis,Major,18 to 29,30,327267
+Sepsis,Major,30 to 49,1,38971
+Sepsis,Major,30 to 49,2,49525
+Sepsis,Major,30 to 49,3,60080
+Sepsis,Major,30 to 49,4,70634
+Sepsis,Major,30 to 49,5,81189
+Sepsis,Major,30 to 49,6,91744
+Sepsis,Major,30 to 49,7,102298
+Sepsis,Major,30 to 49,8,112853
+Sepsis,Major,30 to 49,9,123407
+Sepsis,Major,30 to 49,10,133962
+Sepsis,Major,30 to 49,11,144516
+Sepsis,Major,30 to 49,12,155071
+Sepsis,Major,30 to 49,13,165626
+Sepsis,Major,30 to 49,14,176180
+Sepsis,Major,30 to 49,15,186735
+Sepsis,Major,30 to 49,16,197289
+Sepsis,Major,30 to 49,17,207844
+Sepsis,Major,30 to 49,18,218398
+Sepsis,Major,30 to 49,19,228953
+Sepsis,Major,30 to 49,20,239508
+Sepsis,Major,30 to 49,21,250062
+Sepsis,Major,30 to 49,22,260617
+Sepsis,Major,30 to 49,23,271171
+Sepsis,Major,30 to 49,24,281726
+Sepsis,Major,30 to 49,25,292280
+Sepsis,Major,30 to 49,26,302835
+Sepsis,Major,30 to 49,27,313390
+Sepsis,Major,30 to 49,28,323944
+Sepsis,Major,30 to 49,29,334499
+Sepsis,Major,30 to 49,30,345053
+Sepsis,Major,50 to 69,1,40176
+Sepsis,Major,50 to 69,2,51057
+Sepsis,Major,50 to 69,3,61938
+Sepsis,Major,50 to 69,4,72819
+Sepsis,Major,50 to 69,5,83700
+Sepsis,Major,50 to 69,6,94581
+Sepsis,Major,50 to 69,7,105462
+Sepsis,Major,50 to 69,8,116343
+Sepsis,Major,50 to 69,9,127224
+Sepsis,Major,50 to 69,10,138105
+Sepsis,Major,50 to 69,11,148986
+Sepsis,Major,50 to 69,12,159867
+Sepsis,Major,50 to 69,13,170748
+Sepsis,Major,50 to 69,14,181629
+Sepsis,Major,50 to 69,15,192510
+Sepsis,Major,50 to 69,16,203391
+Sepsis,Major,50 to 69,17,214272
+Sepsis,Major,50 to 69,18,225153
+Sepsis,Major,50 to 69,19,236034
+Sepsis,Major,50 to 69,20,246915
+Sepsis,Major,50 to 69,21,257796
+Sepsis,Major,50 to 69,22,268677
+Sepsis,Major,50 to 69,23,279558
+Sepsis,Major,50 to 69,24,290439
+Sepsis,Major,50 to 69,25,301320
+Sepsis,Major,50 to 69,26,312201
+Sepsis,Major,50 to 69,27,323082
+Sepsis,Major,50 to 69,28,333963
+Sepsis,Major,50 to 69,29,344844
+Sepsis,Major,50 to 69,30,355725
+Sepsis,Major,70 or Older,1,41783
+Sepsis,Major,70 or Older,2,53099
+Sepsis,Major,70 or Older,3,64416
+Sepsis,Major,70 or Older,4,75732
+Sepsis,Major,70 or Older,5,87048
+Sepsis,Major,70 or Older,6,98364
+Sepsis,Major,70 or Older,7,109680
+Sepsis,Major,70 or Older,8,120997
+Sepsis,Major,70 or Older,9,132313
+Sepsis,Major,70 or Older,10,143629
+Sepsis,Major,70 or Older,11,154945
+Sepsis,Major,70 or Older,12,166262
+Sepsis,Major,70 or Older,13,177578
+Sepsis,Major,70 or Older,14,188894
+Sepsis,Major,70 or Older,15,200210
+Sepsis,Major,70 or Older,16,211527
+Sepsis,Major,70 or Older,17,222843
+Sepsis,Major,70 or Older,18,234159
+Sepsis,Major,70 or Older,19,245475
+Sepsis,Major,70 or Older,20,256792
+Sepsis,Major,70 or Older,21,268108
+Sepsis,Major,70 or Older,22,279424
+Sepsis,Major,70 or Older,23,290740
+Sepsis,Major,70 or Older,24,302057
+Sepsis,Major,70 or Older,25,313373
+Sepsis,Major,70 or Older,26,324689
+Sepsis,Major,70 or Older,27,336005
+Sepsis,Major,70 or Older,28,347322
+Sepsis,Major,70 or Older,29,358638
+Sepsis,Major,70 or Older,30,369954
+Sepsis,Minor,18 to 29,1,20534
+Sepsis,Minor,18 to 29,2,26096
+Sepsis,Minor,18 to 29,3,31657
+Sepsis,Minor,18 to 29,4,37219
+Sepsis,Minor,18 to 29,5,42780
+Sepsis,Minor,18 to 29,6,48341
+Sepsis,Minor,18 to 29,7,53903
+Sepsis,Minor,18 to 29,8,59464
+Sepsis,Minor,18 to 29,9,65026
+Sepsis,Minor,18 to 29,10,70587
+Sepsis,Minor,18 to 29,11,76148
+Sepsis,Minor,18 to 29,12,81710
+Sepsis,Minor,18 to 29,13,87271
+Sepsis,Minor,18 to 29,14,92833
+Sepsis,Minor,18 to 29,15,98394
+Sepsis,Minor,18 to 29,16,103955
+Sepsis,Minor,18 to 29,17,109517
+Sepsis,Minor,18 to 29,18,115078
+Sepsis,Minor,18 to 29,19,120640
+Sepsis,Minor,18 to 29,20,126201
+Sepsis,Minor,18 to 29,21,131762
+Sepsis,Minor,18 to 29,22,137324
+Sepsis,Minor,18 to 29,23,142885
+Sepsis,Minor,18 to 29,24,148447
+Sepsis,Minor,18 to 29,25,154008
+Sepsis,Minor,18 to 29,26,159569
+Sepsis,Minor,18 to 29,27,165131
+Sepsis,Minor,18 to 29,28,170692
+Sepsis,Minor,18 to 29,29,176254
+Sepsis,Minor,18 to 29,30,181815
+Sepsis,Minor,30 to 49,1,21650
+Sepsis,Minor,30 to 49,2,27514
+Sepsis,Minor,30 to 49,3,33378
+Sepsis,Minor,30 to 49,4,39241
+Sepsis,Minor,30 to 49,5,45105
+Sepsis,Minor,30 to 49,6,50969
+Sepsis,Minor,30 to 49,7,56832
+Sepsis,Minor,30 to 49,8,62696
+Sepsis,Minor,30 to 49,9,68560
+Sepsis,Minor,30 to 49,10,74423
+Sepsis,Minor,30 to 49,11,80287
+Sepsis,Minor,30 to 49,12,86151
+Sepsis,Minor,30 to 49,13,92014
+Sepsis,Minor,30 to 49,14,97878
+Sepsis,Minor,30 to 49,15,103742
+Sepsis,Minor,30 to 49,16,109605
+Sepsis,Minor,30 to 49,17,115469
+Sepsis,Minor,30 to 49,18,121332
+Sepsis,Minor,30 to 49,19,127196
+Sepsis,Minor,30 to 49,20,133060
+Sepsis,Minor,30 to 49,21,138923
+Sepsis,Minor,30 to 49,22,144787
+Sepsis,Minor,30 to 49,23,150651
+Sepsis,Minor,30 to 49,24,156514
+Sepsis,Minor,30 to 49,25,162378
+Sepsis,Minor,30 to 49,26,168242
+Sepsis,Minor,30 to 49,27,174105
+Sepsis,Minor,30 to 49,28,179969
+Sepsis,Minor,30 to 49,29,185833
+Sepsis,Minor,30 to 49,30,191696
+Sepsis,Minor,50 to 69,1,22320
+Sepsis,Minor,50 to 69,2,28365
+Sepsis,Minor,50 to 69,3,34410
+Sepsis,Minor,50 to 69,4,40455
+Sepsis,Minor,50 to 69,5,46500
+Sepsis,Minor,50 to 69,6,52545
+Sepsis,Minor,50 to 69,7,58590
+Sepsis,Minor,50 to 69,8,64635
+Sepsis,Minor,50 to 69,9,70680
+Sepsis,Minor,50 to 69,10,76725
+Sepsis,Minor,50 to 69,11,82770
+Sepsis,Minor,50 to 69,12,88815
+Sepsis,Minor,50 to 69,13,94860
+Sepsis,Minor,50 to 69,14,100905
+Sepsis,Minor,50 to 69,15,106950
+Sepsis,Minor,50 to 69,16,112995
+Sepsis,Minor,50 to 69,17,119040
+Sepsis,Minor,50 to 69,18,125085
+Sepsis,Minor,50 to 69,19,131130
+Sepsis,Minor,50 to 69,20,137175
+Sepsis,Minor,50 to 69,21,143220
+Sepsis,Minor,50 to 69,22,149265
+Sepsis,Minor,50 to 69,23,155310
+Sepsis,Minor,50 to 69,24,161355
+Sepsis,Minor,50 to 69,25,167400
+Sepsis,Minor,50 to 69,26,173445
+Sepsis,Minor,50 to 69,27,179490
+Sepsis,Minor,50 to 69,28,185535
+Sepsis,Minor,50 to 69,29,191580
+Sepsis,Minor,50 to 69,30,197625
+Sepsis,Minor,70 or Older,1,23213
+Sepsis,Minor,70 or Older,2,29500
+Sepsis,Minor,70 or Older,3,35786
+Sepsis,Minor,70 or Older,4,42073
+Sepsis,Minor,70 or Older,5,48360
+Sepsis,Minor,70 or Older,6,54647
+Sepsis,Minor,70 or Older,7,60934
+Sepsis,Minor,70 or Older,8,67220
+Sepsis,Minor,70 or Older,9,73507
+Sepsis,Minor,70 or Older,10,79794
+Sepsis,Minor,70 or Older,11,86081
+Sepsis,Minor,70 or Older,12,92368
+Sepsis,Minor,70 or Older,13,98654
+Sepsis,Minor,70 or Older,14,104941
+Sepsis,Minor,70 or Older,15,111228
+Sepsis,Minor,70 or Older,16,117515
+Sepsis,Minor,70 or Older,17,123802
+Sepsis,Minor,70 or Older,18,130088
+Sepsis,Minor,70 or Older,19,136375
+Sepsis,Minor,70 or Older,20,142662
+Sepsis,Minor,70 or Older,21,148949
+Sepsis,Minor,70 or Older,22,155236
+Sepsis,Minor,70 or Older,23,161522
+Sepsis,Minor,70 or Older,24,167809
+Sepsis,Minor,70 or Older,25,174096
+Sepsis,Minor,70 or Older,26,180383
+Sepsis,Minor,70 or Older,27,186670
+Sepsis,Minor,70 or Older,28,192956
+Sepsis,Minor,70 or Older,29,199243
+Sepsis,Minor,70 or Older,30,205530
+Sepsis,Moderate,18 to 29,1,27379
+Sepsis,Moderate,18 to 29,2,34794
+Sepsis,Moderate,18 to 29,3,42210
+Sepsis,Moderate,18 to 29,4,49625
+Sepsis,Moderate,18 to 29,5,57040
+Sepsis,Moderate,18 to 29,6,64455
+Sepsis,Moderate,18 to 29,7,71870
+Sepsis,Moderate,18 to 29,8,79286
+Sepsis,Moderate,18 to 29,9,86701
+Sepsis,Moderate,18 to 29,10,94116
+Sepsis,Moderate,18 to 29,11,101531
+Sepsis,Moderate,18 to 29,12,108946
+Sepsis,Moderate,18 to 29,13,116362
+Sepsis,Moderate,18 to 29,14,123777
+Sepsis,Moderate,18 to 29,15,131192
+Sepsis,Moderate,18 to 29,16,138607
+Sepsis,Moderate,18 to 29,17,146022
+Sepsis,Moderate,18 to 29,18,153438
+Sepsis,Moderate,18 to 29,19,160853
+Sepsis,Moderate,18 to 29,20,168268
+Sepsis,Moderate,18 to 29,21,175683
+Sepsis,Moderate,18 to 29,22,183098
+Sepsis,Moderate,18 to 29,23,190514
+Sepsis,Moderate,18 to 29,24,197929
+Sepsis,Moderate,18 to 29,25,205344
+Sepsis,Moderate,18 to 29,26,212759
+Sepsis,Moderate,18 to 29,27,220174
+Sepsis,Moderate,18 to 29,28,227590
+Sepsis,Moderate,18 to 29,29,235005
+Sepsis,Moderate,18 to 29,30,242420
+Sepsis,Moderate,30 to 49,1,28867
+Sepsis,Moderate,30 to 49,2,36685
+Sepsis,Moderate,30 to 49,3,44504
+Sepsis,Moderate,30 to 49,4,52322
+Sepsis,Moderate,30 to 49,5,60140
+Sepsis,Moderate,30 to 49,6,67958
+Sepsis,Moderate,30 to 49,7,75776
+Sepsis,Moderate,30 to 49,8,83595
+Sepsis,Moderate,30 to 49,9,91413
+Sepsis,Moderate,30 to 49,10,99231
+Sepsis,Moderate,30 to 49,11,107049
+Sepsis,Moderate,30 to 49,12,114867
+Sepsis,Moderate,30 to 49,13,122686
+Sepsis,Moderate,30 to 49,14,130504
+Sepsis,Moderate,30 to 49,15,138322
+Sepsis,Moderate,30 to 49,16,146140
+Sepsis,Moderate,30 to 49,17,153958
+Sepsis,Moderate,30 to 49,18,161777
+Sepsis,Moderate,30 to 49,19,169595
+Sepsis,Moderate,30 to 49,20,177413
+Sepsis,Moderate,30 to 49,21,185231
+Sepsis,Moderate,30 to 49,22,193049
+Sepsis,Moderate,30 to 49,23,200868
+Sepsis,Moderate,30 to 49,24,208686
+Sepsis,Moderate,30 to 49,25,216504
+Sepsis,Moderate,30 to 49,26,224322
+Sepsis,Moderate,30 to 49,27,232140
+Sepsis,Moderate,30 to 49,28,239959
+Sepsis,Moderate,30 to 49,29,247777
+Sepsis,Moderate,30 to 49,30,255595
+Sepsis,Moderate,50 to 69,1,29760
+Sepsis,Moderate,50 to 69,2,37820
+Sepsis,Moderate,50 to 69,3,45880
+Sepsis,Moderate,50 to 69,4,53940
+Sepsis,Moderate,50 to 69,5,62000
+Sepsis,Moderate,50 to 69,6,70060
+Sepsis,Moderate,50 to 69,7,78120
+Sepsis,Moderate,50 to 69,8,86180
+Sepsis,Moderate,50 to 69,9,94240
+Sepsis,Moderate,50 to 69,10,102300
+Sepsis,Moderate,50 to 69,11,110360
+Sepsis,Moderate,50 to 69,12,118420
+Sepsis,Moderate,50 to 69,13,126480
+Sepsis,Moderate,50 to 69,14,134540
+Sepsis,Moderate,50 to 69,15,142600
+Sepsis,Moderate,50 to 69,16,150660
+Sepsis,Moderate,50 to 69,17,158720
+Sepsis,Moderate,50 to 69,18,166780
+Sepsis,Moderate,50 to 69,19,174840
+Sepsis,Moderate,50 to 69,20,182900
+Sepsis,Moderate,50 to 69,21,190960
+Sepsis,Moderate,50 to 69,22,199020
+Sepsis,Moderate,50 to 69,23,207080
+Sepsis,Moderate,50 to 69,24,215140
+Sepsis,Moderate,50 to 69,25,223200
+Sepsis,Moderate,50 to 69,26,231260
+Sepsis,Moderate,50 to 69,27,239320
+Sepsis,Moderate,50 to 69,28,247380
+Sepsis,Moderate,50 to 69,29,255440
+Sepsis,Moderate,50 to 69,30,263500
+Sepsis,Moderate,70 or Older,1,30950
+Sepsis,Moderate,70 or Older,2,39333
+Sepsis,Moderate,70 or Older,3,47715
+Sepsis,Moderate,70 or Older,4,56098
+Sepsis,Moderate,70 or Older,5,64480
+Sepsis,Moderate,70 or Older,6,72862
+Sepsis,Moderate,70 or Older,7,81245
+Sepsis,Moderate,70 or Older,8,89627
+Sepsis,Moderate,70 or Older,9,98010
+Sepsis,Moderate,70 or Older,10,106392
+Sepsis,Moderate,70 or Older,11,114774
+Sepsis,Moderate,70 or Older,12,123157
+Sepsis,Moderate,70 or Older,13,131539
+Sepsis,Moderate,70 or Older,14,139922
+Sepsis,Moderate,70 or Older,15,148304
+Sepsis,Moderate,70 or Older,16,156686
+Sepsis,Moderate,70 or Older,17,165069
+Sepsis,Moderate,70 or Older,18,173451
+Sepsis,Moderate,70 or Older,19,181834
+Sepsis,Moderate,70 or Older,20,190216
+Sepsis,Moderate,70 or Older,21,198598
+Sepsis,Moderate,70 or Older,22,206981
+Sepsis,Moderate,70 or Older,23,215363
+Sepsis,Moderate,70 or Older,24,223746
+Sepsis,Moderate,70 or Older,25,232128
+Sepsis,Moderate,70 or Older,26,240510
+Sepsis,Moderate,70 or Older,27,248893
+Sepsis,Moderate,70 or Older,28,257275
+Sepsis,Moderate,70 or Older,29,265658
+Sepsis,Moderate,70 or Older,30,274040
+Stroke,Extreme,18 to 29,1,51005
+Stroke,Extreme,18 to 29,2,64819
+Stroke,Extreme,18 to 29,3,78632
+Stroke,Extreme,18 to 29,4,92446
+Stroke,Extreme,18 to 29,5,106260
+Stroke,Extreme,18 to 29,6,120074
+Stroke,Extreme,18 to 29,7,133888
+Stroke,Extreme,18 to 29,8,147701
+Stroke,Extreme,18 to 29,9,161515
+Stroke,Extreme,18 to 29,10,175329
+Stroke,Extreme,18 to 29,11,189143
+Stroke,Extreme,18 to 29,12,202957
+Stroke,Extreme,18 to 29,13,216770
+Stroke,Extreme,18 to 29,14,230584
+Stroke,Extreme,18 to 29,15,244398
+Stroke,Extreme,18 to 29,16,258212
+Stroke,Extreme,18 to 29,17,272026
+Stroke,Extreme,18 to 29,18,285839
+Stroke,Extreme,18 to 29,19,299653
+Stroke,Extreme,18 to 29,20,313467
+Stroke,Extreme,18 to 29,21,327281
+Stroke,Extreme,18 to 29,22,341095
+Stroke,Extreme,18 to 29,23,354908
+Stroke,Extreme,18 to 29,24,368722
+Stroke,Extreme,18 to 29,25,382536
+Stroke,Extreme,18 to 29,26,396350
+Stroke,Extreme,18 to 29,27,410164
+Stroke,Extreme,18 to 29,28,423977
+Stroke,Extreme,18 to 29,29,437791
+Stroke,Extreme,18 to 29,30,451605
+Stroke,Extreme,30 to 49,1,53777
+Stroke,Extreme,30 to 49,2,68341
+Stroke,Extreme,30 to 49,3,82906
+Stroke,Extreme,30 to 49,4,97470
+Stroke,Extreme,30 to 49,5,112035
+Stroke,Extreme,30 to 49,6,126600
+Stroke,Extreme,30 to 49,7,141164
+Stroke,Extreme,30 to 49,8,155729
+Stroke,Extreme,30 to 49,9,170293
+Stroke,Extreme,30 to 49,10,184858
+Stroke,Extreme,30 to 49,11,199422
+Stroke,Extreme,30 to 49,12,213987
+Stroke,Extreme,30 to 49,13,228551
+Stroke,Extreme,30 to 49,14,243116
+Stroke,Extreme,30 to 49,15,257681
+Stroke,Extreme,30 to 49,16,272245
+Stroke,Extreme,30 to 49,17,286810
+Stroke,Extreme,30 to 49,18,301374
+Stroke,Extreme,30 to 49,19,315939
+Stroke,Extreme,30 to 49,20,330503
+Stroke,Extreme,30 to 49,21,345068
+Stroke,Extreme,30 to 49,22,359632
+Stroke,Extreme,30 to 49,23,374197
+Stroke,Extreme,30 to 49,24,388761
+Stroke,Extreme,30 to 49,25,403326
+Stroke,Extreme,30 to 49,26,417891
+Stroke,Extreme,30 to 49,27,432455
+Stroke,Extreme,30 to 49,28,447020
+Stroke,Extreme,30 to 49,29,461584
+Stroke,Extreme,30 to 49,30,476149
+Stroke,Extreme,50 to 69,1,55440
+Stroke,Extreme,50 to 69,2,70455
+Stroke,Extreme,50 to 69,3,85470
+Stroke,Extreme,50 to 69,4,100485
+Stroke,Extreme,50 to 69,5,115500
+Stroke,Extreme,50 to 69,6,130515
+Stroke,Extreme,50 to 69,7,145530
+Stroke,Extreme,50 to 69,8,160545
+Stroke,Extreme,50 to 69,9,175560
+Stroke,Extreme,50 to 69,10,190575
+Stroke,Extreme,50 to 69,11,205590
+Stroke,Extreme,50 to 69,12,220605
+Stroke,Extreme,50 to 69,13,235620
+Stroke,Extreme,50 to 69,14,250635
+Stroke,Extreme,50 to 69,15,265650
+Stroke,Extreme,50 to 69,16,280665
+Stroke,Extreme,50 to 69,17,295680
+Stroke,Extreme,50 to 69,18,310695
+Stroke,Extreme,50 to 69,19,325710
+Stroke,Extreme,50 to 69,20,340725
+Stroke,Extreme,50 to 69,21,355740
+Stroke,Extreme,50 to 69,22,370755
+Stroke,Extreme,50 to 69,23,385770
+Stroke,Extreme,50 to 69,24,400785
+Stroke,Extreme,50 to 69,25,415800
+Stroke,Extreme,50 to 69,26,430815
+Stroke,Extreme,50 to 69,27,445830
+Stroke,Extreme,50 to 69,28,460845
+Stroke,Extreme,50 to 69,29,475860
+Stroke,Extreme,50 to 69,30,490875
+Stroke,Extreme,70 or Older,1,57658
+Stroke,Extreme,70 or Older,2,73273
+Stroke,Extreme,70 or Older,3,88889
+Stroke,Extreme,70 or Older,4,104504
+Stroke,Extreme,70 or Older,5,120120
+Stroke,Extreme,70 or Older,6,135736
+Stroke,Extreme,70 or Older,7,151351
+Stroke,Extreme,70 or Older,8,166967
+Stroke,Extreme,70 or Older,9,182582
+Stroke,Extreme,70 or Older,10,198198
+Stroke,Extreme,70 or Older,11,213814
+Stroke,Extreme,70 or Older,12,229429
+Stroke,Extreme,70 or Older,13,245045
+Stroke,Extreme,70 or Older,14,260660
+Stroke,Extreme,70 or Older,15,276276
+Stroke,Extreme,70 or Older,16,291892
+Stroke,Extreme,70 or Older,17,307507
+Stroke,Extreme,70 or Older,18,323123
+Stroke,Extreme,70 or Older,19,338738
+Stroke,Extreme,70 or Older,20,354354
+Stroke,Extreme,70 or Older,21,369970
+Stroke,Extreme,70 or Older,22,385585
+Stroke,Extreme,70 or Older,23,401201
+Stroke,Extreme,70 or Older,24,416816
+Stroke,Extreme,70 or Older,25,432432
+Stroke,Extreme,70 or Older,26,448048
+Stroke,Extreme,70 or Older,27,463663
+Stroke,Extreme,70 or Older,28,479279
+Stroke,Extreme,70 or Older,29,494894
+Stroke,Extreme,70 or Older,30,510510
+Stroke,Major,18 to 29,1,32789
+Stroke,Major,18 to 29,2,41669
+Stroke,Major,18 to 29,3,50549
+Stroke,Major,18 to 29,4,59430
+Stroke,Major,18 to 29,5,68310
+Stroke,Major,18 to 29,6,77190
+Stroke,Major,18 to 29,7,86071
+Stroke,Major,18 to 29,8,94951
+Stroke,Major,18 to 29,9,103831
+Stroke,Major,18 to 29,10,112712
+Stroke,Major,18 to 29,11,121592
+Stroke,Major,18 to 29,12,130472
+Stroke,Major,18 to 29,13,139352
+Stroke,Major,18 to 29,14,148233
+Stroke,Major,18 to 29,15,157113
+Stroke,Major,18 to 29,16,165993
+Stroke,Major,18 to 29,17,174874
+Stroke,Major,18 to 29,18,183754
+Stroke,Major,18 to 29,19,192634
+Stroke,Major,18 to 29,20,201514
+Stroke,Major,18 to 29,21,210395
+Stroke,Major,18 to 29,22,219275
+Stroke,Major,18 to 29,23,228155
+Stroke,Major,18 to 29,24,237036
+Stroke,Major,18 to 29,25,245916
+Stroke,Major,18 to 29,26,254796
+Stroke,Major,18 to 29,27,263677
+Stroke,Major,18 to 29,28,272557
+Stroke,Major,18 to 29,29,281437
+Stroke,Major,18 to 29,30,290318
+Stroke,Major,30 to 49,1,34571
+Stroke,Major,30 to 49,2,43934
+Stroke,Major,30 to 49,3,53297
+Stroke,Major,30 to 49,4,62660
+Stroke,Major,30 to 49,5,72022
+Stroke,Major,30 to 49,6,81385
+Stroke,Major,30 to 49,7,90748
+Stroke,Major,30 to 49,8,100111
+Stroke,Major,30 to 49,9,109474
+Stroke,Major,30 to 49,10,118837
+Stroke,Major,30 to 49,11,128200
+Stroke,Major,30 to 49,12,137563
+Stroke,Major,30 to 49,13,146926
+Stroke,Major,30 to 49,14,156289
+Stroke,Major,30 to 49,15,165652
+Stroke,Major,30 to 49,16,175015
+Stroke,Major,30 to 49,17,184378
+Stroke,Major,30 to 49,18,193741
+Stroke,Major,30 to 49,19,203103
+Stroke,Major,30 to 49,20,212466
+Stroke,Major,30 to 49,21,221829
+Stroke,Major,30 to 49,22,231192
+Stroke,Major,30 to 49,23,240555
+Stroke,Major,30 to 49,24,249918
+Stroke,Major,30 to 49,25,259281
+Stroke,Major,30 to 49,26,268644
+Stroke,Major,30 to 49,27,278007
+Stroke,Major,30 to 49,28,287370
+Stroke,Major,30 to 49,29,296733
+Stroke,Major,30 to 49,30,306096
+Stroke,Major,50 to 69,1,35640
+Stroke,Major,50 to 69,2,45292
+Stroke,Major,50 to 69,3,54945
+Stroke,Major,50 to 69,4,64598
+Stroke,Major,50 to 69,5,74250
+Stroke,Major,50 to 69,6,83902
+Stroke,Major,50 to 69,7,93555
+Stroke,Major,50 to 69,8,103208
+Stroke,Major,50 to 69,9,112860
+Stroke,Major,50 to 69,10,122512
+Stroke,Major,50 to 69,11,132165
+Stroke,Major,50 to 69,12,141818
+Stroke,Major,50 to 69,13,151470
+Stroke,Major,50 to 69,14,161122
+Stroke,Major,50 to 69,15,170775
+Stroke,Major,50 to 69,16,180428
+Stroke,Major,50 to 69,17,190080
+Stroke,Major,50 to 69,18,199732
+Stroke,Major,50 to 69,19,209385
+Stroke,Major,50 to 69,20,219038
+Stroke,Major,50 to 69,21,228690
+Stroke,Major,50 to 69,22,238343
+Stroke,Major,50 to 69,23,247995
+Stroke,Major,50 to 69,24,257648
+Stroke,Major,50 to 69,25,267300
+Stroke,Major,50 to 69,26,276952
+Stroke,Major,50 to 69,27,286605
+Stroke,Major,50 to 69,28,296258
+Stroke,Major,50 to 69,29,305910
+Stroke,Major,50 to 69,30,315562
+Stroke,Major,70 or Older,1,37066
+Stroke,Major,70 or Older,2,47104
+Stroke,Major,70 or Older,3,57143
+Stroke,Major,70 or Older,4,67181
+Stroke,Major,70 or Older,5,77220
+Stroke,Major,70 or Older,6,87259
+Stroke,Major,70 or Older,7,97297
+Stroke,Major,70 or Older,8,107336
+Stroke,Major,70 or Older,9,117374
+Stroke,Major,70 or Older,10,127413
+Stroke,Major,70 or Older,11,137452
+Stroke,Major,70 or Older,12,147490
+Stroke,Major,70 or Older,13,157529
+Stroke,Major,70 or Older,14,167567
+Stroke,Major,70 or Older,15,177606
+Stroke,Major,70 or Older,16,187645
+Stroke,Major,70 or Older,17,197683
+Stroke,Major,70 or Older,18,207722
+Stroke,Major,70 or Older,19,217760
+Stroke,Major,70 or Older,20,227799
+Stroke,Major,70 or Older,21,237838
+Stroke,Major,70 or Older,22,247876
+Stroke,Major,70 or Older,23,257915
+Stroke,Major,70 or Older,24,267953
+Stroke,Major,70 or Older,25,277992
+Stroke,Major,70 or Older,26,288031
+Stroke,Major,70 or Older,27,298069
+Stroke,Major,70 or Older,28,308108
+Stroke,Major,70 or Older,29,318146
+Stroke,Major,70 or Older,30,328185
+Stroke,Minor,18 to 29,1,18216
+Stroke,Minor,18 to 29,2,23150
+Stroke,Minor,18 to 29,3,28083
+Stroke,Minor,18 to 29,4,33016
+Stroke,Minor,18 to 29,5,37950
+Stroke,Minor,18 to 29,6,42883
+Stroke,Minor,18 to 29,7,47817
+Stroke,Minor,18 to 29,8,52751
+Stroke,Minor,18 to 29,9,57684
+Stroke,Minor,18 to 29,10,62618
+Stroke,Minor,18 to 29,11,67551
+Stroke,Minor,18 to 29,12,72484
+Stroke,Minor,18 to 29,13,77418
+Stroke,Minor,18 to 29,14,82352
+Stroke,Minor,18 to 29,15,87285
+Stroke,Minor,18 to 29,16,92218
+Stroke,Minor,18 to 29,17,97152
+Stroke,Minor,18 to 29,18,102086
+Stroke,Minor,18 to 29,19,107019
+Stroke,Minor,18 to 29,20,111952
+Stroke,Minor,18 to 29,21,116886
+Stroke,Minor,18 to 29,22,121820
+Stroke,Minor,18 to 29,23,126753
+Stroke,Minor,18 to 29,24,131686
+Stroke,Minor,18 to 29,25,136620
+Stroke,Minor,18 to 29,26,141554
+Stroke,Minor,18 to 29,27,146487
+Stroke,Minor,18 to 29,28,151420
+Stroke,Minor,18 to 29,29,156354
+Stroke,Minor,18 to 29,30,161288
+Stroke,Minor,30 to 49,1,19206
+Stroke,Minor,30 to 49,2,24408
+Stroke,Minor,30 to 49,3,29609
+Stroke,Minor,30 to 49,4,34811
+Stroke,Minor,30 to 49,5,40012
+Stroke,Minor,30 to 49,6,45214
+Stroke,Minor,30 to 49,7,50416
+Stroke,Minor,30 to 49,8,55617
+Stroke,Minor,30 to 49,9,60819
+Stroke,Minor,30 to 49,10,66021
+Stroke,Minor,30 to 49,11,71222
+Stroke,Minor,30 to 49,12,76424
+Stroke,Minor,30 to 49,13,81626
+Stroke,Minor,30 to 49,14,86827
+Stroke,Minor,30 to 49,15,92029
+Stroke,Minor,30 to 49,16,97230
+Stroke,Minor,30 to 49,17,102432
+Stroke,Minor,30 to 49,18,107634
+Stroke,Minor,30 to 49,19,112835
+Stroke,Minor,30 to 49,20,118037
+Stroke,Minor,30 to 49,21,123238
+Stroke,Minor,30 to 49,22,128440
+Stroke,Minor,30 to 49,23,133642
+Stroke,Minor,30 to 49,24,138843
+Stroke,Minor,30 to 49,25,144045
+Stroke,Minor,30 to 49,26,149247
+Stroke,Minor,30 to 49,27,154448
+Stroke,Minor,30 to 49,28,159650
+Stroke,Minor,30 to 49,29,164852
+Stroke,Minor,30 to 49,30,170053
+Stroke,Minor,50 to 69,1,19800
+Stroke,Minor,50 to 69,2,25162
+Stroke,Minor,50 to 69,3,30525
+Stroke,Minor,50 to 69,4,35888
+Stroke,Minor,50 to 69,5,41250
+Stroke,Minor,50 to 69,6,46612
+Stroke,Minor,50 to 69,7,51975
+Stroke,Minor,50 to 69,8,57338
+Stroke,Minor,50 to 69,9,62700
+Stroke,Minor,50 to 69,10,68062
+Stroke,Minor,50 to 69,11,73425
+Stroke,Minor,50 to 69,12,78788
+Stroke,Minor,50 to 69,13,84150
+Stroke,Minor,50 to 69,14,89512
+Stroke,Minor,50 to 69,15,94875
+Stroke,Minor,50 to 69,16,100238
+Stroke,Minor,50 to 69,17,105600
+Stroke,Minor,50 to 69,18,110962
+Stroke,Minor,50 to 69,19,116325
+Stroke,Minor,50 to 69,20,121688
+Stroke,Minor,50 to 69,21,127050
+Stroke,Minor,50 to 69,22,132413
+Stroke,Minor,50 to 69,23,137775
+Stroke,Minor,50 to 69,24,143138
+Stroke,Minor,50 to 69,25,148500
+Stroke,Minor,50 to 69,26,153862
+Stroke,Minor,50 to 69,27,159225
+Stroke,Minor,50 to 69,28,164588
+Stroke,Minor,50 to 69,29,169950
+Stroke,Minor,50 to 69,30,175312
+Stroke,Minor,70 or Older,1,20592
+Stroke,Minor,70 or Older,2,26169
+Stroke,Minor,70 or Older,3,31746
+Stroke,Minor,70 or Older,4,37323
+Stroke,Minor,70 or Older,5,42900
+Stroke,Minor,70 or Older,6,48477
+Stroke,Minor,70 or Older,7,54054
+Stroke,Minor,70 or Older,8,59631
+Stroke,Minor,70 or Older,9,65208
+Stroke,Minor,70 or Older,10,70785
+Stroke,Minor,70 or Older,11,76362
+Stroke,Minor,70 or Older,12,81939
+Stroke,Minor,70 or Older,13,87516
+Stroke,Minor,70 or Older,14,93093
+Stroke,Minor,70 or Older,15,98670
+Stroke,Minor,70 or Older,16,104247
+Stroke,Minor,70 or Older,17,109824
+Stroke,Minor,70 or Older,18,115401
+Stroke,Minor,70 or Older,19,120978
+Stroke,Minor,70 or Older,20,126555
+Stroke,Minor,70 or Older,21,132132
+Stroke,Minor,70 or Older,22,137709
+Stroke,Minor,70 or Older,23,143286
+Stroke,Minor,70 or Older,24,148863
+Stroke,Minor,70 or Older,25,154440
+Stroke,Minor,70 or Older,26,160017
+Stroke,Minor,70 or Older,27,165594
+Stroke,Minor,70 or Older,28,171171
+Stroke,Minor,70 or Older,29,176748
+Stroke,Minor,70 or Older,30,182325
+Stroke,Moderate,18 to 29,1,24288
+Stroke,Moderate,18 to 29,2,30866
+Stroke,Moderate,18 to 29,3,37444
+Stroke,Moderate,18 to 29,4,44022
+Stroke,Moderate,18 to 29,5,50600
+Stroke,Moderate,18 to 29,6,57178
+Stroke,Moderate,18 to 29,7,63756
+Stroke,Moderate,18 to 29,8,70334
+Stroke,Moderate,18 to 29,9,76912
+Stroke,Moderate,18 to 29,10,83490
+Stroke,Moderate,18 to 29,11,90068
+Stroke,Moderate,18 to 29,12,96646
+Stroke,Moderate,18 to 29,13,103224
+Stroke,Moderate,18 to 29,14,109802
+Stroke,Moderate,18 to 29,15,116380
+Stroke,Moderate,18 to 29,16,122958
+Stroke,Moderate,18 to 29,17,129536
+Stroke,Moderate,18 to 29,18,136114
+Stroke,Moderate,18 to 29,19,142692
+Stroke,Moderate,18 to 29,20,149270
+Stroke,Moderate,18 to 29,21,155848
+Stroke,Moderate,18 to 29,22,162426
+Stroke,Moderate,18 to 29,23,169004
+Stroke,Moderate,18 to 29,24,175582
+Stroke,Moderate,18 to 29,25,182160
+Stroke,Moderate,18 to 29,26,188738
+Stroke,Moderate,18 to 29,27,195316
+Stroke,Moderate,18 to 29,28,201894
+Stroke,Moderate,18 to 29,29,208472
+Stroke,Moderate,18 to 29,30,215050
+Stroke,Moderate,30 to 49,1,25608
+Stroke,Moderate,30 to 49,2,32544
+Stroke,Moderate,30 to 49,3,39479
+Stroke,Moderate,30 to 49,4,46414
+Stroke,Moderate,30 to 49,5,53350
+Stroke,Moderate,30 to 49,6,60285
+Stroke,Moderate,30 to 49,7,67221
+Stroke,Moderate,30 to 49,8,74156
+Stroke,Moderate,30 to 49,9,81092
+Stroke,Moderate,30 to 49,10,88028
+Stroke,Moderate,30 to 49,11,94963
+Stroke,Moderate,30 to 49,12,101899
+Stroke,Moderate,30 to 49,13,108834
+Stroke,Moderate,30 to 49,14,115770
+Stroke,Moderate,30 to 49,15,122705
+Stroke,Moderate,30 to 49,16,129641
+Stroke,Moderate,30 to 49,17,136576
+Stroke,Moderate,30 to 49,18,143512
+Stroke,Moderate,30 to 49,19,150447
+Stroke,Moderate,30 to 49,20,157382
+Stroke,Moderate,30 to 49,21,164318
+Stroke,Moderate,30 to 49,22,171254
+Stroke,Moderate,30 to 49,23,178189
+Stroke,Moderate,30 to 49,24,185124
+Stroke,Moderate,30 to 49,25,192060
+Stroke,Moderate,30 to 49,26,198996
+Stroke,Moderate,30 to 49,27,205931
+Stroke,Moderate,30 to 49,28,212866
+Stroke,Moderate,30 to 49,29,219802
+Stroke,Moderate,30 to 49,30,226738
+Stroke,Moderate,50 to 69,1,26400
+Stroke,Moderate,50 to 69,2,33550
+Stroke,Moderate,50 to 69,3,40700
+Stroke,Moderate,50 to 69,4,47850
+Stroke,Moderate,50 to 69,5,55000
+Stroke,Moderate,50 to 69,6,62150
+Stroke,Moderate,50 to 69,7,69300
+Stroke,Moderate,50 to 69,8,76450
+Stroke,Moderate,50 to 69,9,83600
+Stroke,Moderate,50 to 69,10,90750
+Stroke,Moderate,50 to 69,11,97900
+Stroke,Moderate,50 to 69,12,105050
+Stroke,Moderate,50 to 69,13,112200
+Stroke,Moderate,50 to 69,14,119350
+Stroke,Moderate,50 to 69,15,126500
+Stroke,Moderate,50 to 69,16,133650
+Stroke,Moderate,50 to 69,17,140800
+Stroke,Moderate,50 to 69,18,147950
+Stroke,Moderate,50 to 69,19,155100
+Stroke,Moderate,50 to 69,20,162250
+Stroke,Moderate,50 to 69,21,169400
+Stroke,Moderate,50 to 69,22,176550
+Stroke,Moderate,50 to 69,23,183700
+Stroke,Moderate,50 to 69,24,190850
+Stroke,Moderate,50 to 69,25,198000
+Stroke,Moderate,50 to 69,26,205150
+Stroke,Moderate,50 to 69,27,212300
+Stroke,Moderate,50 to 69,28,219450
+Stroke,Moderate,50 to 69,29,226600
+Stroke,Moderate,50 to 69,30,233750
+Stroke,Moderate,70 or Older,1,27456
+Stroke,Moderate,70 or Older,2,34892
+Stroke,Moderate,70 or Older,3,42328
+Stroke,Moderate,70 or Older,4,49764
+Stroke,Moderate,70 or Older,5,57200
+Stroke,Moderate,70 or Older,6,64636
+Stroke,Moderate,70 or Older,7,72072
+Stroke,Moderate,70 or Older,8,79508
+Stroke,Moderate,70 or Older,9,86944
+Stroke,Moderate,70 or Older,10,94380
+Stroke,Moderate,70 or Older,11,101816
+Stroke,Moderate,70 or Older,12,109252
+Stroke,Moderate,70 or Older,13,116688
+Stroke,Moderate,70 or Older,14,124124
+Stroke,Moderate,70 or Older,15,131560
+Stroke,Moderate,70 or Older,16,138996
+Stroke,Moderate,70 or Older,17,146432
+Stroke,Moderate,70 or Older,18,153868
+Stroke,Moderate,70 or Older,19,161304
+Stroke,Moderate,70 or Older,20,168740
+Stroke,Moderate,70 or Older,21,176176
+Stroke,Moderate,70 or Older,22,183612
+Stroke,Moderate,70 or Older,23,191048
+Stroke,Moderate,70 or Older,24,198484
+Stroke,Moderate,70 or Older,25,205920
+Stroke,Moderate,70 or Older,26,213356
+Stroke,Moderate,70 or Older,27,220792
+Stroke,Moderate,70 or Older,28,228228
+Stroke,Moderate,70 or Older,29,235664
+Stroke,Moderate,70 or Older,30,243100

@@ -1,0 +1,47 @@
+---
+pagetitle: "Team"
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+<div class="page-head">
+<span class="eyebrow">Team</span>
+<div class="page-title" role="heading" aria-level="1">Who made this.</div>
+<p class="lede">Five students in P8105 Data Science I at the Columbia Mailman School of Public Health, Fall 2026.</p>
+</div>
+
+<!-- TODO (team): confirm who owns which module and condition -->
+
+<div class="people">
+<div class="person"><div class="name">Yimeng Cao</div><div class="uni">yc4959</div><div class="role">Data pipeline, exploratory analysis, map · Heart failure</div></div>
+<div class="person"><div class="name">Zeheng Wei</div><div class="uni">zw3268</div><div class="role">Role to be confirmed</div></div>
+<div class="person"><div class="name">Yichuan Ma</div><div class="uni">ym3197</div><div class="role">Role to be confirmed</div></div>
+<div class="person"><div class="name">Jiaxuan Su</div><div class="uni">js7161</div><div class="role">Role to be confirmed</div></div>
+<div class="person"><div class="name">Yulin Zhu</div><div class="uni">yz5458</div><div class="role">Role to be confirmed</div></div>
+</div>
+
+## How we worked
+
+Placeholder. One shared repository; each person owns one analysis module and one condition; shared functions are reused for all five conditions.
+
+## Timeline
+
+| Date | Milestone |
+|---|---|
+| Nov 13 | Proposal submitted |
+| Nov 16–20 | Project review meeting |
+| Nov 23 | Data download and cleaning complete |
+| Nov 30 | Website skeleton live; exploratory analysis and map |
+| Dec 6 | Adjusted models, cross-condition comparison, report draft |
+| Dec 10 | Screencast recorded; final checks |
+| Dec 12 | Report, website, screencast and peer assessments submitted |
+
+## Code and contact
+
+<p><a class="btn-bill" href="https://github.com/zw3268/p8105_final_website_zw3268">Code on GitHub</a></p>
+
+Placeholder: link to the proposal and a contact address.

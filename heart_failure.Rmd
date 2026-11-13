@@ -1,0 +1,11 @@
+---
+pagetitle: "Heart failure"
+---
+
+```{r, include = FALSE}
+this_condition = "Heart failure"
+this_note = "The most common cardiac reason for admission among the five conditions."
+```
+
+```{r, child = "_condition.Rmd"}
+```
