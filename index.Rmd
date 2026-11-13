@@ -183,11 +183,11 @@ Look up any hospital in the [dashboard](dashboard.html), or read the [full repor
 # Counts from the team's data check (before cleaning)
 tribble(
   ~Condition, ~`APR-DRG`, ~Discharges, ~`Hospitals with 30+ stays`,
-  "Sepsis", "720", 131139, 164,
   "Heart failure", "194", 59668, 159,
   "Major respiratory infections (mostly COVID-19)", "137", 35044, 156,
-  "Kidney and urinary tract infections", "463", 30248, 148,
-  "Ischemic stroke", "045", 26529, 126
+  "Ischemic stroke", "045", 26529, 126,
+  "Sepsis", "720", 131139, 164,
+  "Kidney and urinary tract infections", "463", 30248, 148
 ) |>
   mutate(Discharges = scales::label_comma()(Discharges)) |>
   knitr::kable(align = "llrr")
@@ -482,7 +482,7 @@ Re-ranked on the adjusted comparison. What is left is the difference patients do
 
 ## Is an expensive hospital expensive for everything?
 
-[One row per hospital, one column per condition. Darker cells are above the state median, lighter cells are below, grey means too few cases to say.]{.lede}
+[One row per hospital, one column per condition. Darker cells are above the typical hospital, lighter cells are below, grey means too few cases to say.]{.lede}
 
 :::::
 
@@ -508,7 +508,7 @@ q3_cells =
     fill = if_else(enough, ratio_colour(ratio), site_grey_cell),
     label = if_else(
       enough,
-      str_c(facility_name, " · ", condition, ": ", round(ratio, 2), "× the state median"),
+      str_c(facility_name, " · ", condition, ": ", round(ratio, 2), "× the typical hospital"),
       str_c(facility_name, " · ", condition, ": too few cases")
     )
   ) |>
@@ -549,7 +549,7 @@ column_labels =
   tibble(
     x = grid_left + (seq_along(condition_levels) - 1) * (cell_w + cell_gap) + cell_w / 2,
     y = grid_top - 16,
-    text = c("Heart failure", "Respiratory", "Kidney/UTI", "Stroke", "Sepsis"),
+    text = c("Heart failure", "Respiratory", "Stroke", "Sepsis", "Kidney/UTI"),   # same order as condition_levels
     anchor = "middle",
     strong = TRUE
   )
@@ -558,7 +558,7 @@ legend_label =
   tibble(
     x = grid_left + 2.5 * (cell_w + cell_gap) - cell_gap / 2,
     y = row_y(n_rows) + cell_h + 30,
-    text = "light: below the state median · dark: above · grey: fewer than 30 stays",
+    text = "light: below the typical hospital · dark: above · grey: fewer than 30 stays",
     anchor = "middle",
     strong = FALSE
   )
@@ -600,7 +600,7 @@ scrolly_script(q3_marks, q3_states)
 
 ### One hospital, five bills.
 
-Read across the row: is this hospital above or below the state median for each condition? `r demo_badge`
+Read across the row: is this hospital above or below the typical hospital for each condition? `r demo_badge`
 :::
 
 ::: {.step}
@@ -634,7 +634,7 @@ Put the most expensive hospitals at the top. Rows that stay dark or stay light a
 
 ## Hospitals across New York.
 
-[Each point is a hospital, coloured by how its typical charge compares with the state median. The interactive version is in the dashboard.]{.lede}
+[Each point is a hospital, coloured by how its typical charge compares with the typical hospital. The interactive version is in the dashboard.]{.lede}
 
 [Open the map](dashboard.html#map){.btn-bill}
 :::
@@ -699,7 +699,7 @@ hospital_medians |>
 
 Everything on this site is built from code in one repository: data download, cleaning, analysis and these pages.
 
-<p style="margin: 28px 0 14px;"><a class="btn-bill" href="https://github.com/zw3268/p8105_final_website_zw3268">Code on GitHub</a></p>
+<p style="margin: 28px 0 14px;"><a class="btn-bill" href="https://github.com/yc4959/p8105_final">Code on GitHub</a></p>
 
 [Full report](report.html) · [Data and methods](data.html) · [Team](team.html)
 :::

@@ -42,6 +42,6 @@ Placeholder. One shared repository; each person owns one analysis module and one
 
 ## Code and contact
 
-<p><a class="btn-bill" href="https://github.com/zw3268/p8105_final_website_zw3268">Code on GitHub</a></p>
+<p><a class="btn-bill" href="https://github.com/yc4959/p8105_final">Code on GitHub</a></p>
 
 Placeholder: link to the proposal and a contact address.

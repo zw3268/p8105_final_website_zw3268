@@ -363,13 +363,13 @@ div.tocify {
       <a href="respiratory.html">Major respiratory infections</a>
     </li>
     <li>
-      <a href="kidney_uti.html">Kidney and urinary tract infections</a>
-    </li>
-    <li>
       <a href="stroke.html">Ischemic stroke</a>
     </li>
     <li>
       <a href="sepsis.html">Sepsis</a>
+    </li>
+    <li>
+      <a href="kidney_uti.html">Kidney and urinary tract infections</a>
     </li>
   </ul>
 </li>
@@ -413,7 +413,7 @@ div.tocify {
   <a href="team.html">Team</a>
 </li>
 <li>
-  <a href="https://github.com/zw3268/p8105_final_website_zw3268">
+  <a href="https://github.com/yc4959/p8105_final">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -503,22 +503,22 @@ hospital_medians |&gt;
 <td align="right">3.3</td>
 </tr>
 <tr class="odd">
-<td align="left">Kidney/UTI</td>
-<td align="right">184</td>
-<td align="right">2.9</td>
-<td align="right">3.4</td>
-</tr>
-<tr class="even">
 <td align="left">Stroke</td>
 <td align="right">178</td>
 <td align="right">2.9</td>
 <td align="right">3.6</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Sepsis</td>
 <td align="right">192</td>
 <td align="right">3.1</td>
 <td align="right">3.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Kidney/UTI</td>
+<td align="right">184</td>
+<td align="right">2.9</td>
+<td align="right">3.4</td>
 </tr>
 </tbody>
 </table>
@@ -557,8 +557,8 @@ are for small hospitals.</p>
 <h2>Real outliers or small numbers?</h2>
 <pre class="r"><code>placeholder_fig(&quot;Figure 2. Funnel plot\nmedian cost against number of stays&quot;)</code></pre>
 <p><img src="q1_gaps_files/figure-html/funnel_placeholder-1.png" alt="" width="1200" /></p>
-<p>Placeholder text: which hospitals remain far from the state median
-even with many stays.</p>
+<p>Placeholder text: which hospitals remain far from the typical
+hospital even with many stays.</p>
 </div>
 <div id="charges-against-costs" class="section level2">
 <h2>Charges against costs</h2>
@@ -577,6 +577,8 @@ paid.</li>
 <li>Costs are estimates produced by the state.</li>
 <li>Hospitals with fewer than 30 stays for a condition are left out of
 rankings but appear in the funnel plot.</li>
+<li>“The typical hospital” means the median of the hospital medians for
+a condition, not the median of all stays.</li>
 </ul>
 <p>Next: <a href="q2_adjusted.html">what changes once we account for
 patients →</a></p>

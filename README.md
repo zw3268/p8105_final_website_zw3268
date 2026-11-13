@@ -32,6 +32,20 @@ This knits every page and then renders the dashboard separately. Packages used: 
 | `R/make_demo_data.R` | Creates the simulated files in `data/` |
 | `fonts/` | Open-source fonts (see `fonts/README.md`) |
 
+## Data files the site reads
+
+Simulated versions (`data/demo_*.csv`) are used until the analysis outputs are ready. Column names to keep when the real files are produced:
+
+| File | One row per | Columns |
+|---|---|---|
+| `hospital_medians.csv` | hospital and condition | `hosp_id`, `facility_name`, `hospital_service_area`, `ownership`, `latitude`, `longitude`, `condition`, `n_stays`, `median_charges`, `charges_lo`, `charges_hi`, `median_costs`, `costs_lo`, `costs_hi` (cost interval optional), `markup` |
+| `hospital_adjusted.csv` | hospital and condition | `hosp_id`, `condition`, `unadjusted_ratio`, `adjusted_ratio` |
+| `estimator_grid.csv` | hospital, condition and patient profile | `hosp_id`, `facility_name`, `hospital_service_area`, `ownership`, `condition`, `profile`, `severity`, `age_group`, `los`, `predicted_charges` |
+
+Conditions appear everywhere in this order: Heart failure, Respiratory infection, Stroke, Sepsis, Kidney/UTI (set once in `R/site_helpers.R`).
+
+"The typical hospital" on the site means the median of the hospital medians for a condition, not the median of all stays.
+
 ## Replacing demo content with real results
 
 1. Put the real output files in `data/` and change the `read_csv()` paths at the top of `index.Rmd`, `dashboard.Rmd` and `q1_gaps.Rmd`.

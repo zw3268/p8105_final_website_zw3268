@@ -18,7 +18,8 @@ site_grey_cell = "#DDE3E8"
 
 min_cases = 30
 
-condition_levels = c("Heart failure", "Respiratory infection", "Kidney/UTI", "Stroke", "Sepsis")
+# the order used everywhere on the site (same as in the team's analysis files)
+condition_levels = c("Heart failure", "Respiratory infection", "Stroke", "Sepsis", "Kidney/UTI")
 
 theme_site = function(base_size = 13) {
   theme_minimal(base_size = base_size) +

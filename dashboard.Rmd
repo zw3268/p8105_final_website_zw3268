@@ -27,8 +27,7 @@ hospital_medians =
   ungroup()
 
 estimator_grid =
-  read_csv("data/demo_estimator_grid.csv", show_col_types = FALSE) |>
-  mutate(severity = fct_relevel(severity, "Minor", "Moderate", "Major", "Extreme"))
+  read_csv("data/demo_estimator_grid.csv", show_col_types = FALSE)
 
 dollar = scales::label_dollar(accuracy = 1)
 
@@ -60,7 +59,7 @@ ranking_plot = function(condition_name) {
       )
     )
 
-  state_median = median(plot_data$median_charges)
+  typical_value = median(plot_data$median_charges)
 
   plot_ly(
     plot_data,
@@ -78,7 +77,7 @@ ranking_plot = function(condition_name) {
       xaxis = list(title = "Median charge per stay (log scale)", type = "log", tickprefix = "$", gridcolor = site_rule),
       yaxis = list(title = "Hospitals, lowest to highest", showticklabels = FALSE, showgrid = FALSE, zeroline = FALSE),
       shapes = list(list(
-        type = "line", x0 = state_median, x1 = state_median, yref = "paper", y0 = 0, y1 = 1,
+        type = "line", x0 = typical_value, x1 = typical_value, yref = "paper", y0 = 0, y1 = 1,
         line = list(color = site_blue, dash = "dot", width = 1)
       ))
     )
@@ -94,7 +93,7 @@ funnel_plot = function(condition_name) {
       hover = str_c("<b>", facility_name, "</b><br>Stays: ", n_stays, "<br>Median cost: ", dollar(median_costs))
     )
 
-  state_median = median(plot_data$median_costs[plot_data$n_stays >= min_cases])
+  typical_value = median(plot_data$median_costs[plot_data$n_stays >= min_cases])
 
   plot_ly(
     plot_data,
@@ -109,48 +108,90 @@ funnel_plot = function(condition_name) {
       yaxis = list(title = "Median estimated cost (log scale)", type = "log", tickprefix = "$", gridcolor = site_rule),
       legend = list(orientation = "h", y = -0.2),
       shapes = list(
-        list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = state_median, y1 = state_median, line = list(color = site_teal, dash = "dot", width = 1)),
+        list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = typical_value, y1 = typical_value, line = list(color = site_teal, dash = "dot", width = 1)),
         list(type = "line", x0 = min_cases, x1 = min_cases, yref = "paper", y0 = 0, y1 = 1, line = list(color = site_muted, dash = "dot", width = 1))
       )
     )
 }
 
-# Predicted charge by length of stay; one line per severity, dropdown for age group
+# The same typical patient at every hospital: one dot per hospital, sorted from the
+# lowest predicted charge to the highest. The menu on the chart switches the patient.
 estimator_plot = function(condition_name) {
-  plot_data = estimator_grid |> filter(condition == condition_name)
-  age_groups = unique(plot_data$age_group)
-  severity_colours = c(Minor = "#A6E0D8", Moderate = "#35B0A8", Major = site_blue, Extreme = site_blue_deep)
+  plot_data =
+    estimator_grid |>
+    filter(condition == condition_name) |>
+    group_by(profile) |>
+    mutate(rank = min_rank(predicted_charges)) |>
+    ungroup()
+
+  # patients in order of how costly they are, the least costly first
+  profiles =
+    plot_data |>
+    group_by(profile) |>
+    summarize(typical = median(predicted_charges)) |>
+    arrange(typical) |>
+    pull(profile)
+
+  # for each patient: the 10th and 90th percentile hospital, and how far apart they are
+  spread =
+    plot_data |>
+    group_by(profile) |>
+    summarize(
+      p10 = quantile(predicted_charges, 0.1),
+      p90 = quantile(predicted_charges, 0.9),
+      n_hospitals = n()
+    ) |>
+    mutate(note = str_c("Same patient: the 90th-percentile hospital charges ", round(p90 / p10, 1), "× the 10th (", n_hospitals, " hospitals)"))
+
+  # dotted lines and the sentence for one patient profile
+  profile_layout = function(profile_name) {
+    row = spread |> filter(profile == profile_name)
+    list(
+      shapes = map(unname(c(row$p10, row$p90)), \(x) {
+        list(type = "line", x0 = x, x1 = x, yref = "paper", y0 = 0, y1 = 1, line = list(color = site_teal, dash = "dot", width = 1))
+      }),
+      annotations = list(list(
+        text = row$note, xref = "paper", yref = "paper", x = 1, y = 0.02, xanchor = "right",
+        showarrow = FALSE, font = list(color = site_ink, size = 13)
+      ))
+    )
+  }
 
   p = plot_ly()
 
-  for (age in age_groups) {
+  for (profile_name in profiles) {
     p =
       p |>
-      add_lines(
-        data = plot_data |> filter(age_group == age),
-        x = ~los, y = ~predicted_charges,
-        color = ~severity, colors = severity_colours,
-        visible = age == age_groups[length(age_groups)],
-        hovertemplate = "Day %{x}: %{y:$,.0f}"
+      add_markers(
+        data = plot_data |> filter(profile == profile_name),
+        x = ~predicted_charges, y = ~rank,
+        marker = list(color = site_blue, size = 7, opacity = 0.85),
+        text = ~str_c("<b>", facility_name, "</b><br>", hospital_service_area, " · ", ownership, "<br>Predicted charge: ", dollar(predicted_charges)),
+        hoverinfo = "text",
+        visible = profile_name == profiles[1],
+        showlegend = FALSE
       )
   }
 
-  age_buttons =
-    map(age_groups, \(age) {
+  profile_buttons =
+    map(profiles, \(profile_name) {
       list(
-        method = "restyle",
-        args = list("visible", as.list(rep(age_groups == age, each = 4))),
-        label = age
+        method = "update",
+        args = list(list(visible = as.list(profiles == profile_name)), profile_layout(profile_name)),
+        label = profile_name
       )
     })
 
+  first = profile_layout(profiles[1])
+
   p |>
     site_layout(
-      xaxis = list(title = "Length of stay (days)", gridcolor = site_rule),
-      yaxis = list(title = "Predicted charge", tickprefix = "$", gridcolor = site_rule),
-      legend = list(orientation = "h", y = -0.2),
+      xaxis = list(title = "Predicted charge for this patient (log scale)", type = "log", tickprefix = "$", gridcolor = site_rule),
+      yaxis = list(title = "Hospitals, lowest to highest", showticklabels = FALSE, showgrid = FALSE, zeroline = FALSE),
+      shapes = first$shapes,
+      annotations = first$annotations,
       updatemenus = list(list(
-        buttons = age_buttons, active = length(age_groups) - 1,
+        buttons = profile_buttons, active = 0,
         x = 0.02, xanchor = "left", y = 0.98, yanchor = "top"
       ))
     )
@@ -212,7 +253,7 @@ hospital_medians |>
 Row
 -------------------------------------
 
-### Hospitals by condition: charges relative to the state median {data-width=680}
+### Hospitals by condition: charges relative to the typical hospital {data-width=680}
 
 ```{r}
 heatmap_data =
@@ -226,7 +267,7 @@ heatmap_data =
     z = if_else(n_stays >= min_cases, log2(ratio), NA_real_),
     hover = if_else(
       n_stays >= min_cases,
-      str_c("<b>", facility_name, "</b><br>", condition, "<br>", round(ratio, 2), "× the state median<br>Stays: ", n_stays),
+      str_c("<b>", facility_name, "</b><br>", condition, "<br>", round(ratio, 2), "× the typical hospital<br>Stays: ", n_stays),
       str_c("<b>", facility_name, "</b><br>", condition, "<br>Too few cases (", n_stays, ")")
     )
   )
@@ -239,7 +280,7 @@ plot_ly(
   colorscale = list(c(0, site_low), c(0.5, site_mid), c(1, site_high)),
   xgap = 3, ygap = 2,
   text = ~hover, hoverinfo = "text",
-  colorbar = list(title = "", tickvals = c(-1, 0, 1), ticktext = c("half", "median", "double"), len = 0.5, thickness = 12)
+  colorbar = list(title = "", tickvals = c(-1, 0, 1), ticktext = c("half", "typical", "double"), len = 0.5, thickness = 12)
 ) |>
   site_layout(
     plot_bgcolor = site_grey_cell,
@@ -253,7 +294,7 @@ plot_ly(
 
 #### Is it the hospital, or the condition?
 
-Each row is a hospital and each column is a condition. Darker cells are above the state median for that condition, lighter cells are below.
+Each row is a hospital and each column is a condition. Darker cells are above the typical hospital for that condition, lighter cells are below. The typical hospital is the median of the hospital medians, not the median of all stays.
 
 - Rows that stay dark are consistently expensive; rows that stay light are consistently cheap.
 - Rows that mix dark and light are expensive for some conditions only.
@@ -281,12 +322,6 @@ ranking_plot("Heart failure")
 ranking_plot("Respiratory infection")
 ```
 
-### Kidney/UTI
-
-```{r}
-ranking_plot("Kidney/UTI")
-```
-
 ### Stroke
 
 ```{r}
@@ -299,6 +334,12 @@ ranking_plot("Stroke")
 ranking_plot("Sepsis")
 ```
 
+### Kidney/UTI
+
+```{r}
+ranking_plot("Kidney/UTI")
+```
+
 Column {data-width=280}
 -------------------------------------
 
@@ -308,7 +349,7 @@ Column {data-width=280}
 
 Each dot is a hospital's median charge for one condition. The bar is its 95% bootstrap interval: a short bar means we are fairly sure where the hospital sits.
 
-The dotted line is the state median. Hover over a dot for the hospital's name and numbers.
+The dotted line is the typical hospital: the median of the hospital medians. Hover over a dot for the hospital's name and numbers.
 
 Only hospitals with at least 30 stays for the condition are shown.
 
@@ -332,12 +373,6 @@ funnel_plot("Heart failure")
 funnel_plot("Respiratory infection")
 ```
 
-### Kidney/UTI
-
-```{r}
-funnel_plot("Kidney/UTI")
-```
-
 ### Stroke
 
 ```{r}
@@ -350,6 +385,12 @@ funnel_plot("Stroke")
 funnel_plot("Sepsis")
 ```
 
+### Kidney/UTI
+
+```{r}
+funnel_plot("Kidney/UTI")
+```
+
 Column {data-width=280}
 -------------------------------------
 
@@ -357,7 +398,7 @@ Column {data-width=280}
 
 #### Real outlier, or small numbers?
 
-Small hospitals swing widely by chance; large hospitals should sit close to the state median (horizontal line). A large hospital far from the line is worth a second look.
+Small hospitals swing widely by chance; large hospitals should sit close to the typical hospital (horizontal line). A large hospital far from the line is worth a second look.
 
 This view shows every hospital, including those with fewer than 30 stays (grey, left of the vertical line).
 
@@ -383,7 +424,7 @@ leaflet(map_data) |>
     radius = ~pmin(3 + sqrt(n_stays) / 4, 14),
     stroke = TRUE, color = site_ink, weight = 0.6,
     fillColor = ~ratio_colour(ratio), fillOpacity = 0.9,
-    popup = ~str_c("<b>", facility_name, "</b><br>", hospital_service_area, "<br>Median charge: ", dollar(median_charges), "<br>", round(ratio, 2), "× the state median")
+    popup = ~str_c("<b>", facility_name, "</b><br>", hospital_service_area, "<br>Median charge: ", dollar(median_charges), "<br>", round(ratio, 2), "× the typical hospital")
   )
 ```
 
@@ -391,7 +432,7 @@ leaflet(map_data) |>
 
 #### Where are the expensive hospitals?
 
-Each circle is a hospital. Colour shows its median charge for heart failure relative to the state median (darker is higher, lighter is lower); size shows the number of stays. Click a circle for details.
+Each circle is a hospital. Colour shows its median charge for heart failure relative to the typical hospital (darker is higher, lighter is lower); size shows the number of stays. Click a circle for details.
 
 Hospitals without coordinates in the state facility file are not shown.
 
@@ -415,12 +456,6 @@ estimator_plot("Heart failure")
 estimator_plot("Respiratory infection")
 ```
 
-### Kidney/UTI
-
-```{r}
-estimator_plot("Kidney/UTI")
-```
-
 ### Stroke
 
 ```{r}
@@ -433,15 +468,23 @@ estimator_plot("Stroke")
 estimator_plot("Sepsis")
 ```
 
+### Kidney/UTI
+
+```{r}
+estimator_plot("Kidney/UTI")
+```
+
 Column {data-width=280}
 -------------------------------------
 
 ### How to read this {.how-to}
 
-#### What would a stay like this cost?
+#### Same patient, different hospital
 
-Choose a condition, then an age group with the menu on the chart. Each line is a severity level; move along it to see the predicted charge for a stay of that length.
+Choose a condition, then a typical patient with the menu on the chart. Each dot is one hospital's predicted charge for that same patient, from the lowest to the highest.
 
-Predictions come from the adjusted model and describe a typical hospital. They are estimates of billed charges, not of what a patient would pay.
+The two dotted lines mark the hospitals at the 10th and 90th percentile; the sentence under the chart says how far apart they are. Hover over a dot for the hospital's name.
+
+Predictions come from the adjusted model. They are estimates of billed charges, not of what a patient would pay.
 
 <p class="small-note"><span class="demo-badge">Demo</span> Simulated predictions.</p>

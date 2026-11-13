@@ -87,7 +87,7 @@ Placeholder text: what the ranking shows, and how wide the intervals are for sma
 placeholder_fig("Figure 2. Funnel plot\nmedian cost against number of stays")
 ```
 
-Placeholder text: which hospitals remain far from the state median even with many stays.
+Placeholder text: which hospitals remain far from the typical hospital even with many stays.
 
 ## Charges against costs
 
@@ -106,5 +106,6 @@ Placeholder text: how closely charges track costs, and where the charge-to-cost 
 - Charges are the amounts billed, not what patients or insurers paid.
 - Costs are estimates produced by the state.
 - Hospitals with fewer than 30 stays for a condition are left out of rankings but appear in the funnel plot.
+- "The typical hospital" means the median of the hospital medians for a condition, not the median of all stays.
 
 Next: [what changes once we account for patients →](q2_adjusted.html)

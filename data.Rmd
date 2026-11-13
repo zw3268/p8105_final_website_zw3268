@@ -39,9 +39,9 @@ tribble(
   ~Condition, ~`APR-DRG`, ~`Discharges, 2023`, ~Hospitals, ~`Hospitals with 30+ stays`,
   "Heart failure", "194", 59668, 189, 159,
   "Major respiratory infections (mostly COVID-19)", "137", 35044, 190, 156,
-  "Kidney and urinary tract infections", "463", 30248, 188, 148,
   "Ischemic stroke", "045", 26529, 182, 126,
-  "Sepsis", "720", 131139, 187, 164
+  "Sepsis", "720", 131139, 187, 164,
+  "Kidney and urinary tract infections", "463", 30248, 188, 148
 ) |>
   mutate(`Discharges, 2023` = scales::label_comma()(`Discharges, 2023`)) |>
   knitr::kable(align = "llrrr")

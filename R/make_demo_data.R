@@ -3,6 +3,7 @@
 # (hosp_id, facility_name, hospital_service_area, ownership, latitude,
 # longitude, condition, charges, costs). The file names mirror the team plan:
 #   hospital_medians.csv  (Q1)   hospital_adjusted.csv (Q2)   estimator_grid.csv
+# estimator_grid has one row per hospital, condition and patient profile.
 # To switch to real data: point the pages at the real files and re-knit.
 #
 # Run from the project root:  source("R/make_demo_data.R")
@@ -38,9 +39,9 @@ demo_hospitals =
 
 demo_conditions =
   tibble(
-    condition = c("Heart failure", "Respiratory infection", "Kidney/UTI", "Stroke", "Sepsis"),
-    base_charges = c(38000, 41000, 27000, 55000, 62000),
-    base_n = c(310, 185, 160, 140, 690)
+    condition = c("Heart failure", "Respiratory infection", "Stroke", "Sepsis", "Kidney/UTI"),
+    base_charges = c(38000, 41000, 55000, 62000, 27000),
+    base_n = c(310, 185, 140, 690, 160)
   )
 
 hospital_medians =
@@ -69,29 +70,29 @@ hospital_adjusted =
   ungroup() |>
   select(hosp_id, condition, unadjusted_ratio, adjusted_ratio)
 
+# The estimator: what each hospital would charge the SAME typical patient.
+# One row per hospital x condition x patient profile.
+patient_profiles =
+  tibble(
+    severity = c("Moderate", "Major", "Extreme", "Moderate"),
+    age_group = c("70 or Older", "70 or Older", "70 or Older", "50 to 69"),
+    los = c(4, 6, 10, 4),
+    severity_bump = c(1, 1.35, 2.1, 1),
+    age_bump = c(1.04, 1.04, 1.04, 1)
+  ) |>
+  mutate(profile = str_c(severity, " severity, ", str_to_lower(age_group), ", ", los, "-day stay"))
+
 estimator_grid =
-  crossing(
-    demo_conditions,
-    severity = c("Minor", "Moderate", "Major", "Extreme"),
-    age_group = c("18 to 29", "30 to 49", "50 to 69", "70 or Older"),
-    los = 1:30
-  ) |>
+  hospital_medians |>
+  filter(n_stays >= 30) |>
+  select(hosp_id, facility_name, hospital_service_area, ownership, condition, base_charges, hosp_effect) |>
+  crossing(patient_profiles) |>
   mutate(
-    severity_bump = case_when(
-      severity == "Minor" ~ 0.75,
-      severity == "Moderate" ~ 1,
-      severity == "Major" ~ 1.35,
-      severity == "Extreme" ~ 2.1
-    ),
-    age_bump = case_when(
-      age_group == "18 to 29" ~ 0.92,
-      age_group == "30 to 49" ~ 0.97,
-      age_group == "50 to 69" ~ 1,
-      age_group == "70 or Older" ~ 1.04
-    ),
-    predicted_charges = base_charges * severity_bump * age_bump * (0.35 + 0.13 * los)
+    predicted_charges =
+      base_charges * severity_bump * age_bump * (0.35 + 0.13 * los) *
+      exp(1.25 * hosp_effect + rnorm(n(), sd = 0.12))
   ) |>
-  select(condition, severity, age_group, los, predicted_charges)
+  select(hosp_id, facility_name, hospital_service_area, ownership, condition, profile, severity, age_group, los, predicted_charges)
 
 hospital_medians |>
   mutate(markup = median_charges / median_costs) |>
