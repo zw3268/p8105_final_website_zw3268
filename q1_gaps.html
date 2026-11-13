@@ -539,7 +539,7 @@ theme (<code>theme_site()</code> in <code>R/site_helpers.R</code>).</p>
   geom_linerange(aes(xmin = charges_lo, xmax = charges_hi), color = site_rule) +
   geom_point(aes(color = log2(ratio)), size = 1.4) +
   scale_x_log10(labels = scales::label_dollar()) +
-  scale_color_gradient2(low = site_blue, mid = &quot;#B9B4A6&quot;, high = site_ochre, guide = &quot;none&quot;) +
+  scale_color_gradient2(low = site_low, mid = site_mid, high = site_high, guide = &quot;none&quot;) +
   labs(
     x = &quot;Median charge per stay (log scale)&quot;,
     y = &quot;Hospitals&quot;,
@@ -587,7 +587,7 @@ patients →</a></p>
   Data: New York State Department of Health, SPARCS 2023 ·
   Charges are billed amounts, not what patients paid.
 </div>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=20261113c"></script>
 
 
 </div>

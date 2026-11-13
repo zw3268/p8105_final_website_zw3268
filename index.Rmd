@@ -238,8 +238,8 @@ q1_state = function(data, state, x_col, y_col, highlight) {
       x = x_dollar({{ x_col }}),
       y = {{ y_col }},
       fill = case_when(
-        highlight & grp == "high" ~ site_ochre,
-        highlight & grp == "low" ~ site_blue,
+        highlight & grp == "high" ~ site_high,
+        highlight & grp == "low" ~ site_teal,
         TRUE ~ site_ink
       ),
       o = if_else(highlight & grp == "mid", 0.16, 0.8)
@@ -380,8 +380,8 @@ q2_state = function(data, state, x_col, y_col, coloured) {
       x = x_ratio({{ x_col }}),
       y = {{ y_col }},
       fill = case_when(
-        coloured & closer ~ site_blue,
-        coloured & !closer ~ site_ochre,
+        coloured & closer ~ site_teal,
+        coloured & !closer ~ site_high,
         TRUE ~ site_ink
       ),
       o = 0.85
@@ -413,7 +413,7 @@ q2_states =
   tibble(
     readout = c(
       str_c("Before adjustment · 90th ÷ 10th percentile: ", spread(q2_hospitals$unadjusted_ratio), "×"),
-      "Blue moved closer to the typical hospital; ochre moved further away",
+      "Teal moved closer to the typical hospital; navy moved further away",
       str_c("After adjustment · 90th ÷ 10th percentile: ", spread(q2_hospitals$adjusted_ratio), "×")
     ),
     labels = list(
@@ -473,7 +473,7 @@ Re-ranked on the adjusted comparison. What is left is the difference patients do
 
 ## Is an expensive hospital expensive for everything?
 
-[One row per hospital, one column per condition. Ochre is above the state median, blue is below, grey means too few cases to say.]{.lede}
+[One row per hospital, one column per condition. Darker cells are above the state median, lighter cells are below, grey means too few cases to say.]{.lede}
 
 :::::
 
@@ -549,7 +549,7 @@ legend_label =
   tibble(
     x = grid_left + 2.5 * (cell_w + cell_gap) - cell_gap / 2,
     y = row_y(n_rows) + cell_h + 30,
-    text = "blue: below the state median · ochre: above · grey: fewer than 30 stays",
+    text = "light: below the state median · dark: above · grey: fewer than 30 stays",
     anchor = "middle",
     strong = FALSE
   )
@@ -607,7 +607,7 @@ In no particular order, the picture looks like noise.
 
 ### Sorted.
 
-Put the most expensive hospitals at the top. Rows that keep one colour all the way across are consistently high or consistently low. [See the full Question 3 analysis →](q3_consistency.html)
+Put the most expensive hospitals at the top. Rows that stay dark or stay light all the way across are consistently high or consistently low. [See the full Question 3 analysis →](q3_consistency.html)
 :::
 
 ::::
@@ -631,20 +631,20 @@ Put the most expensive hospitals at the top. Rows that keep one colour all the w
 :::
 
 ::: {.reveal}
-```{r home_map, fig.width = 6.4, fig.height = 5, fig.alt = "Simulated hospital locations in New York State"}
+```{r home_map, fig.width = 6.4, fig.height = 5, dev.args = list(bg = "transparent"), fig.alt = "Simulated hospital locations in New York State"}
 # TODO (team): simulated locations. Replace with the real map (map.Rmd).
 hospital_medians |>
   filter(condition == "Heart failure", n_stays >= min_cases) |>
   mutate(ratio = median_charges / median(median_charges)) |>
   ggplot(aes(x = longitude, y = latitude, color = log2(ratio), size = n_stays)) +
   geom_point(alpha = 0.85) +
-  scale_color_gradient2(low = site_blue, mid = "#CFCABC", high = site_ochre, midpoint = 0, limits = c(-1.5, 1.5), oob = scales::squish, guide = "none") +
+  scale_color_gradient2(low = site_low, mid = site_mid, high = site_high, midpoint = 0, limits = c(-1.5, 1.5), oob = scales::squish, guide = "none") +
   scale_size_area(max_size = 7, guide = "none") +
   coord_quickmap() +
   labs(caption = "Simulated locations and values. Placeholder for the hospital map.") +
   theme_void() +
   theme(
-    plot.background = element_rect(fill = "#F1EDE2", color = NA),
+    plot.background = element_rect(fill = "transparent", color = NA),
     plot.caption = element_text(color = site_muted, size = 9, hjust = 0)
   )
 ```

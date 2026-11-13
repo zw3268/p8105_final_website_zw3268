@@ -100,7 +100,7 @@ funnel_plot = function(condition_name) {
     plot_data,
     x = ~n_stays, y = ~median_costs,
     type = "scatter", mode = "markers",
-    color = ~enough, colors = c("30 or more stays" = site_blue, "Fewer than 30 stays" = "#B9B4A6"),
+    color = ~enough, colors = c("30 or more stays" = site_blue, "Fewer than 30 stays" = "#AEB8C2"),
     marker = list(size = 7, opacity = 0.8),
     text = ~hover, hoverinfo = "text"
   ) |>
@@ -109,7 +109,7 @@ funnel_plot = function(condition_name) {
       yaxis = list(title = "Median estimated cost (log scale)", type = "log", tickprefix = "$", gridcolor = site_rule),
       legend = list(orientation = "h", y = -0.2),
       shapes = list(
-        list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = state_median, y1 = state_median, line = list(color = site_ochre, dash = "dot", width = 1)),
+        list(type = "line", xref = "paper", x0 = 0, x1 = 1, y0 = state_median, y1 = state_median, line = list(color = site_teal, dash = "dot", width = 1)),
         list(type = "line", x0 = min_cases, x1 = min_cases, yref = "paper", y0 = 0, y1 = 1, line = list(color = site_muted, dash = "dot", width = 1))
       )
     )
@@ -119,7 +119,7 @@ funnel_plot = function(condition_name) {
 estimator_plot = function(condition_name) {
   plot_data = estimator_grid |> filter(condition == condition_name)
   age_groups = unique(plot_data$age_group)
-  severity_colours = c(Minor = "#9DB1EC", Moderate = site_blue, Major = site_ochre, Extreme = "#8A4B00")
+  severity_colours = c(Minor = "#A6E0D8", Moderate = "#35B0A8", Major = site_blue, Extreme = site_blue_deep)
 
   p = plot_ly()
 
@@ -236,7 +236,7 @@ plot_ly(
   x = ~condition, y = ~facility_name, z = ~z,
   type = "heatmap",
   zmin = -1.5, zmax = 1.5,
-  colorscale = list(c(0, site_blue), c(0.5, site_mid), c(1, site_ochre)),
+  colorscale = list(c(0, site_low), c(0.5, site_mid), c(1, site_high)),
   xgap = 3, ygap = 2,
   text = ~hover, hoverinfo = "text",
   colorbar = list(title = "", tickvals = c(-1, 0, 1), ticktext = c("half", "median", "double"), len = 0.5, thickness = 12)
@@ -253,10 +253,10 @@ plot_ly(
 
 #### Is it the hospital, or the condition?
 
-Each row is a hospital and each column is a condition. Ochre cells are above the state median for that condition, blue cells are below.
+Each row is a hospital and each column is a condition. Darker cells are above the state median for that condition, lighter cells are below.
 
-- Rows that stay one colour are consistently expensive or consistently cheap.
-- Rows that change colour are expensive for some conditions only.
+- Rows that stay dark are consistently expensive; rows that stay light are consistently cheap.
+- Rows that mix dark and light are expensive for some conditions only.
 - Grey cells have fewer than 30 stays, too few to compare.
 
 The 40 hospitals with the most stays are shown, sorted from the most expensive on average (top) to the least.
@@ -391,7 +391,7 @@ leaflet(map_data) |>
 
 #### Where are the expensive hospitals?
 
-Each circle is a hospital. Colour shows its median charge for heart failure relative to the state median (ochre above, blue below); size shows the number of stays. Click a circle for details.
+Each circle is a hospital. Colour shows its median charge for heart failure relative to the state median (darker is higher, lighter is lower); size shows the number of stays. Click a circle for details.
 
 Hospitals without coordinates in the state facility file are not shown.
 

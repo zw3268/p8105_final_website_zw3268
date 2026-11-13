@@ -1,16 +1,20 @@
 # Helpers shared by every page: colours, the ggplot theme, placeholder figures,
 # and the function that hands chart data to js/site.js.
 
-site_paper = "#FAF7F0"
-site_ink = "#0E1B33"
-site_muted = "#5C6781"
-site_rule = "#D8D3C4"
-site_blue = "#1F3FBF"
-site_blue_deep = "#0B1F4D"
-site_blue_tint = "#DFE6F8"
-site_ochre = "#D9942B"
-site_mid = "#F1EDE2"
-site_grey_cell = "#E4E1D8"
+site_paper = "#F5F8FB"
+site_ink = "#0B1F3A"
+site_muted = "#51607A"
+site_rule = "#CBD6DF"
+site_blue = "#0A5BC4"
+site_blue_deep = "#062A5E"
+site_blue_tint = "#DCE9F8"
+site_teal = "#0E8F8A"
+
+# data colours: lighter = lower, darker = higher (no red, yellow or purple)
+site_low = "#A6E0D8"
+site_mid = "#4B9CC9"
+site_high = "#062A5E"
+site_grey_cell = "#DDE3E8"
 
 min_cases = 30
 
@@ -33,17 +37,17 @@ theme_site = function(base_size = 13) {
     )
 }
 
-# low = blue, middle = paper, high = ochre (colour-blind safe pair)
+# light mint (low) -> blue (typical) -> navy (high); readable by lightness alone
 ratio_colour = function(ratio, limit = 2) {
   position = (log(pmin(pmax(ratio, 1 / limit), limit)) / log(limit) + 1) / 2
-  scales::gradient_n_pal(c(site_blue, site_mid, site_ochre))(position)
+  scales::gradient_n_pal(c(site_low, site_mid, site_high))(position)
 }
 
 # An empty framed figure that says what will go there.
 # TODO (team): replace each call with the real plot.
 placeholder_fig = function(title, note = "Placeholder: replace with the real figure") {
   ggplot() +
-    annotate("rect", xmin = 0, xmax = 1, ymin = 0, ymax = 1, fill = site_mid, color = site_muted, linetype = "dashed", linewidth = 0.4) +
+    annotate("rect", xmin = 0, xmax = 1, ymin = 0, ymax = 1, fill = "#E8EEF3", color = site_muted, linetype = "dashed", linewidth = 0.4) +
     annotate("text", x = 0.5, y = 0.58, label = title, color = site_ink, size = 5.2, fontface = "bold", lineheight = 1.1) +
     annotate("text", x = 0.5, y = 0.40, label = note, color = site_muted, size = 3.6) +
     coord_cartesian(xlim = c(0, 1), ylim = c(0, 1), expand = FALSE) +

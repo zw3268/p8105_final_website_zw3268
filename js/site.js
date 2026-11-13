@@ -61,12 +61,10 @@
   if (hero) {
     var rows = hero.querySelectorAll(".bill-row");
     var foot = hero.querySelector(".bill-foot");
-    var ticking = false;
 
     function clamp(v) { return Math.max(0, Math.min(1, v)); }
 
     function updateHero() {
-      ticking = false;
       var rect = hero.getBoundingClientRect();
       var travel = rect.height - window.innerHeight;
       var progress = travel > 0 ? clamp(-rect.top / travel) : 1;
@@ -82,9 +80,9 @@
       if (foot) foot.style.setProperty("--foot", clamp((progress - 0.72) / 0.15).toFixed(3));
     }
 
-    window.addEventListener("scroll", function () {
-      if (!ticking) { ticking = true; requestAnimationFrame(updateHero); }
-    }, { passive: true });
+    // update straight from the scroll event (five rows, cheap) so the bill
+    // never depends on animation frames being available
+    window.addEventListener("scroll", updateHero, { passive: true });
     window.addEventListener("resize", updateHero);
     updateHero();
   }
@@ -98,19 +96,34 @@
     if (src) { layer.style.backgroundImage = "url('" + src + "')"; layer.removeAttribute("data-src"); }
   }
 
+  // Everything that follows the scroll position registers a function here.
+  // One scroll listener runs them all, so nothing waits on observers or timers.
+  var onScroll = [];
+
+  // the element (out of a list) that the middle of the window is currently inside
+  function elementAtMiddle(elements) {
+    var middle = window.innerHeight / 2;
+    for (var i = 0; i < elements.length; i++) {
+      var rect = elements[i].getBoundingClientRect();
+      if (rect.top <= middle && rect.bottom > middle) return elements[i];
+    }
+    return null;
+  }
+
   if (Object.keys(bgLayers).length) {
-    var bgObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var active = bgLayers[entry.target.getAttribute("data-bg")];
-        if (!active) return;
-        loadLayer(active);
-        Object.keys(bgLayers).forEach(function (key) {
-          bgLayers[key].classList.toggle("is-active", bgLayers[key] === active);
-        });
+    var bgSections = Array.prototype.slice.call(document.querySelectorAll("[data-bg]:not(.bg-layer)"));
+    var currentBg = null;
+    onScroll.push(function () {
+      var section = elementAtMiddle(bgSections);
+      if (!section) return;
+      var name = section.getAttribute("data-bg");
+      if (name === currentBg || !bgLayers[name]) return;
+      currentBg = name;
+      loadLayer(bgLayers[name]);
+      Object.keys(bgLayers).forEach(function (key) {
+        bgLayers[key].classList.toggle("is-active", key === name);
       });
-    }, { rootMargin: "-50% 0px -50% 0px", threshold: 0 });
-    each("[data-bg]:not(.bg-layer)", function (el) { bgObserver.observe(el); });
+    });
     // fetch the remaining pictures once the page itself has loaded
     window.addEventListener("load", function () {
       Object.keys(bgLayers).forEach(function (key) { loadLayer(bgLayers[key]); });
@@ -175,14 +188,26 @@
     setState(0);
 
     var steps = Array.prototype.slice.call(scrolly.querySelectorAll(".step"));
-    var stepObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        steps.forEach(function (el) { el.classList.toggle("is-active", el === entry.target); });
-        setState(steps.indexOf(entry.target));
-      });
-    }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
-    steps.forEach(function (el) { stepObserver.observe(el); });
-    if (steps.length) steps[0].classList.add("is-active");
+    var currentStep = -1;
+    onScroll.push(function () {
+      var step = elementAtMiddle(steps);
+      // between two steps, or above / below the section: keep the nearest end
+      var index = step ? steps.indexOf(step) : currentStep;
+      if (!step && steps.length) {
+        var first = steps[0].getBoundingClientRect();
+        var last = steps[steps.length - 1].getBoundingClientRect();
+        if (first.top > window.innerHeight / 2) index = 0;
+        else if (last.bottom <= window.innerHeight / 2) index = steps.length - 1;
+      }
+      if (index === currentStep || index < 0) return;
+      currentStep = index;
+      steps.forEach(function (el, k) { el.classList.toggle("is-active", k === index); });
+      setState(index);
+    });
   });
+
+  function runScrollHandlers() { onScroll.forEach(function (fn) { fn(); }); }
+  window.addEventListener("scroll", runScrollHandlers, { passive: true });
+  window.addEventListener("resize", runScrollHandlers);
+  runScrollHandlers();
 })();

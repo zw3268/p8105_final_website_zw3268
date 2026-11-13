@@ -5,8 +5,8 @@
 @font-face { font-family: "IBM Plex Mono"; src: url("fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 
 :root {
-  --paper: #FAF7F0; --paper-2: #F1EDE2; --ink: #0E1B33; --muted: #5C6781; --rule: #D8D3C4;
-  --blue: #1F3FBF; --blue-deep: #0B1F4D; --blue-tint: #DFE6F8; --ochre: #D9942B;
+  --paper: #F5F8FB; --paper-2: #E8EEF3; --ink: #0B1F3A; --muted: #51607A; --rule: #CBD6DF;
+  --blue: #0A5BC4; --blue-deep: #062A5E; --blue-tint: #DCE9F8; --teal: #0E8F8A;
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "IBM Plex Mono", Menlo, monospace;
@@ -18,7 +18,7 @@ body { background: var(--paper-2); color: var(--ink); font-family: var(--font-bo
 .navbar-inverse .navbar-brand { font-family: var(--font-display); font-size: 19px; font-weight: 500; color: #FFFFFF; }
 .navbar-inverse .navbar-nav > li > a { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #B8C4E6; }
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus { color: #FFFFFF; background: transparent; }
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus { background: transparent; color: #FFFFFF; box-shadow: inset 0 -2px 0 var(--ochre); }
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus { background: transparent; color: #FFFFFF; box-shadow: inset 0 -2px 0 #8FDAD4; }
 
 .chart-wrapper, .nav-tabs-custom, .value-box { background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; box-shadow: none; }
 .chart-title { font-family: var(--font-mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: transparent; border-bottom: 1px dashed var(--rule); padding: 10px 14px; }
@@ -39,7 +39,7 @@ body { background: var(--paper-2); color: var(--ink); font-family: var(--font-bo
 .how-to h4 { font-family: var(--font-display); font-size: 21px; font-weight: 500; margin-top: 4px; }
 .how-to p, .how-to li { font-size: 14.5px; line-height: 1.55; color: var(--ink); }
 .how-to .small-note { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); border-top: 1px dashed var(--rule); padding-top: 10px; margin-top: 14px; }
-.demo-badge { display: inline-block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A5A0B; background: #F6E7CB; border: 1px solid var(--ochre); border-radius: 2px; padding: 1px 6px; }
+.demo-badge { display: inline-block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #0B6B67; background: #E3F3F1; border: 1px solid var(--teal); border-radius: 2px; padding: 1px 6px; }
 a { color: var(--blue); }
 
 /* mute the OpenStreetMap tiles so the hospital colours stand out */

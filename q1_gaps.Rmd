@@ -67,7 +67,7 @@ hospital_medians |>
   geom_linerange(aes(xmin = charges_lo, xmax = charges_hi), color = site_rule) +
   geom_point(aes(color = log2(ratio)), size = 1.4) +
   scale_x_log10(labels = scales::label_dollar()) +
-  scale_color_gradient2(low = site_blue, mid = "#B9B4A6", high = site_ochre, guide = "none") +
+  scale_color_gradient2(low = site_low, mid = site_mid, high = site_high, guide = "none") +
   labs(
     x = "Median charge per stay (log scale)",
     y = "Hospitals",
