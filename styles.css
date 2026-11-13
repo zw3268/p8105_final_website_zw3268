@@ -418,9 +418,13 @@ body.home .scrolly::before {
   border-radius: 8px;
   box-shadow: 0 30px 70px -40px rgba(6, 34, 78, 0.55);
 }
-/* a question's heading and its chart share one long sheet */
+/* A question's heading and its chart share one long sheet: the heading's sheet runs
+   to the very bottom of its block and the chart's sheet starts at the very top.
+   (The :not() parts repeat the selector above on purpose, so this rule is the
+   stronger one; without them the sheet stopped short and the intro line sat on
+   the bare photo.) */
 body.home .screen.scrolly-intro { padding-top: 110px; }
-body.home .screen.scrolly-intro::before { bottom: 0; border-bottom: 0; border-radius: 8px 8px 0 0; background: var(--glass-chart); box-shadow: none; }
+body.home .screen.scrolly-intro:not(.hero):not(.is-dark)::before { bottom: 0; border-bottom: 0; border-radius: 8px 8px 0 0; background: var(--glass-chart); box-shadow: none; }
 body.home .scrolly::before { top: 0; border-top: 0; border-radius: 0 0 8px 8px; background: var(--glass-chart); }
 
 body.home .site-footer { background: var(--paper); border-top: 0; }
@@ -443,7 +447,7 @@ body.home .card-bill { box-shadow: 0 14px 30px -22px rgba(6, 34, 78, 0.5); }
 @media (max-width: 860px) {
   body.home .scrolly-graphic { background: #F3F8FC; }
   body.home .screen:not(.hero):not(.is-dark)::before, body.home .scrolly::before { top: 16px; bottom: 16px; }
-  body.home .screen.scrolly-intro::before { bottom: 0; }
+  body.home .screen.scrolly-intro:not(.hero):not(.is-dark)::before { bottom: 0; }
   body.home .scrolly::before { top: 0; }
 }
 
