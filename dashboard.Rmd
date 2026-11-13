@@ -6,7 +6,7 @@ output:
     vertical_layout: fill
     css: dashboard.css
     navbar:
-      - { title: "Overview", href: "index.html", align: right }
+      - { title: "Back to story", href: "index.html", align: right }
       - { title: "Report", href: "report.html", align: right }
 ---
 
@@ -440,7 +440,7 @@ Column {data-width=280}
 
 #### What would a stay like this cost?
 
-Pick a condition (tabs) and an age group (menu on the chart). Each line is a severity level; move along it to see the predicted charge for a stay of that length.
+Choose a condition, then an age group with the menu on the chart. Each line is a severity level; move along it to see the predicted charge for a stay of that length.
 
 Predictions come from the adjusted model and describe a typical hospital. They are estimates of billed charges, not of what a patient would pay.
 

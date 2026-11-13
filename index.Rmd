@@ -44,6 +44,10 @@ set.seed(8105)
 <span class="eyebrow">New York State · Hospital discharges · 2023</span>
 <h1>Same diagnosis.<br><em>Different bills.</em></h1>
 <p class="lede">The bill for a hospital stay in New York depends on where you are treated. We compared five common conditions across every hospital in the state.</p>
+<p class="hero-actions">
+<a class="btn-bill on-dark" href="#highlights" data-jump>Explore findings</a>
+<a class="btn-bill on-dark is-outline" href="dashboard.html">Open dashboard</a>
+</p>
 <p class="hero-meta">Yimeng Cao · Zeheng Wei · Yichuan Ma · Jiaxuan Su · Yulin Zhu<br>P8105 Data Science I · Fall 2026</p>
 <p class="scroll-hint">Scroll</p>
 </div>
@@ -98,13 +102,18 @@ headline_consistent =
   nrow()
 ```
 
-::::: {.screen .is-tinted data-bg="highlights"}
+::::: {#highlights .screen .is-tinted data-bg="highlights"}
 
 [The short version]{.eyebrow}
 
-## Get the highlights.
-
-[Swipe →]{.cards-hint}
+<div class="cards-head">
+<h2>Get the highlights.</h2>
+<div class="cards-controls" hidden>
+<button type="button" class="cards-arrow" data-cards-dir="-1" aria-label="Previous highlights">&larr;</button>
+<button type="button" class="cards-arrow" data-cards-dir="1" aria-label="Next highlights">&rarr;</button>
+<span class="cards-count"></span>
+</div>
+</div>
 
 :::: {.cards}
 

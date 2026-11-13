@@ -4,3 +4,6 @@
 .Ruserdata
 .DS_Store
 *_cache/
+# duplicate copies that iCloud makes while the site is being rebuilt ("name 2.js")
+* [0-9].*
+*.* [0-9].*

@@ -44,3 +44,39 @@ a { color: var(--blue); }
 
 /* mute the OpenStreetMap tiles so the hospital colours stand out */
 .leaflet-tile-pane { filter: grayscale(1) contrast(0.85) brightness(1.08); }
+
+/* -- phones (flexdashboard's own phone layout, below 768px) --
+   Every block of a page is stacked in one column and the tabs unfold into five
+   charts, which left the short "How to read this" note far below them. Show the
+   note first; value boxes stay at the very top. Wider screens are not touched:
+   the .mobile-layout class is only set below 768px. */
+.mobile-layout .section.level3.value-box { order: -2; }
+.mobile-layout .section.level3.how-to { order: -1; }
+
+/* -- one row at every width --
+   The dashboard's name, five pages and two links need about 960px, but Bootstrap
+   only switches to the menu button below 768px, so in between the bar broke into
+   two rows. Use the menu button below 992px. */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-header { float: none; }
+  .navbar-toggle { display: block; }
+  .container-fluid > .navbar-header, .container-fluid > .navbar-collapse { margin-left: -15px; margin-right: -15px; }
+  .navbar > .container-fluid .navbar-brand { margin-left: 0; }
+  .navbar-fixed-top .navbar-collapse { padding-left: 15px; padding-right: 15px; max-height: calc(100vh - 50px); }
+  .navbar-collapse { border-top: 1px solid rgba(255, 255, 255, 0.14); box-shadow: none; }
+  .navbar-collapse.collapse { display: none !important; }
+  .navbar-collapse.collapse.in { display: block !important; overflow-y: auto !important; }
+  .navbar-nav, .navbar-nav.navbar-left, .navbar-nav.navbar-right { float: none !important; margin: 7.5px -15px; }
+  .navbar-nav > li { float: none; }
+  .navbar-nav > li > a { padding-top: 10px; padding-bottom: 10px; }
+}
+/* in the opened menu, mark the current page with a bar at the left instead of an underline */
+@media (max-width: 991px) {
+  .navbar-inverse .navbar-nav > .active > a,
+  .navbar-inverse .navbar-nav > .active > a:hover,
+  .navbar-inverse .navbar-nav > .active > a:focus { box-shadow: inset 3px 0 0 #8FDAD4; }
+  .navbar-inverse .navbar-toggle { border-color: rgba(255, 255, 255, 0.35); }
+  .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus { background: rgba(255, 255, 255, 0.12); }
+}
+/* a page opened from a link such as dashboard.html#map starts below the navbar, not under it */
+.dashboard-page-wrapper { scroll-margin-top: 58px; }

@@ -3,6 +3,10 @@
 //   2. count numbers up from zero
 //   3. the hero bill that itemises itself as you scroll
 //   4. scroll-driven charts (chart pinned, text steps scroll past)
+//   5. highlight cards: previous / next buttons and a "1-3 of 5" counter
+//   6. links that glide to a section further down the same page
+//   7. wide tables scroll sideways inside their own box
+//   8. list of sections folded behind a button on small screens
 // All chart data is written into the page by R; nothing is computed here.
 
 (function () {
@@ -210,4 +214,136 @@
   window.addEventListener("scroll", runScrollHandlers, { passive: true });
   window.addEventListener("resize", runScrollHandlers);
   runScrollHandlers();
+
+  /* ---- 5. highlight cards: arrow buttons and a counter ---- */
+  // The row still swipes and scrolls by hand exactly as before; the buttons are an
+  // extra way to move it, mainly for people using a mouse.
+  each(".cards", function (row) {
+    var screen = row.closest(".screen");
+    var controls = screen ? screen.querySelector(".cards-controls") : null;
+    if (!controls) return;
+    var cards = Array.prototype.slice.call(row.children);
+    var arrows = controls.querySelectorAll(".cards-arrow");
+    var counter = controls.querySelector(".cards-count");
+    if (!cards.length || arrows.length < 2) return;
+
+    function update() {
+      var furthest = row.scrollWidth - row.clientWidth;
+      controls.hidden = furthest <= 1;            // everything fits: no controls needed
+      var box = row.getBoundingClientRect();
+      var first = -1, last = -1, nearest = 0, nearestGap = Infinity;
+      cards.forEach(function (card, i) {
+        var r = card.getBoundingClientRect();
+        var shown = Math.min(r.right, box.right) - Math.max(r.left, box.left);
+        if (shown >= r.width * 0.9) { if (first < 0) first = i; last = i; }
+        var gap = Math.abs(r.left - box.left);
+        if (gap < nearestGap) { nearestGap = gap; nearest = i; }
+      });
+      if (first < 0) { first = nearest; last = nearest; }   // mid-swipe on a phone
+      if (counter) {
+        counter.textContent = (first === last ? String(first + 1) : (first + 1) + "\u2013" + (last + 1)) + " of " + cards.length;
+      }
+      // the row comes to rest a couple of pixels off its two ends, hence the slack
+      var slack = 4;
+      arrows[0].disabled = row.scrollLeft <= slack;
+      arrows[1].disabled = row.scrollLeft >= furthest - slack;
+    }
+
+    Array.prototype.forEach.call(arrows, function (arrow) {
+      arrow.addEventListener("click", function () {
+        var direction = parseInt(arrow.getAttribute("data-cards-dir"), 10) || 1;
+        var oneCard = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : row.clientWidth;
+        row.scrollBy({ left: direction * oneCard, behavior: reduceMotion ? "auto" : "smooth" });
+      });
+    });
+    row.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  });
+
+  /* ---- 6. links that glide to a section on the same page: <a href="#id" data-jump> ---- */
+  each("a[data-jump]", function (link) {
+    link.addEventListener("click", function (event) {
+      var target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;                        // let the browser handle it
+      event.preventDefault();
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      // move keyboard focus along with the view
+      if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    });
+  });
+
+  /* ---- 7. wide tables scroll sideways inside their own box ---- */
+  // Every table is put in a box that scrolls when the table is wider than the page.
+  // A "Scroll sideways" note and a faded edge show that there is more to see.
+  each(".main-container table", function (table) {
+    if (table.closest(".table-scroll, .html-widget")) return;
+
+    var box = document.createElement("div");
+    box.className = "table-scroll";
+    var hint = document.createElement("div");
+    hint.className = "table-hint";
+    hint.setAttribute("aria-hidden", "true");
+    hint.textContent = "Scroll sideways \u2192";
+    table.parentNode.insertBefore(hint, table);
+    table.parentNode.insertBefore(box, table);
+    box.appendChild(table);
+
+    function update() {
+      var room = box.scrollWidth - box.clientWidth;   // how far the table can move
+      var scrolls = room > 1;
+      hint.classList.toggle("is-on", scrolls);
+      box.classList.toggle("more-right", scrolls && box.scrollLeft < room - 1);
+      box.classList.toggle("more-left", scrolls && box.scrollLeft > 1);
+      // keyboard users can reach the box and move it with the arrow keys
+      if (scrolls) {
+        box.setAttribute("tabindex", "0");
+        box.setAttribute("role", "region");
+        box.setAttribute("aria-label", "Table, scrolls sideways");
+      } else {
+        box.removeAttribute("tabindex");
+        box.removeAttribute("role");
+        box.removeAttribute("aria-label");
+      }
+    }
+
+    box.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    window.addEventListener("load", update);
+    // fonts and the table styles arrive after this script has run
+    if (window.ResizeObserver) {
+      var watcher = new ResizeObserver(update);
+      watcher.observe(box);
+      watcher.observe(table);
+    }
+    update();
+  });
+
+  /* ---- 8. list of sections: folded behind a button on small screens ---- */
+  // R Markdown builds the list inside #TOC. styles.css shows the button only where the
+  // list is stacked above the title (below 768px); wider than that the list floats at
+  // the left as before and nothing changes. Pages without a list are left alone.
+  var toc = document.getElementById("TOC");
+  if (toc) {
+    var tocButton = document.createElement("button");
+    tocButton.type = "button";
+    tocButton.className = "toc-toggle";
+    tocButton.textContent = "On this page";
+    tocButton.setAttribute("aria-controls", "TOC");
+    tocButton.setAttribute("aria-expanded", "false");
+    toc.parentNode.insertBefore(tocButton, toc);
+
+    // one tap opens the list, the next one closes it
+    tocButton.addEventListener("click", function () {
+      var isOpen = tocButton.getAttribute("aria-expanded") === "true";
+      tocButton.setAttribute("aria-expanded", isOpen ? "false" : "true");
+    });
+
+    // Choosing an entry closes the list. This listener runs before the list's own
+    // click handler (capture phase), so the page then scrolls to the right place.
+    toc.addEventListener("click", function (event) {
+      if (event.target.closest("li")) tocButton.setAttribute("aria-expanded", "false");
+    }, true);
+  }
 })();

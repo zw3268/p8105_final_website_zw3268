@@ -400,6 +400,12 @@ The bill for a hospital stay in New York depends on where you are
 treated. We compared five common conditions across every hospital in the
 state.
 </p>
+<p class="hero-actions">
+<a class="btn-bill on-dark" href="#highlights" data-jump>Explore
+findings</a>
+<a class="btn-bill on-dark is-outline" href="dashboard.html">Open
+dashboard</a>
+</p>
 <p class="hero-meta">
 Yimeng Cao · Zeheng Wei · Yichuan Ma · Jiaxuan Su · Yulin Zhu<br>P8105
 Data Science I · Fall 2026
@@ -441,11 +447,22 @@ One inpatient stay · APR-DRG 194 · typical charge by hospital
 </div>
 </div>
 <!-- =====================  2. Highlights  ===================== -->
-<div class="screen is-tinted" data-bg="highlights">
+<div id="highlights" class="screen is-tinted" data-bg="highlights">
 <p><span class="eyebrow">The short version</span></p>
-<div id="get-the-highlights." class="section level2">
-<h2>Get the highlights.</h2>
-<p><span class="cards-hint">Swipe →</span></p>
+<div class="cards-head">
+<h2>
+Get the highlights.
+</h2>
+<div class="cards-controls" hidden="">
+<button type="button" class="cards-arrow" data-cards-dir="-1" aria-label="Previous highlights">
+←
+</button>
+<button type="button" class="cards-arrow" data-cards-dir="1" aria-label="Next highlights">
+→
+</button>
+<p><span class="cards-count"></span></p>
+</div>
+</div>
 <div class="cards">
 <div class="card-bill">
 <p><span class="k">Question 1 · the gap</span> <span class="v"
@@ -475,7 +492,6 @@ data-count="3" data-decimals="1" data-suffix="×">3×</span></p>
 <p><span class="k">Go deeper</span> <span class="v">→</span></p>
 <p>Look up any hospital in the <a href="dashboard.html">dashboard</a>,
 or read the <a href="report.html">full report</a>.</p>
-</div>
 </div>
 </div>
 </div>
@@ -773,7 +789,7 @@ methods</a> · <a href="team.html">Team</a></p>
   Data: New York State Department of Health, SPARCS 2023 ·
   Charges are billed amounts, not what patients paid.
 </div>
-<script src="js/site.js?v=20261113c"></script>
+<script src="js/site.js?v=20261113d"></script>
 
 
 
