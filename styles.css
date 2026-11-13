@@ -1,0 +1,126 @@
+/* Site-wide look. Colours live here as variables so the whole site changes together. */
+:root {
+  --paper: #FAF8F4;
+  --ink: #1B1F24;
+  --muted: #6B7280;
+  --rule: #DAD5CB;
+  --accent: #B4432E;
+  --low: #2F6F73;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.main-container {
+  max-width: 1120px;
+}
+
+.demo-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+/* ---------- Scroll-driven section ---------- */
+/* The chart stays pinned while the text steps scroll past it. */
+
+.scrolly {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: 48px;
+  align-items: start;
+  margin: 40px 0 120px;
+}
+
+.scrolly-graphic {
+  grid-column: 2;
+  grid-row: 1;
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 90px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.scrolly-steps {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.step {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0.25;
+  transition: opacity 0.4s ease;
+}
+
+.step.is-active {
+  opacity: 1;
+}
+
+.step h3 {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.scrolly-readout {
+  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+  color: var(--muted);
+  border-top: 1px dashed var(--rule);
+  padding-top: 10px;
+  margin-top: 6px;
+  min-height: 2em;
+}
+
+#scrolly-chart {
+  width: 100%;
+  height: auto;
+}
+
+#scrolly-chart .dot {
+  fill: var(--ink);
+  opacity: 0.75;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), fill 0.4s ease, opacity 0.4s ease;
+}
+
+#scrolly-chart .dot.is-high { fill: var(--accent); opacity: 1; }
+#scrolly-chart .dot.is-low  { fill: var(--low); opacity: 1; }
+#scrolly-chart .dot.is-faded { opacity: 0.18; }
+
+#scrolly-chart .tick-line { stroke: var(--rule); stroke-width: 1; }
+#scrolly-chart .tick-label, #scrolly-chart .axis-title {
+  fill: var(--muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Narrow screens: chart pinned on top, text scrolls underneath */
+@media (max-width: 800px) {
+  .scrolly { display: block; }
+  .scrolly-graphic {
+    top: 50px;
+    height: 48vh;
+    background: var(--paper);
+    z-index: 2;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step { min-height: 70vh; }
+}
+
+/* Visitors who ask their system for less motion get instant changes */
+@media (prefers-reduced-motion: reduce) {
+  #scrolly-chart .dot, .step { transition: none; }
+}

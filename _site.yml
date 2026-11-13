@@ -5,8 +5,11 @@ navbar:
   right:
     - text: "Home"
       href: index.html
+    - text: "Scroll prototype"
+      href: prototype.html
     - icon: fa-github fa-lg
       href: https://github.com/zw3268/p8105_final_website_zw3268
 output:
   html_document:
     theme: cosmo
+    css: styles.css
