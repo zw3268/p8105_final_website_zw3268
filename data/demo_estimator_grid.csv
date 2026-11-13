@@ -1,4 +1,4 @@
-hosp_id,facility_name,hospital_service_area,ownership,condition,profile,severity,age_group,los,predicted_charges
+hosp_id,facility_name,region,ownership,condition,profile,severity,age_group,los,predicted_charges
 1001,Demo Hospital 1,New York City,Nonprofit,Heart failure,"Extreme severity, 70 or older, 10-day stay",Extreme,70 or Older,10,118982
 1001,Demo Hospital 1,New York City,Nonprofit,Heart failure,"Major severity, 70 or older, 6-day stay",Major,70 or Older,6,71636
 1001,Demo Hospital 1,New York City,Nonprofit,Heart failure,"Moderate severity, 50 to 69, 4-day stay",Moderate,50 to 69,4,37309

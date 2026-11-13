@@ -52,9 +52,9 @@ ranking_plot = function(condition_name) {
     mutate(
       rank = min_rank(median_charges),
       hover = str_c(
-        "<b>", facility_name, "</b><br>", hospital_service_area, " · ", ownership,
+        "<b>", facility_name, "</b><br>", region, " · ", ownership,
         "<br>Median charge: ", dollar(median_charges),
-        "<br>95% interval: ", dollar(charges_lo), " to ", dollar(charges_hi),
+        "<br>95% interval: ", dollar(charges_low), " to ", dollar(charges_high),
         "<br>Stays: ", n_stays
       )
     )
@@ -68,7 +68,7 @@ ranking_plot = function(condition_name) {
     marker = list(color = ~ratio_colour(ratio), size = 7, line = list(color = site_ink, width = 0.4)),
     error_x = list(
       type = "data", symmetric = FALSE,
-      array = ~charges_hi - median_charges, arrayminus = ~median_charges - charges_lo,
+      array = ~charges_high - median_charges, arrayminus = ~median_charges - charges_low,
       color = site_rule, thickness = 1, width = 0
     ),
     text = ~hover, hoverinfo = "text"
@@ -166,7 +166,7 @@ estimator_plot = function(condition_name) {
         data = plot_data |> filter(profile == profile_name),
         x = ~predicted_charges, y = ~rank,
         marker = list(color = site_blue, size = 7, opacity = 0.85),
-        text = ~str_c("<b>", facility_name, "</b><br>", hospital_service_area, " · ", ownership, "<br>Predicted charge: ", dollar(predicted_charges)),
+        text = ~str_c("<b>", facility_name, "</b><br>", region, " · ", ownership, "<br>Predicted charge: ", dollar(predicted_charges)),
         hoverinfo = "text",
         visible = profile_name == profiles[1],
         showlegend = FALSE
@@ -424,7 +424,7 @@ leaflet(map_data) |>
     radius = ~pmin(3 + sqrt(n_stays) / 4, 14),
     stroke = TRUE, color = site_ink, weight = 0.6,
     fillColor = ~ratio_colour(ratio), fillOpacity = 0.9,
-    popup = ~str_c("<b>", facility_name, "</b><br>", hospital_service_area, "<br>Median charge: ", dollar(median_charges), "<br>", round(ratio, 2), "× the typical hospital")
+    popup = ~str_c("<b>", facility_name, "</b><br>", region, "<br>Median charge: ", dollar(median_charges), "<br>", round(ratio, 2), "× the typical hospital")
   )
 ```
 

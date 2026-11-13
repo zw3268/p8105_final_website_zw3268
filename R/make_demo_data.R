@@ -1,6 +1,6 @@
 # Simulated data used ONLY to design the site. Nothing here is a result.
 # Column names follow data/sparcs_clean.csv from the team's data pipeline
-# (hosp_id, facility_name, hospital_service_area, ownership, latitude,
+# (hosp_id, facility_name, region, ownership, latitude,
 # longitude, condition, charges, costs). The file names mirror the team plan:
 #   hospital_medians.csv  (Q1)   hospital_adjusted.csv (Q2)   estimator_grid.csv
 # estimator_grid has one row per hospital, condition and patient profile.
@@ -14,7 +14,7 @@ set.seed(8105)
 
 service_areas =
   tibble(
-    hospital_service_area = c("New York City", "Long Island", "Hudson Valley", "Capital/Adirond",
+    region = c("New York City", "Long Island", "Hudson Valley", "Capital/Adirond",
                               "Central NY", "Finger Lakes", "Western NY", "Southern Tier"),
     lat0 = c(40.74, 40.79, 41.35, 43.20, 43.05, 43.10, 42.90, 42.15),
     lon0 = c(-73.93, -73.20, -73.95, -73.80, -76.10, -77.50, -78.80, -76.20),
@@ -51,11 +51,11 @@ hospital_medians =
     cond_effect = rnorm(n(), sd = 0.20),
     median_charges = base_charges * exp(hosp_effect + cond_effect),
     se = 0.9 / sqrt(pmax(n_stays, 1)),
-    charges_lo = median_charges * exp(-1.96 * se),
-    charges_hi = median_charges * exp(1.96 * se),
+    charges_low = median_charges * exp(-1.96 * se),
+    charges_high = median_charges * exp(1.96 * se),
     median_costs = median_charges / markup,
-    costs_lo = charges_lo / markup,
-    costs_hi = charges_hi / markup
+    costs_low = charges_low / markup,
+    costs_high = charges_high / markup
   ) |>
   filter(n_stays > 0)
 
@@ -85,21 +85,21 @@ patient_profiles =
 estimator_grid =
   hospital_medians |>
   filter(n_stays >= 30) |>
-  select(hosp_id, facility_name, hospital_service_area, ownership, condition, base_charges, hosp_effect) |>
+  select(hosp_id, facility_name, region, ownership, condition, base_charges, hosp_effect) |>
   crossing(patient_profiles) |>
   mutate(
     predicted_charges =
       base_charges * severity_bump * age_bump * (0.35 + 0.13 * los) *
       exp(1.25 * hosp_effect + rnorm(n(), sd = 0.12))
   ) |>
-  select(hosp_id, facility_name, hospital_service_area, ownership, condition, profile, severity, age_group, los, predicted_charges)
+  select(hosp_id, facility_name, region, ownership, condition, profile, severity, age_group, los, predicted_charges)
 
 hospital_medians |>
   mutate(markup = median_charges / median_costs) |>
   select(
-    hosp_id, facility_name, hospital_service_area, ownership, latitude, longitude,
-    condition, n_stays, median_charges, charges_lo, charges_hi,
-    median_costs, costs_lo, costs_hi, markup
+    hosp_id, facility_name, region, ownership, latitude, longitude,
+    condition, n_stays, median_charges, charges_low, charges_high,
+    median_costs, costs_low, costs_high, markup
   ) |>
   mutate(across(where(is.double), \(x) round(x, 3))) |>
   write_csv("data/demo_hospital_medians.csv")

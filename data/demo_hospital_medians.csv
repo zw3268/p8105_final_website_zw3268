@@ -1,4 +1,4 @@
-hosp_id,facility_name,hospital_service_area,ownership,latitude,longitude,condition,n_stays,median_charges,charges_lo,charges_hi,median_costs,costs_lo,costs_hi,markup
+hosp_id,facility_name,region,ownership,latitude,longitude,condition,n_stays,median_charges,charges_low,charges_high,median_costs,costs_low,costs_high,markup
 1101,Demo Hospital 101,Capital/Adirond,Public,42.99,-73.982,Heart failure,524,21795.343,20178.862,23541.316,5116.389,4736.926,5526.251,4.26
 1101,Demo Hospital 101,Capital/Adirond,Public,42.99,-73.982,Kidney/UTI,256,14262.67,12773.793,15925.087,3348.118,2998.609,3738.365,4.26
 1101,Demo Hospital 101,Capital/Adirond,Public,42.99,-73.982,Respiratory infection,271,19782.766,17772.561,22020.339,4643.943,4172.054,5169.207,4.26

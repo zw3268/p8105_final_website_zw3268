@@ -34,13 +34,13 @@ This knits every page and then renders the dashboard separately. Packages used: 
 
 ## Data files the site reads
 
-Simulated versions (`data/demo_*.csv`) are used until the analysis outputs are ready. Column names to keep when the real files are produced:
+The analysis code lives in `analysis/` in the main repository and only writes CSV files; the pages here only read those files. Simulated versions (`data/demo_*.csv`) are used until the real ones are ready. Column names follow the team's analysis files (`_low` / `_high` for intervals, `region` for the hospital service area); `latitude` and `longitude` come from `sparcs_clean.csv` and are needed for the map only:
 
 | File | One row per | Columns |
 |---|---|---|
-| `hospital_medians.csv` | hospital and condition | `hosp_id`, `facility_name`, `hospital_service_area`, `ownership`, `latitude`, `longitude`, `condition`, `n_stays`, `median_charges`, `charges_lo`, `charges_hi`, `median_costs`, `costs_lo`, `costs_hi` (cost interval optional), `markup` |
+| `hospital_medians.csv` | hospital and condition | `hosp_id`, `facility_name`, `region`, `ownership`, `latitude`, `longitude`, `condition`, `n_stays`, `median_charges`, `charges_low`, `charges_high`, `median_costs`, `costs_low`, `costs_high` (cost interval optional), `markup` |
 | `hospital_adjusted.csv` | hospital and condition | `hosp_id`, `condition`, `unadjusted_ratio`, `adjusted_ratio` |
-| `estimator_grid.csv` | hospital, condition and patient profile | `hosp_id`, `facility_name`, `hospital_service_area`, `ownership`, `condition`, `profile`, `severity`, `age_group`, `los`, `predicted_charges` |
+| `estimator_grid.csv` | hospital, condition and patient profile | `hosp_id`, `facility_name`, `region`, `ownership`, `condition`, `profile`, `severity`, `age_group`, `los`, `predicted_charges` |
 
 Conditions appear everywhere in this order: Heart failure, Respiratory infection, Stroke, Sepsis, Kidney/UTI (set once in `R/site_helpers.R`).
 
