@@ -1,0 +1,11 @@
+---
+title: "Same Diagnosis, Different Bills?"
+---
+
+Website template for the P8105 final project. Under construction.
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+This page was last built on `r format(Sys.Date(), "%B %d, %Y")`.
