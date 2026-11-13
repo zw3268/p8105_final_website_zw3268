@@ -237,6 +237,47 @@ body.home .section.level1, body.home .section.level2 { margin: 0; }
 .two-col h2 { margin-top: 0; }
 body.home .site-footer { margin-top: 0; padding-left: max(24px, calc(50vw - 540px)); padding-right: max(24px, calc(50vw - 540px)); }
 
+/* -- full-screen background photographs (home page only) -- */
+/* The photo is fixed behind the page; each screen lays a translucent veil over it.
+   Change --veil-* to make the pictures more or less visible. */
+body.home {
+  --veil-light: rgba(250, 247, 240, 0.84);
+  --veil-tint: rgba(241, 237, 226, 0.82);
+  --veil-chart: rgba(250, 247, 240, 0.88);
+  --veil-dark: rgba(11, 31, 77, 0.74);
+  background: var(--blue-deep);
+}
+.bg-stage { position: fixed; inset: 0; z-index: -1; background: var(--blue-deep); }
+.bg-layer {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 0.9s ease;
+  filter: saturate(0.7);
+}
+.bg-layer.is-active { opacity: 1; }
+body.home .main-container { position: relative; z-index: 1; }
+
+body.home .screen { background: var(--veil-light); border-top: 0; }
+body.home .screen.is-tinted { background: var(--veil-tint); }
+body.home .screen.scrolly-intro, body.home .scrolly { background: var(--veil-chart); }
+body.home .screen.is-dark { background: var(--veil-dark); }
+body.home .site-footer { background: var(--paper); border-top: 0; }
+
+body.home .hero { background: linear-gradient(100deg, rgba(11, 31, 77, 0.86) 0%, rgba(11, 31, 77, 0.66) 55%, rgba(11, 31, 77, 0.42) 100%); }
+body.home .hero h1 { color: #FFFFFF; }
+body.home .hero h1 em { color: #A9BEFF; }
+body.home .hero .eyebrow { color: var(--ochre); }
+body.home .hero .lede { color: #DCE3F6; }
+body.home .hero .hero-meta, body.home .hero .scroll-hint { color: #B8C4E6; }
+body.home .hero .scroll-hint::after { background: #B8C4E6; }
+body.home .bill { box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.55); }
+
+/* text on light veils sits on a photo, so give it a little more weight */
+body.home .screen:not(.is-dark):not(.hero) .lede { color: #3C4660; }
+body.home .placeholder-box { background-color: rgba(255, 255, 255, 0.72); }
+body.home .table { background: rgba(255, 255, 255, 0.55); }
+body.home .table > thead > tr > th, body.home .table > tbody > tr > td { padding-left: 12px; padding-right: 12px; }
+
 /* ---------- 7. Scroll-driven charts ---------- */
 /* The chart is pinned; the text steps scroll past it. js/site.js does the switching. */
 .scrolly-intro { min-height: 0; padding-bottom: 0; border-top: 1px solid var(--rule); }
@@ -319,7 +360,7 @@ body.reading .table { font-size: 14px; }
 
 /* ---------- 10. Visitors who ask for less motion get none ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .reveal, .scrolly-chart .mark, .scrolly-chart .layer, .step, .btn-bill { transition: none; }
+  .reveal, .scrolly-chart .mark, .scrolly-chart .layer, .step, .btn-bill, .bg-layer { transition: none; }
   .reveal { opacity: 1; transform: none; }
   .hero { min-height: 0; }
   .hero-pin { position: static; height: auto; padding: 72px 0; }

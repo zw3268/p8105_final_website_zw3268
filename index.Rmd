@@ -4,6 +4,20 @@ pagetitle: "Same Diagnosis, Different Bills?"
 
 <script>document.body.classList.add("home");</script>
 
+<!-- Full-screen background photographs. One per screen; js/site.js fades between them.
+     To change a picture, replace the file in images/bg/ (keep the name) and update images/CREDITS.md. -->
+<div class="bg-stage" aria-hidden="true">
+<div class="bg-layer is-active" data-bg="hero" style="background-image: url('images/bg/01-hero.jpg');"></div>
+<div class="bg-layer" data-bg="highlights" data-src="images/bg/02-highlights.jpg"></div>
+<div class="bg-layer" data-bg="data" data-src="images/bg/03-data.jpg"></div>
+<div class="bg-layer" data-bg="q1" data-src="images/bg/04-q1.jpg"></div>
+<div class="bg-layer" data-bg="q2" data-src="images/bg/05-q2.jpg"></div>
+<div class="bg-layer" data-bg="q3" data-src="images/bg/06-q3.jpg"></div>
+<div class="bg-layer" data-bg="map" data-src="images/bg/07-map.jpg"></div>
+<div class="bg-layer" data-bg="dashboard" data-src="images/bg/08-dashboard.jpg"></div>
+<div class="bg-layer" data-bg="closing" data-src="images/bg/09-closing.jpg"></div>
+</div>
+
 ```{r setup, include = FALSE}
 library(tidyverse)
 
@@ -24,7 +38,7 @@ set.seed(8105)
 
 <!-- =====================  1. Opening  ===================== -->
 
-<div class="screen hero">
+<div class="screen hero" data-bg="hero">
 <div class="hero-pin">
 <div>
 <span class="eyebrow">New York State · Hospital discharges · 2023</span>
@@ -84,7 +98,7 @@ headline_consistent =
   nrow()
 ```
 
-::::: {.screen .is-tinted}
+::::: {.screen .is-tinted data-bg="highlights"}
 
 [The short version]{.eyebrow}
 
@@ -135,7 +149,7 @@ Look up any hospital in the [dashboard](dashboard.html), or read the [full repor
 
 <!-- =====================  3. The data  ===================== -->
 
-::::: {.screen}
+::::: {.screen data-bg="data"}
 
 [The data]{.eyebrow}
 
@@ -176,7 +190,7 @@ tribble(
 
 <!-- =====================  4. Question 1  ===================== -->
 
-::::: {.screen .scrolly-intro}
+::::: {.screen .scrolly-intro data-bg="q1"}
 
 [Question 1]{.eyebrow}
 
@@ -276,7 +290,7 @@ q1_states =
   )
 ```
 
-::::: {.scrolly}
+::::: {.scrolly data-bg="q1"}
 
 :::: {.scrolly-graphic}
 <svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospital median charges for heart failure, simulated data"></svg>
@@ -326,7 +340,7 @@ The same hospitals, in the same order, placed by the state's estimate of what th
 
 <!-- =====================  5. Question 2  ===================== -->
 
-::::: {.screen .scrolly-intro}
+::::: {.screen .scrolly-intro data-bg="q2"}
 
 [Question 2]{.eyebrow}
 
@@ -411,7 +425,7 @@ q2_states =
   )
 ```
 
-::::: {.scrolly}
+::::: {.scrolly data-bg="q2"}
 
 :::: {.scrolly-graphic}
 <svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospital differences before and after adjustment, simulated data"></svg>
@@ -453,7 +467,7 @@ Re-ranked on the adjusted comparison. What is left is the difference patients do
 
 <!-- =====================  6. Question 3  ===================== -->
 
-::::: {.screen .scrolly-intro}
+::::: {.screen .scrolly-intro data-bg="q3"}
 
 [Question 3]{.eyebrow}
 
@@ -560,7 +574,7 @@ q3_states =
   )
 ```
 
-::::: {.scrolly}
+::::: {.scrolly data-bg="q3"}
 
 :::: {.scrolly-graphic}
 <svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospitals by condition heatmap, simulated data"></svg>
@@ -602,7 +616,7 @@ Put the most expensive hospitals at the top. Rows that keep one colour all the w
 
 <!-- =====================  7. Map  ===================== -->
 
-::::: {.screen .is-tinted}
+::::: {.screen .is-tinted data-bg="map"}
 
 :::: {.two-col}
 
@@ -642,7 +656,7 @@ hospital_medians |>
 
 <!-- =====================  8. Dashboard  ===================== -->
 
-::::: {.screen .is-dark .is-short}
+::::: {.screen .is-dark .is-short data-bg="dashboard"}
 
 [Explore]{.eyebrow}
 
@@ -656,7 +670,7 @@ hospital_medians |>
 
 <!-- =====================  9. Screencast and team  ===================== -->
 
-::::: {.screen}
+::::: {.screen data-bg="closing"}
 
 :::: {.two-col .is-top}
 

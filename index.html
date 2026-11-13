@@ -352,8 +352,43 @@ $(document).ready(function () {
 
 
 <script>document.body.classList.add("home");</script>
+<!-- Full-screen background photographs. One per screen; js/site.js fades between them.
+     To change a picture, replace the file in images/bg/ (keep the name) and update images/CREDITS.md. -->
+<div class="bg-stage" aria-hidden="true">
+<div class="bg-layer is-active" data-bg="hero"
+style="background-image: url(&#39;images/bg/01-hero.jpg&#39;);">
+
+</div>
+<div class="bg-layer" data-bg="highlights"
+data-src="images/bg/02-highlights.jpg">
+
+</div>
+<div class="bg-layer" data-bg="data" data-src="images/bg/03-data.jpg">
+
+</div>
+<div class="bg-layer" data-bg="q1" data-src="images/bg/04-q1.jpg">
+
+</div>
+<div class="bg-layer" data-bg="q2" data-src="images/bg/05-q2.jpg">
+
+</div>
+<div class="bg-layer" data-bg="q3" data-src="images/bg/06-q3.jpg">
+
+</div>
+<div class="bg-layer" data-bg="map" data-src="images/bg/07-map.jpg">
+
+</div>
+<div class="bg-layer" data-bg="dashboard"
+data-src="images/bg/08-dashboard.jpg">
+
+</div>
+<div class="bg-layer" data-bg="closing"
+data-src="images/bg/09-closing.jpg">
+
+</div>
+</div>
 <!-- =====================  1. Opening  ===================== -->
-<div class="screen hero">
+<div class="screen hero" data-bg="hero">
 <div class="hero-pin">
 <div>
 <span class="eyebrow">New York State · Hospital discharges · 2023</span>
@@ -406,7 +441,7 @@ One inpatient stay · APR-DRG 194 · typical charge by hospital
 </div>
 </div>
 <!-- =====================  2. Highlights  ===================== -->
-<div class="screen is-tinted">
+<div class="screen is-tinted" data-bg="highlights">
 <p><span class="eyebrow">The short version</span></p>
 <div id="get-the-highlights." class="section level2">
 <h2>Get the highlights.</h2>
@@ -445,7 +480,7 @@ or read the <a href="report.html">full report</a>.</p>
 </div>
 </div>
 <!-- =====================  3. The data  ===================== -->
-<div class="screen">
+<div class="screen" data-bg="data">
 <p><span class="eyebrow">The data</span></p>
 <div id="every-inpatient-stay-in-new-york-2023." class="section level2">
 <h2>Every inpatient stay in New York, 2023.</h2>
@@ -517,7 +552,7 @@ about the data</a>.</span></p>
 </div>
 </div>
 <!-- =====================  4. Question 1  ===================== -->
-<div class="screen scrolly-intro">
+<div class="screen scrolly-intro" data-bg="q1">
 <p><span class="eyebrow">Question 1</span></p>
 <div id="how-far-apart-are-hospitals" class="section level2">
 <h2>How far apart are hospitals?</h2>
@@ -525,7 +560,7 @@ about the data</a>.</span></p>
 typical bill at each hospital.</span></p>
 </div>
 </div>
-<div class="scrolly">
+<div class="scrolly" data-bg="q1">
 <div class="scrolly-graphic">
 <svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospital median charges for heart failure, simulated data">
 </svg>
@@ -573,7 +608,7 @@ of what the stay cost them. <a href="q1_gaps.html">See the full Question
 </div>
 </div>
 <!-- =====================  5. Question 2  ===================== -->
-<div class="screen scrolly-intro">
+<div class="screen scrolly-intro" data-bg="q2">
 <p><span class="eyebrow">Question 2</span></p>
 <div id="what-changes-once-we-account-for-patients"
 class="section level2">
@@ -583,7 +618,7 @@ them again after adjusting for severity of illness, age group and length
 of stay.</span></p>
 </div>
 </div>
-<div class="scrolly">
+<div class="scrolly" data-bg="q2">
 <div class="scrolly-graphic">
 <svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospital differences before and after adjustment, simulated data">
 </svg>
@@ -624,7 +659,7 @@ Question 2 analysis →</a></p>
 </div>
 </div>
 <!-- =====================  6. Question 3  ===================== -->
-<div class="screen scrolly-intro">
+<div class="screen scrolly-intro" data-bg="q3">
 <p><span class="eyebrow">Question 3</span></p>
 <div id="is-an-expensive-hospital-expensive-for-everything"
 class="section level2">
@@ -634,7 +669,7 @@ Ochre is above the state median, blue is below, grey means too few cases
 to say.</span></p>
 </div>
 </div>
-<div class="scrolly">
+<div class="scrolly" data-bg="q3">
 <div class="scrolly-graphic">
 <svg class="scrolly-chart" viewBox="0 0 760 520" role="img" aria-label="Hospitals by condition heatmap, simulated data">
 </svg>
@@ -673,7 +708,7 @@ href="q3_consistency.html">See the full Question 3 analysis →</a></p>
 </div>
 </div>
 <!-- =====================  7. Map  ===================== -->
-<div class="screen is-tinted">
+<div class="screen is-tinted" data-bg="map">
 <div class="two-col">
 <div>
 <p><span class="eyebrow">Where they are</span></p>
@@ -691,7 +726,7 @@ is in the dashboard.</span></p>
 </div>
 </div>
 <!-- =====================  8. Dashboard  ===================== -->
-<div class="screen is-dark is-short">
+<div class="screen is-dark is-short" data-bg="dashboard">
 <p><span class="eyebrow">Explore</span></p>
 <div id="look-up-any-hospital." class="section level2">
 <h2>Look up any hospital.</h2>
@@ -704,7 +739,7 @@ of the five conditions.</span></p>
 </div>
 </div>
 <!-- =====================  9. Screencast and team  ===================== -->
-<div class="screen">
+<div class="screen" data-bg="closing">
 <div class="two-col is-top">
 <div>
 <p><span class="eyebrow">Two-minute tour</span></p>

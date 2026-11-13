@@ -89,6 +89,34 @@
     updateHero();
   }
 
+  /* ---- 3b. background photographs: the screen in the middle of the window decides ---- */
+  var bgLayers = {};
+  each(".bg-layer", function (layer) { bgLayers[layer.getAttribute("data-bg")] = layer; });
+
+  function loadLayer(layer) {
+    var src = layer.getAttribute("data-src");
+    if (src) { layer.style.backgroundImage = "url('" + src + "')"; layer.removeAttribute("data-src"); }
+  }
+
+  if (Object.keys(bgLayers).length) {
+    var bgObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var active = bgLayers[entry.target.getAttribute("data-bg")];
+        if (!active) return;
+        loadLayer(active);
+        Object.keys(bgLayers).forEach(function (key) {
+          bgLayers[key].classList.toggle("is-active", bgLayers[key] === active);
+        });
+      });
+    }, { rootMargin: "-50% 0px -50% 0px", threshold: 0 });
+    each("[data-bg]:not(.bg-layer)", function (el) { bgObserver.observe(el); });
+    // fetch the remaining pictures once the page itself has loaded
+    window.addEventListener("load", function () {
+      Object.keys(bgLayers).forEach(function (key) { loadLayer(bgLayers[key]); });
+    });
+  }
+
   /* ---- 4. scroll-driven charts ---- */
   var NS = "http://www.w3.org/2000/svg";
 
